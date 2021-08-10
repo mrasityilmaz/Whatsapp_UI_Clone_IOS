@@ -1,0 +1,926 @@
+define(['dart_sdk', 'packages/flutter/src/foundation/change_notifier.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/cupertino/bottom_tab_bar.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/painting/box_decoration.dart', 'packages/flutter/src/cupertino/text_theme.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/services/system_channels.dart', 'packages/flutter/src/rendering/stack.dart'], (function load__packages__flutter__src__cupertino__tab_scaffold_dart(dart_sdk, packages__flutter__src__foundation__change_notifier$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__cupertino__bottom_tab_bar$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__painting__box_decoration$46dart, packages__flutter__src__cupertino__text_theme$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__services__system_channels$46dart, packages__flutter__src__rendering__stack$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const change_notifier = packages__flutter__src__foundation__change_notifier$46dart.src__foundation__change_notifier;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const restoration = packages__flutter__src__widgets__widget_span$46dart.src__widgets__restoration;
+  const focus_manager = packages__flutter__src__widgets__widget_span$46dart.src__widgets__focus_manager;
+  const focus_scope = packages__flutter__src__widgets__widget_span$46dart.src__widgets__focus_scope;
+  const heroes = packages__flutter__src__widgets__widget_span$46dart.src__widgets__heroes;
+  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
+  const restoration_properties = packages__flutter__src__widgets__widget_span$46dart.src__widgets__restoration_properties;
+  const bottom_tab_bar = packages__flutter__src__cupertino__bottom_tab_bar$46dart.src__cupertino__bottom_tab_bar;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
+  const colors = packages__flutter__src__cupertino__text_theme$46dart.src__cupertino__colors;
+  const theme = packages__flutter__src__cupertino__text_theme$46dart.src__cupertino__theme;
+  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+  const restoration$ = packages__flutter__src__services__system_channels$46dart.src__services__restoration;
+  const stack = packages__flutter__src__rendering__stack$46dart.src__rendering__stack;
+  var tab_scaffold = Object.create(dart.library);
+  var $length = dartx.length;
+  var $runtimeType = dartx.runtimeType;
+  var $addAll = dartx.addAll;
+  var $removeRange = dartx.removeRange;
+  var $sublist = dartx.sublist;
+  var $_get = dartx._get;
+  var $_set = dartx._set;
+  dart._checkModuleNullSafetyMode(true);
+  var T = {
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    intTovoid: () => (T.intTovoid = dart.constFn(dart.fnType(dart.void, [core.int])))(),
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
+    JSArrayOfbool: () => (T.JSArrayOfbool = dart.constFn(_interceptors.JSArray$(core.bool)))(),
+    JSArrayOfFocusScopeNode: () => (T.JSArrayOfFocusScopeNode = dart.constFn(_interceptors.JSArray$(focus_manager.FocusScopeNode)))(),
+    ListOfbool: () => (T.ListOfbool = dart.constFn(core.List$(core.bool)))(),
+    ListOfFocusScopeNode: () => (T.ListOfFocusScopeNode = dart.constFn(core.List$(focus_manager.FocusScopeNode)))(),
+    intToFocusScopeNode: () => (T.intToFocusScopeNode = dart.constFn(dart.fnType(focus_manager.FocusScopeNode, [core.int])))(),
+    ListOfWidget: () => (T.ListOfWidget = dart.constFn(core.List$(framework.Widget)))(),
+    BuildContextToWidget: () => (T.BuildContextToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext])))(),
+    intToHeroMode: () => (T.intToHeroMode = dart.constFn(dart.fnType(heroes.HeroMode, [core.int])))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "currentTabIndex",
+        [_Location_column]: 7,
+        [_Location_line]: 396,
+        [_Location_file]: null
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "tabCount",
+        [_Location_column]: 7,
+        [_Location_line]: 397,
+        [_Location_file]: null
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "tabBuilder",
+        [_Location_column]: 7,
+        [_Location_line]: 398,
+        [_Location_file]: null
+      });
+    },
+    get C1() {
+      return C[1] = dart.constList([C[2] || CT.C2, C[3] || CT.C3, C[4] || CT.C4], widget_inspector._Location);
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 395,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/tab_scaffold.dart"
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 9,
+        [_Location_line]: 437,
+        [_Location_file]: null
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 438,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C[6] = dart.constList([C[7] || CT.C7, C[8] || CT.C8], widget_inspector._Location);
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[6] || CT.C6,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 436,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/tab_scaffold.dart"
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 7,
+        [_Location_line]: 435,
+        [_Location_file]: null
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 436,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C[10] = dart.constList([C[11] || CT.C11, C[12] || CT.C12], widget_inspector._Location);
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[10] || CT.C10,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 434,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/tab_scaffold.dart"
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 15,
+        [_Location_line]: 454,
+        [_Location_file]: null
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 458,
+        [_Location_file]: null
+      });
+    },
+    get C14() {
+      return C[14] = dart.constList([C[15] || CT.C15, C[16] || CT.C16], widget_inspector._Location);
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[14] || CT.C14,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 453,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/tab_scaffold.dart"
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 13,
+        [_Location_line]: 452,
+        [_Location_file]: null
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 453,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C[18] = dart.constList([C[19] || CT.C19, C[20] || CT.C20], widget_inspector._Location);
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[18] || CT.C18,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 451,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/tab_scaffold.dart"
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 9,
+        [_Location_line]: 448,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C[22] = dart.constList([C[23] || CT.C23], widget_inspector._Location);
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[22] || CT.C22,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 447,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/tab_scaffold.dart"
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 7,
+        [_Location_line]: 443,
+        [_Location_file]: null
+      });
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 447,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.constList([C[26] || CT.C26, C[27] || CT.C27], widget_inspector._Location);
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[25] || CT.C25,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 442,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/tab_scaffold.dart"
+      });
+    },
+    get C29() {
+      return C[29] = dart.constList([], widget_inspector._Location);
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[29] || CT.C29,
+        [_Location_name]: null,
+        [_Location_column]: 86,
+        [_Location_line]: 589,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/tab_scaffold.dart"
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 32,
+        [_Location_line]: 588,
+        [_Location_file]: null
+      });
+    },
+    get C31() {
+      return C[31] = dart.constList([C[32] || CT.C32], widget_inspector._Location);
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[31] || CT.C31,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 588,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/tab_scaffold.dart"
+      });
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "node",
+        [_Location_column]: 17,
+        [_Location_line]: 587,
+        [_Location_file]: null
+      });
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 588,
+        [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C[34] = dart.constList([C[35] || CT.C35, C[36] || CT.C36], widget_inspector._Location);
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[34] || CT.C34,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 586,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/tab_scaffold.dart"
+      });
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "enabled",
+        [_Location_column]: 15,
+        [_Location_line]: 585,
+        [_Location_file]: null
+      });
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 586,
+        [_Location_file]: null
+      });
+    },
+    get C38() {
+      return C[38] = dart.constList([C[39] || CT.C39, C[40] || CT.C40], widget_inspector._Location);
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[38] || CT.C38,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 584,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/tab_scaffold.dart"
+      });
+    },
+    get C43() {
+      return C[43] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "offstage",
+        [_Location_column]: 13,
+        [_Location_line]: 583,
+        [_Location_file]: null
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 584,
+        [_Location_file]: null
+      });
+    },
+    get C42() {
+      return C[42] = dart.constList([C[43] || CT.C43, C[44] || CT.C44], widget_inspector._Location);
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[42] || CT.C42,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 582,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/tab_scaffold.dart"
+      });
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "enabled",
+        [_Location_column]: 11,
+        [_Location_line]: 581,
+        [_Location_file]: null
+      });
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 582,
+        [_Location_file]: null
+      });
+    },
+    get C46() {
+      return C[46] = dart.constList([C[47] || CT.C47, C[48] || CT.C48], widget_inspector._Location);
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[46] || CT.C46,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 580,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/tab_scaffold.dart"
+      });
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "fit",
+        [_Location_column]: 7,
+        [_Location_line]: 575,
+        [_Location_file]: null
+      });
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 7,
+        [_Location_line]: 576,
+        [_Location_file]: null
+      });
+    },
+    get C50() {
+      return C[50] = dart.constList([C[51] || CT.C51, C[52] || CT.C52], widget_inspector._Location);
+    },
+    get C49() {
+      return C[49] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[50] || CT.C50,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 574,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/tab_scaffold.dart"
+      });
+    }
+  }, false);
+  var C = Array(53).fill(void 0);
+  var I = [
+    "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/tab_scaffold.dart",
+    "package:flutter/src/cupertino/tab_scaffold.dart"
+  ];
+  var _isDisposed = dart.privateName(tab_scaffold, "_isDisposed");
+  var _index = dart.privateName(tab_scaffold, "_index");
+  tab_scaffold.CupertinoTabController = class CupertinoTabController extends change_notifier.ChangeNotifier {
+    get index() {
+      return this[_index];
+    }
+    set index(value) {
+      if (!(value !== null)) dart.assertFailed(null, I[0], 91, 12, "value != null");
+      if (!(value >= 0)) dart.assertFailed(null, I[0], 92, 12, "value >= 0");
+      if (this[_index] === value) {
+        return;
+      }
+      this[_index] = value;
+      this.notifyListeners();
+    }
+    dispose() {
+      super.dispose();
+      this[_isDisposed] = true;
+    }
+  };
+  (tab_scaffold.CupertinoTabController.new = function(opts) {
+    let initialIndex = opts && 'initialIndex' in opts ? opts.initialIndex : 0;
+    this[_isDisposed] = false;
+    this[_index] = initialIndex;
+    if (!(initialIndex !== null)) dart.assertFailed(null, I[0], 75, 14, "initialIndex != null");
+    if (!(initialIndex >= 0)) dart.assertFailed(null, I[0], 76, 14, "initialIndex >= 0");
+    tab_scaffold.CupertinoTabController.__proto__.new.call(this);
+    ;
+  }).prototype = tab_scaffold.CupertinoTabController.prototype;
+  dart.addTypeTests(tab_scaffold.CupertinoTabController);
+  dart.addTypeCaches(tab_scaffold.CupertinoTabController);
+  dart.setGetterSignature(tab_scaffold.CupertinoTabController, () => ({
+    __proto__: dart.getGetters(tab_scaffold.CupertinoTabController.__proto__),
+    index: core.int
+  }));
+  dart.setSetterSignature(tab_scaffold.CupertinoTabController, () => ({
+    __proto__: dart.getSetters(tab_scaffold.CupertinoTabController.__proto__),
+    index: core.int
+  }));
+  dart.setLibraryUri(tab_scaffold.CupertinoTabController, I[1]);
+  dart.setFieldSignature(tab_scaffold.CupertinoTabController, () => ({
+    __proto__: dart.getFields(tab_scaffold.CupertinoTabController.__proto__),
+    [_isDisposed]: dart.fieldType(core.bool),
+    [_index]: dart.fieldType(core.int)
+  }));
+  var tabBar$ = dart.privateName(tab_scaffold, "CupertinoTabScaffold.tabBar");
+  var controller$ = dart.privateName(tab_scaffold, "CupertinoTabScaffold.controller");
+  var tabBuilder$ = dart.privateName(tab_scaffold, "CupertinoTabScaffold.tabBuilder");
+  var backgroundColor$ = dart.privateName(tab_scaffold, "CupertinoTabScaffold.backgroundColor");
+  var resizeToAvoidBottomInset$ = dart.privateName(tab_scaffold, "CupertinoTabScaffold.resizeToAvoidBottomInset");
+  var restorationId$ = dart.privateName(tab_scaffold, "CupertinoTabScaffold.restorationId");
+  tab_scaffold.CupertinoTabScaffold = class CupertinoTabScaffold extends framework.StatefulWidget {
+    get tabBar() {
+      return this[tabBar$];
+    }
+    set tabBar(value) {
+      super.tabBar = value;
+    }
+    get controller() {
+      return this[controller$];
+    }
+    set controller(value) {
+      super.controller = value;
+    }
+    get tabBuilder() {
+      return this[tabBuilder$];
+    }
+    set tabBuilder(value) {
+      super.tabBuilder = value;
+    }
+    get backgroundColor() {
+      return this[backgroundColor$];
+    }
+    set backgroundColor(value) {
+      super.backgroundColor = value;
+    }
+    get resizeToAvoidBottomInset() {
+      return this[resizeToAvoidBottomInset$];
+    }
+    set resizeToAvoidBottomInset(value) {
+      super.resizeToAvoidBottomInset = value;
+    }
+    get restorationId() {
+      return this[restorationId$];
+    }
+    set restorationId(value) {
+      super.restorationId = value;
+    }
+    createState() {
+      return new tab_scaffold._CupertinoTabScaffoldState.new();
+    }
+  };
+  (tab_scaffold.CupertinoTabScaffold.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let tabBar = opts && 'tabBar' in opts ? opts.tabBar : null;
+    let tabBuilder = opts && 'tabBuilder' in opts ? opts.tabBuilder : null;
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let backgroundColor = opts && 'backgroundColor' in opts ? opts.backgroundColor : null;
+    let resizeToAvoidBottomInset = opts && 'resizeToAvoidBottomInset' in opts ? opts.resizeToAvoidBottomInset : true;
+    let restorationId = opts && 'restorationId' in opts ? opts.restorationId : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[tabBar$] = tabBar;
+    this[tabBuilder$] = tabBuilder;
+    this[controller$] = controller;
+    this[backgroundColor$] = backgroundColor;
+    this[resizeToAvoidBottomInset$] = resizeToAvoidBottomInset;
+    this[restorationId$] = restorationId;
+    if (!(tabBar !== null)) dart.assertFailed(null, I[0], 218, 15, "tabBar != null");
+    if (!(tabBuilder !== null)) dart.assertFailed(null, I[0], 219, 15, "tabBuilder != null");
+    if (!(controller == null || controller.index < tabBar.items[$length])) dart.assertFailed("The CupertinoTabController's current index " + dart.str(controller.index) + " is " + "out of bounds for the tab bar with " + dart.str(tabBar.items[$length]) + " tabs", I[0], 221, 10, "controller == null || controller.index < tabBar.items.length");
+    tab_scaffold.CupertinoTabScaffold.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = tab_scaffold.CupertinoTabScaffold.prototype;
+  dart.addTypeTests(tab_scaffold.CupertinoTabScaffold);
+  dart.addTypeCaches(tab_scaffold.CupertinoTabScaffold);
+  dart.setMethodSignature(tab_scaffold.CupertinoTabScaffold, () => ({
+    __proto__: dart.getMethods(tab_scaffold.CupertinoTabScaffold.__proto__),
+    createState: dart.fnType(tab_scaffold._CupertinoTabScaffoldState, [])
+  }));
+  dart.setLibraryUri(tab_scaffold.CupertinoTabScaffold, I[1]);
+  dart.setFieldSignature(tab_scaffold.CupertinoTabScaffold, () => ({
+    __proto__: dart.getFields(tab_scaffold.CupertinoTabScaffold.__proto__),
+    tabBar: dart.finalFieldType(bottom_tab_bar.CupertinoTabBar),
+    controller: dart.finalFieldType(dart.nullable(tab_scaffold.CupertinoTabController)),
+    tabBuilder: dart.finalFieldType(dart.fnType(framework.Widget, [framework.BuildContext, core.int])),
+    backgroundColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    resizeToAvoidBottomInset: dart.finalFieldType(core.bool),
+    restorationId: dart.finalFieldType(dart.nullable(core.String))
+  }));
+  var _internalController = dart.privateName(tab_scaffold, "_internalController");
+  var _controller = dart.privateName(tab_scaffold, "_controller");
+  var _restoreInternalController = dart.privateName(tab_scaffold, "_restoreInternalController");
+  var _onCurrentIndexChange = dart.privateName(tab_scaffold, "_onCurrentIndexChange");
+  var _updateTabController = dart.privateName(tab_scaffold, "_updateTabController");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  const State_RestorationMixin$36 = class State_RestorationMixin extends framework.State$(tab_scaffold.CupertinoTabScaffold) {};
+  (State_RestorationMixin$36.new = function() {
+    restoration.RestorationMixin$(tab_scaffold.CupertinoTabScaffold)[dart.mixinNew].call(this);
+    State_RestorationMixin$36.__proto__.new.call(this);
+  }).prototype = State_RestorationMixin$36.prototype;
+  dart.applyMixin(State_RestorationMixin$36, restoration.RestorationMixin$(tab_scaffold.CupertinoTabScaffold));
+  tab_scaffold._CupertinoTabScaffoldState = class _CupertinoTabScaffoldState extends State_RestorationMixin$36 {
+    get [_controller]() {
+      let t0;
+      t0 = this.widget.controller;
+      return t0 == null ? dart.nullCheck(this[_internalController]).value : t0;
+    }
+    get restorationId() {
+      return this.widget.restorationId;
+    }
+    restoreState(oldBucket, initialRestore) {
+      this[_restoreInternalController]();
+    }
+    [_restoreInternalController]() {
+      if (this[_internalController] != null) {
+        this.registerForRestoration(dart.nullCheck(this[_internalController]), "controller");
+        dart.nullCheck(this[_internalController]).value.addListener(dart.bind(this, _onCurrentIndexChange));
+      }
+    }
+    initState() {
+      super.initState();
+      this[_updateTabController]();
+    }
+    [_updateTabController](oldWidgetController = null) {
+      let t0, t0$;
+      if (this.widget.controller == null && this[_internalController] == null) {
+        this[_internalController] = new tab_scaffold.RestorableCupertinoTabController.new({initialIndex: this.widget.tabBar.currentIndex});
+        if (!this.restorePending) {
+          this[_restoreInternalController]();
+        }
+      }
+      if (this.widget.controller != null && this[_internalController] != null) {
+        this.unregisterFromRestoration(dart.nullCheck(this[_internalController]));
+        dart.nullCheck(this[_internalController]).dispose();
+        this[_internalController] = null;
+      }
+      if (!dart.equals(oldWidgetController, this.widget.controller)) {
+        if ((t0 = oldWidgetController, t0 == null ? null : t0[_isDisposed]) === false) {
+          dart.nullCheck(oldWidgetController).removeListener(dart.bind(this, _onCurrentIndexChange));
+        }
+        t0$ = this.widget.controller;
+        t0$ == null ? null : t0$.addListener(dart.bind(this, _onCurrentIndexChange));
+      }
+    }
+    [_onCurrentIndexChange]() {
+      if (!(this[_controller].index >= 0 && this[_controller].index < this.widget.tabBar.items[$length])) dart.assertFailed("The " + dart.str(this[$runtimeType]) + "'s current index " + dart.str(this[_controller].index) + " is " + "out of bounds for the tab bar with " + dart.str(this.widget.tabBar.items[$length]) + " tabs", I[0], 368, 7, "_controller.index >= 0 && _controller.index < widget.tabBar.items.length");
+      this.setState(dart.fn(() => {
+      }, T.VoidTovoid()));
+    }
+    didUpdateWidget(oldWidget) {
+      tab_scaffold.CupertinoTabScaffold.as(oldWidget);
+      super.didUpdateWidget(oldWidget);
+      if (!dart.equals(this.widget.controller, oldWidget.controller)) {
+        this[_updateTabController](oldWidget.controller);
+      } else if (this[_controller].index >= this.widget.tabBar.items[$length]) {
+        this[_controller].index = this.widget.tabBar.items[$length] - 1;
+      }
+    }
+    build(context) {
+      let t0;
+      let existingMediaQuery = media_query.MediaQuery.of(context);
+      let newMediaQuery = media_query.MediaQuery.of(context);
+      let content = new tab_scaffold._TabSwitchingView.new({currentTabIndex: this[_controller].index, tabCount: this.widget.tabBar.items[$length], tabBuilder: this.widget.tabBuilder, $creationLocationd_0dea112b090073317d4: C[0] || CT.C0});
+      let contentPadding = edge_insets.EdgeInsets.zero;
+      if (this.widget.resizeToAvoidBottomInset) {
+        newMediaQuery = newMediaQuery.removeViewInsets({removeBottom: true});
+        contentPadding = new edge_insets.EdgeInsets.only({bottom: existingMediaQuery.viewInsets.bottom});
+      }
+      if (this.widget.tabBar !== null && (!this.widget.resizeToAvoidBottomInset || this.widget.tabBar.preferredSize.height > existingMediaQuery.viewInsets.bottom)) {
+        let bottomPadding = this.widget.tabBar.preferredSize.height + existingMediaQuery.padding.bottom;
+        if (this.widget.tabBar.opaque(context)) {
+          contentPadding = new edge_insets.EdgeInsets.only({bottom: bottomPadding});
+          newMediaQuery = newMediaQuery.removePadding({removeBottom: true});
+        } else {
+          newMediaQuery = newMediaQuery.copyWith({padding: newMediaQuery.padding.copyWith({bottom: bottomPadding})});
+        }
+      }
+      content = new media_query.MediaQuery.new({data: newMediaQuery, child: new basic.Padding.new({padding: contentPadding, child: content, $creationLocationd_0dea112b090073317d4: C[5] || CT.C5}), $creationLocationd_0dea112b090073317d4: C[9] || CT.C9});
+      return new container.DecoratedBox.new({decoration: new box_decoration.BoxDecoration.new({color: (t0 = colors.CupertinoDynamicColor.maybeResolve(this.widget.backgroundColor, context), t0 == null ? theme.CupertinoTheme.of(context).scaffoldBackgroundColor : t0)}), child: new basic.Stack.new({children: T.JSArrayOfWidget().of([content, new media_query.MediaQuery.new({data: existingMediaQuery.copyWith({textScaleFactor: 1.0}), child: new basic.Align.new({alignment: alignment.Alignment.bottomCenter, child: this.widget.tabBar.copyWith({currentIndex: this[_controller].index, onTap: dart.fn(newIndex => {
+                    let t0;
+                    this[_controller].index = newIndex;
+                    t0 = this.widget.tabBar.onTap;
+                    t0 == null ? null : t0(newIndex);
+                  }, T.intTovoid())}), $creationLocationd_0dea112b090073317d4: C[13] || CT.C13}), $creationLocationd_0dea112b090073317d4: C[17] || CT.C17})]), $creationLocationd_0dea112b090073317d4: C[21] || CT.C21}), $creationLocationd_0dea112b090073317d4: C[24] || CT.C24});
+    }
+    dispose() {
+      let t0, t0$;
+      if ((t0 = this.widget.controller, t0 == null ? null : t0[_isDisposed]) === false) {
+        this[_controller].removeListener(dart.bind(this, _onCurrentIndexChange));
+      }
+      t0$ = this[_internalController];
+      t0$ == null ? null : t0$.dispose();
+      super.dispose();
+    }
+  };
+  (tab_scaffold._CupertinoTabScaffoldState.new = function() {
+    this[_internalController] = null;
+    tab_scaffold._CupertinoTabScaffoldState.__proto__.new.call(this);
+    ;
+  }).prototype = tab_scaffold._CupertinoTabScaffoldState.prototype;
+  dart.addTypeTests(tab_scaffold._CupertinoTabScaffoldState);
+  dart.addTypeCaches(tab_scaffold._CupertinoTabScaffoldState);
+  dart.setMethodSignature(tab_scaffold._CupertinoTabScaffoldState, () => ({
+    __proto__: dart.getMethods(tab_scaffold._CupertinoTabScaffoldState.__proto__),
+    restoreState: dart.fnType(dart.void, [dart.nullable(restoration$.RestorationBucket), core.bool]),
+    [_restoreInternalController]: dart.fnType(dart.void, []),
+    [_updateTabController]: dart.fnType(dart.void, [], [dart.nullable(tab_scaffold.CupertinoTabController)]),
+    [_onCurrentIndexChange]: dart.fnType(dart.void, []),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setGetterSignature(tab_scaffold._CupertinoTabScaffoldState, () => ({
+    __proto__: dart.getGetters(tab_scaffold._CupertinoTabScaffoldState.__proto__),
+    [_controller]: tab_scaffold.CupertinoTabController,
+    restorationId: dart.nullable(core.String)
+  }));
+  dart.setLibraryUri(tab_scaffold._CupertinoTabScaffoldState, I[1]);
+  dart.setFieldSignature(tab_scaffold._CupertinoTabScaffoldState, () => ({
+    __proto__: dart.getFields(tab_scaffold._CupertinoTabScaffoldState.__proto__),
+    [_internalController]: dart.fieldType(dart.nullable(tab_scaffold.RestorableCupertinoTabController))
+  }));
+  var currentTabIndex$ = dart.privateName(tab_scaffold, "_TabSwitchingView.currentTabIndex");
+  var tabCount$ = dart.privateName(tab_scaffold, "_TabSwitchingView.tabCount");
+  var tabBuilder$0 = dart.privateName(tab_scaffold, "_TabSwitchingView.tabBuilder");
+  tab_scaffold._TabSwitchingView = class _TabSwitchingView extends framework.StatefulWidget {
+    get currentTabIndex() {
+      return this[currentTabIndex$];
+    }
+    set currentTabIndex(value) {
+      super.currentTabIndex = value;
+    }
+    get tabCount() {
+      return this[tabCount$];
+    }
+    set tabCount(value) {
+      super.tabCount = value;
+    }
+    get tabBuilder() {
+      return this[tabBuilder$0];
+    }
+    set tabBuilder(value) {
+      super.tabBuilder = value;
+    }
+    createState() {
+      return new tab_scaffold._TabSwitchingViewState.new();
+    }
+  };
+  (tab_scaffold._TabSwitchingView.new = function(opts) {
+    let currentTabIndex = opts && 'currentTabIndex' in opts ? opts.currentTabIndex : null;
+    let tabCount = opts && 'tabCount' in opts ? opts.tabCount : null;
+    let tabBuilder = opts && 'tabBuilder' in opts ? opts.tabBuilder : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[currentTabIndex$] = currentTabIndex;
+    this[tabCount$] = tabCount;
+    this[tabBuilder$0] = tabBuilder;
+    if (!(currentTabIndex !== null)) dart.assertFailed(null, I[0], 490, 15, "currentTabIndex != null");
+    if (!(tabCount !== null && tabCount > 0)) dart.assertFailed(null, I[0], 491, 15, "tabCount != null && tabCount > 0");
+    if (!(tabBuilder !== null)) dart.assertFailed(null, I[0], 492, 15, "tabBuilder != null");
+    tab_scaffold._TabSwitchingView.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = tab_scaffold._TabSwitchingView.prototype;
+  dart.addTypeTests(tab_scaffold._TabSwitchingView);
+  dart.addTypeCaches(tab_scaffold._TabSwitchingView);
+  dart.setMethodSignature(tab_scaffold._TabSwitchingView, () => ({
+    __proto__: dart.getMethods(tab_scaffold._TabSwitchingView.__proto__),
+    createState: dart.fnType(tab_scaffold._TabSwitchingViewState, [])
+  }));
+  dart.setLibraryUri(tab_scaffold._TabSwitchingView, I[1]);
+  dart.setFieldSignature(tab_scaffold._TabSwitchingView, () => ({
+    __proto__: dart.getFields(tab_scaffold._TabSwitchingView.__proto__),
+    currentTabIndex: dart.finalFieldType(core.int),
+    tabCount: dart.finalFieldType(core.int),
+    tabBuilder: dart.finalFieldType(dart.fnType(framework.Widget, [framework.BuildContext, core.int]))
+  }));
+  var _focusActiveTab = dart.privateName(tab_scaffold, "_focusActiveTab");
+  tab_scaffold._TabSwitchingViewState = class _TabSwitchingViewState extends framework.State$(tab_scaffold._TabSwitchingView) {
+    initState() {
+      super.initState();
+      this.shouldBuildTab[$addAll](T.ListOfbool().filled(this.widget.tabCount, false));
+    }
+    didChangeDependencies() {
+      super.didChangeDependencies();
+      this[_focusActiveTab]();
+    }
+    didUpdateWidget(oldWidget) {
+      tab_scaffold._TabSwitchingView.as(oldWidget);
+      super.didUpdateWidget(oldWidget);
+      let lengthDiff = this.widget.tabCount - this.shouldBuildTab[$length];
+      if (lengthDiff > 0) {
+        this.shouldBuildTab[$addAll](T.ListOfbool().filled(lengthDiff, false));
+      } else if (lengthDiff < 0) {
+        this.shouldBuildTab[$removeRange](this.widget.tabCount, this.shouldBuildTab[$length]);
+      }
+      this[_focusActiveTab]();
+    }
+    [_focusActiveTab]() {
+      if (this.tabFocusNodes[$length] !== this.widget.tabCount) {
+        if (this.tabFocusNodes[$length] > this.widget.tabCount) {
+          this.discardedNodes[$addAll](this.tabFocusNodes[$sublist](this.widget.tabCount));
+          this.tabFocusNodes[$removeRange](this.widget.tabCount, this.tabFocusNodes[$length]);
+        } else {
+          this.tabFocusNodes[$addAll](T.ListOfFocusScopeNode().generate(this.widget.tabCount - this.tabFocusNodes[$length], dart.fn(index => new focus_manager.FocusScopeNode.new({debugLabel: dart.str(dart.wrapType(tab_scaffold.CupertinoTabScaffold)) + " Tab " + dart.str(index + this.tabFocusNodes[$length])}), T.intToFocusScopeNode())));
+        }
+      }
+      focus_scope.FocusScope.of(this.context).setFirstFocus(this.tabFocusNodes[$_get](this.widget.currentTabIndex));
+    }
+    dispose() {
+      for (let focusScopeNode of this.tabFocusNodes) {
+        focusScopeNode.dispose();
+      }
+      for (let focusScopeNode of this.discardedNodes) {
+        focusScopeNode.dispose();
+      }
+      super.dispose();
+    }
+    build(context) {
+      return new basic.Stack.new({fit: stack.StackFit.expand, children: T.ListOfWidget().generate(this.widget.tabCount, dart.fn(index => {
+          let active = index === this.widget.currentTabIndex;
+          this.shouldBuildTab[$_set](index, active || this.shouldBuildTab[$_get](index));
+          return new heroes.HeroMode.new({enabled: active, child: new basic.Offstage.new({offstage: !active, child: new ticker_provider.TickerMode.new({enabled: active, child: new focus_scope.FocusScope.new({node: this.tabFocusNodes[$_get](index), child: new basic.Builder.new({builder: dart.fn(context => {
+                      let t2, t1, t0;
+                      return this.shouldBuildTab[$_get](index) ? (t0 = this.widget, t1 = context, t2 = index, t0.tabBuilder(t1, t2)) : new container.Container.new({$creationLocationd_0dea112b090073317d4: C[28] || CT.C28});
+                    }, T.BuildContextToWidget()), $creationLocationd_0dea112b090073317d4: C[30] || CT.C30}), $creationLocationd_0dea112b090073317d4: C[33] || CT.C33}), $creationLocationd_0dea112b090073317d4: C[37] || CT.C37}), $creationLocationd_0dea112b090073317d4: C[41] || CT.C41}), $creationLocationd_0dea112b090073317d4: C[45] || CT.C45});
+        }, T.intToHeroMode())), $creationLocationd_0dea112b090073317d4: C[49] || CT.C49});
+    }
+  };
+  (tab_scaffold._TabSwitchingViewState.new = function() {
+    this.shouldBuildTab = T.JSArrayOfbool().of([]);
+    this.tabFocusNodes = T.JSArrayOfFocusScopeNode().of([]);
+    this.discardedNodes = T.JSArrayOfFocusScopeNode().of([]);
+    tab_scaffold._TabSwitchingViewState.__proto__.new.call(this);
+    ;
+  }).prototype = tab_scaffold._TabSwitchingViewState.prototype;
+  dart.addTypeTests(tab_scaffold._TabSwitchingViewState);
+  dart.addTypeCaches(tab_scaffold._TabSwitchingViewState);
+  dart.setMethodSignature(tab_scaffold._TabSwitchingViewState, () => ({
+    __proto__: dart.getMethods(tab_scaffold._TabSwitchingViewState.__proto__),
+    [_focusActiveTab]: dart.fnType(dart.void, []),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(tab_scaffold._TabSwitchingViewState, I[1]);
+  dart.setFieldSignature(tab_scaffold._TabSwitchingViewState, () => ({
+    __proto__: dart.getFields(tab_scaffold._TabSwitchingViewState.__proto__),
+    shouldBuildTab: dart.finalFieldType(core.List$(core.bool)),
+    tabFocusNodes: dart.finalFieldType(core.List$(focus_manager.FocusScopeNode)),
+    discardedNodes: dart.finalFieldType(core.List$(focus_manager.FocusScopeNode))
+  }));
+  var _initialIndex = dart.privateName(tab_scaffold, "_initialIndex");
+  tab_scaffold.RestorableCupertinoTabController = class RestorableCupertinoTabController extends restoration_properties.RestorableChangeNotifier$(tab_scaffold.CupertinoTabController) {
+    createDefaultValue() {
+      return new tab_scaffold.CupertinoTabController.new({initialIndex: this[_initialIndex]});
+    }
+    fromPrimitives(data) {
+      if (!(data != null)) dart.assertFailed(null, I[0], 627, 12, "data != null");
+      return new tab_scaffold.CupertinoTabController.new({initialIndex: core.int.as(dart.nullCheck(data))});
+    }
+    toPrimitives() {
+      return this.value.index;
+    }
+  };
+  (tab_scaffold.RestorableCupertinoTabController.new = function(opts) {
+    let initialIndex = opts && 'initialIndex' in opts ? opts.initialIndex : 0;
+    if (!(initialIndex !== null)) dart.assertFailed(null, I[0], 614, 14, "initialIndex != null");
+    if (!(initialIndex >= 0)) dart.assertFailed(null, I[0], 615, 14, "initialIndex >= 0");
+    this[_initialIndex] = initialIndex;
+    tab_scaffold.RestorableCupertinoTabController.__proto__.new.call(this);
+    ;
+  }).prototype = tab_scaffold.RestorableCupertinoTabController.prototype;
+  dart.addTypeTests(tab_scaffold.RestorableCupertinoTabController);
+  dart.addTypeCaches(tab_scaffold.RestorableCupertinoTabController);
+  dart.setMethodSignature(tab_scaffold.RestorableCupertinoTabController, () => ({
+    __proto__: dart.getMethods(tab_scaffold.RestorableCupertinoTabController.__proto__),
+    createDefaultValue: dart.fnType(tab_scaffold.CupertinoTabController, []),
+    fromPrimitives: dart.fnType(tab_scaffold.CupertinoTabController, [dart.nullable(core.Object)]),
+    toPrimitives: dart.fnType(dart.nullable(core.Object), [])
+  }));
+  dart.setLibraryUri(tab_scaffold.RestorableCupertinoTabController, I[1]);
+  dart.setFieldSignature(tab_scaffold.RestorableCupertinoTabController, () => ({
+    __proto__: dart.getFields(tab_scaffold.RestorableCupertinoTabController.__proto__),
+    [_initialIndex]: dart.finalFieldType(core.int)
+  }));
+  dart.trackLibraries("packages/flutter/src/cupertino/tab_scaffold.dart", {
+    "package:flutter/src/cupertino/tab_scaffold.dart": tab_scaffold
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["tab_scaffold.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/flutter/src/cupertino/tab_scaffold.dart.lib.js"}');
+  // Exports:
+  return {
+    src__cupertino__tab_scaffold: tab_scaffold
+  };
+}));
+
+//# sourceMappingURL=tab_scaffold.dart.lib.js.map

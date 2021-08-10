@@ -1,0 +1,2333 @@
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/provider/src/listenable_provider.dart', 'packages/whatsapp_ui_clone/Story/StoryState.dart', 'packages/provider/src/selector.dart', 'packages/flutter/src/widgets/single_child_scroll_view.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/whatsapp_ui_clone/Story/StoryItems.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/flutter/src/material/page.dart', 'packages/story_view/widgets/story_view.dart', 'packages/story_view/utils.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/material/circle_avatar.dart', 'packages/flutter/src/painting/_network_image_web.dart', 'packages/flutter/src/painting/box_decoration.dart', 'packages/flutter/src/painting/border_radius.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/cupertino/icons.dart', 'packages/flutter/src/widgets/spacer.dart'], (function load__packages__whatsapp_ui_clone__Context_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__material__icon_button$46dart, packages__provider__src__listenable_provider$46dart, packages__whatsapp_ui_clone__Story__StoryState$46dart, packages__provider__src__selector$46dart, packages__flutter__src__widgets__single_child_scroll_view$46dart, packages__flutter__src__rendering__flex$46dart, packages__whatsapp_ui_clone__Story__StoryItems$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__painting__strut_style$46dart, packages__flutter__src__material__page$46dart, packages__story_view__widgets__story_view$46dart, packages__story_view__utils$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__material__circle_avatar$46dart, packages__flutter__src__painting___network_image_web$46dart, packages__flutter__src__painting__box_decoration$46dart, packages__flutter__src__painting__border_radius$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__cupertino__icons$46dart, packages__flutter__src__widgets__spacer$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _interceptors = dart_sdk._interceptors;
+  const ui = dart_sdk.ui;
+  const collection = dart_sdk.collection;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const scroll_physics = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scroll_physics;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const gesture_detector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__gesture_detector;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const scaffold = packages__flutter__src__material__icon_button$46dart.src__material__scaffold;
+  const material = packages__flutter__src__material__icon_button$46dart.src__material__material;
+  const divider = packages__flutter__src__material__icon_button$46dart.src__material__divider;
+  const change_notifier_provider = packages__provider__src__listenable_provider$46dart.src__change_notifier_provider;
+  const StoryState = packages__whatsapp_ui_clone__Story__StoryState$46dart.Story__StoryState;
+  const consumer = packages__provider__src__selector$46dart.src__consumer;
+  const single_child_scroll_view = packages__flutter__src__widgets__single_child_scroll_view$46dart.src__widgets__single_child_scroll_view;
+  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+  const StoryItems = packages__whatsapp_ui_clone__Story__StoryItems$46dart.Story__StoryItems;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  const page = packages__flutter__src__material__page$46dart.src__material__page;
+  const story_view = packages__story_view__widgets__story_view$46dart.widgets__story_view;
+  const utils = packages__story_view__utils$46dart.utils;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const circle_avatar = packages__flutter__src__material__circle_avatar$46dart.src__material__circle_avatar;
+  const _network_image_web = packages__flutter__src__painting___network_image_web$46dart.src__painting___network_image_web;
+  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
+  const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
+  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+  const icons = packages__flutter__src__cupertino__icons$46dart.src__cupertino__icons;
+  const spacer = packages__flutter__src__widgets__spacer$46dart.src__widgets__spacer;
+  var Context = Object.create(dart.library);
+  var $length = dartx.length;
+  var $add = dartx.add;
+  var $_get = dartx._get;
+  dart._checkModuleNullSafetyMode(true);
+  var T = {
+    ChangeNotifierProviderOfStoryState: () => (T.ChangeNotifierProviderOfStoryState = dart.constFn(change_notifier_provider.ChangeNotifierProvider$(StoryState.StoryState)))(),
+    BuildContextToStoryState: () => (T.BuildContextToStoryState = dart.constFn(dart.fnType(StoryState.StoryState, [framework.BuildContext])))(),
+    ConsumerOfStoryState: () => (T.ConsumerOfStoryState = dart.constFn(consumer.Consumer$(StoryState.StoryState)))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
+    ListOfWidget: () => (T.ListOfWidget = dart.constFn(core.List$(framework.Widget)))(),
+    LinkedHashSetOfvoid: () => (T.LinkedHashSetOfvoid = dart.constFn(collection.LinkedHashSet$(dart.void)))(),
+    ObjectN: () => (T.ObjectN = dart.constFn(dart.nullable(core.Object)))(),
+    SetOfvoid: () => (T.SetOfvoid = dart.constFn(core.Set$(dart.void)))(),
+    LinkedHashSetOfSetOfvoid: () => (T.LinkedHashSetOfSetOfvoid = dart.constFn(collection.LinkedHashSet$(T.SetOfvoid())))(),
+    SetOfSetOfvoid: () => (T.SetOfSetOfvoid = dart.constFn(core.Set$(T.SetOfvoid())))(),
+    DirectionN: () => (T.DirectionN = dart.constFn(dart.nullable(utils.Direction)))(),
+    DirectionNToSetOfSetOfvoid: () => (T.DirectionNToSetOfSetOfvoid = dart.constFn(dart.fnType(T.SetOfSetOfvoid(), [T.DirectionN()])))(),
+    BuildContextToMaterial: () => (T.BuildContextToMaterial = dart.constFn(dart.fnType(material.Material, [framework.BuildContext])))(),
+    intToGestureDetector: () => (T.intToGestureDetector = dart.constFn(dart.fnType(gesture_detector.GestureDetector, [core.int])))(),
+    WidgetN: () => (T.WidgetN = dart.constFn(dart.nullable(framework.Widget)))(),
+    BuildContextAndStoryStateAndWidgetNToSingleChildScrollView: () => (T.BuildContextAndStoryStateAndWidgetNToSingleChildScrollView = dart.constFn(dart.fnType(single_child_scroll_view.SingleChildScrollView, [framework.BuildContext, StoryState.StoryState, T.WidgetN()])))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C1() {
+      return C[1] = dart.constList([], widget_inspector._Location);
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 33,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "body",
+        [_Location_column]: 9,
+        [_Location_line]: 33,
+        [_Location_file]: null
+      });
+    },
+    get C3() {
+      return C[3] = dart.constList([C[4] || CT.C4], widget_inspector._Location);
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[3] || CT.C3,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 30,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 54,
+        [_Location_line]: 54,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 33,
+        [_Location_line]: 54,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 47,
+        [_Location_line]: 54,
+        [_Location_file]: null
+      });
+    },
+    get C7() {
+      return C[7] = dart.constList([C[8] || CT.C8, C[9] || CT.C9], widget_inspector._Location);
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[7] || CT.C7,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 54,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 19,
+        [_Location_line]: 56,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C[11] = dart.constList([C[12] || CT.C12], widget_inspector._Location);
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[11] || CT.C11,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 55,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 8,
+        [EdgeInsets_right]: 8,
+        [EdgeInsets_top]: 8,
+        [EdgeInsets_left]: 8
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 23,
+        [_Location_line]: 62,
+        [_Location_file]: null
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 23,
+        [_Location_line]: 63,
+        [_Location_file]: null
+      });
+    },
+    get C15() {
+      return C[15] = dart.constList([C[16] || CT.C16, C[17] || CT.C17], widget_inspector._Location);
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[15] || CT.C15,
+        [_Location_name]: null,
+        [_Location_column]: 28,
+        [_Location_line]: 61,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 21,
+        [_Location_line]: 60,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 21,
+        [_Location_line]: 61,
+        [_Location_file]: null
+      });
+    },
+    get C19() {
+      return C[19] = dart.constList([C[20] || CT.C20, C[21] || CT.C21], widget_inspector._Location);
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[19] || CT.C19,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 59,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "storyItems",
+        [_Location_column]: 45,
+        [_Location_line]: 79,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controller",
+        [_Location_column]: 45,
+        [_Location_line]: 81,
+        [_Location_file]: null
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onComplete",
+        [_Location_column]: 45,
+        [_Location_line]: 82,
+        [_Location_file]: null
+      });
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "inline",
+        [_Location_column]: 45,
+        [_Location_line]: 86,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "repeat",
+        [_Location_column]: 45,
+        [_Location_line]: 87,
+        [_Location_file]: null
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onVerticalSwipeComplete",
+        [_Location_column]: 45,
+        [_Location_line]: 88,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C[23] = dart.constList([C[24] || CT.C24, C[25] || CT.C25, C[26] || CT.C26, C[27] || CT.C27, C[28] || CT.C28, C[29] || CT.C29], widget_inspector._Location);
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[23] || CT.C23,
+        [_Location_name]: null,
+        [_Location_column]: 50,
+        [_Location_line]: 78,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 43,
+        [_Location_line]: 78,
+        [_Location_file]: null
+      });
+    },
+    get C31() {
+      return C[31] = dart.constList([C[32] || CT.C32], widget_inspector._Location);
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[31] || CT.C31,
+        [_Location_name]: null,
+        [_Location_column]: 59,
+        [_Location_line]: 77,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 29,
+        [_Location_line]: 99,
+        [_Location_file]: null
+      });
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "index",
+        [_Location_column]: 29,
+        [_Location_line]: 100,
+        [_Location_file]: null
+      });
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "choice",
+        [_Location_column]: 29,
+        [_Location_line]: 101,
+        [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C[34] = dart.constList([C[35] || CT.C35, C[36] || CT.C36, C[37] || CT.C37], widget_inspector._Location);
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[34] || CT.C34,
+        [_Location_name]: null,
+        [_Location_column]: 34,
+        [_Location_line]: 98,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 27,
+        [_Location_line]: 73,
+        [_Location_file]: null
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 27,
+        [_Location_line]: 98,
+        [_Location_file]: null
+      });
+    },
+    get C39() {
+      return C[39] = dart.constList([C[40] || CT.C40, C[41] || CT.C41], widget_inspector._Location);
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[39] || CT.C39,
+        [_Location_name]: null,
+        [_Location_column]: 34,
+        [_Location_line]: 72,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 19,
+        [_Location_line]: 70,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C[43] = dart.constList([C[44] || CT.C44], widget_inspector._Location);
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[43] || CT.C43,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 69,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 19,
+        [_Location_line]: 105,
+        [_Location_file]: null
+      });
+    },
+    get C46() {
+      return C[46] = dart.constList([C[47] || CT.C47], widget_inspector._Location);
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[46] || CT.C46,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 104,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 23,
+        [_Location_line]: 111,
+        [_Location_file]: null
+      });
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 23,
+        [_Location_line]: 112,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C[49] = dart.constList([C[50] || CT.C50, C[51] || CT.C51], widget_inspector._Location);
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[49] || CT.C49,
+        [_Location_name]: null,
+        [_Location_column]: 28,
+        [_Location_line]: 110,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 21,
+        [_Location_line]: 109,
+        [_Location_file]: null
+      });
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 21,
+        [_Location_line]: 110,
+        [_Location_file]: null
+      });
+    },
+    get C53() {
+      return C[53] = dart.constList([C[54] || CT.C54, C[55] || CT.C55], widget_inspector._Location);
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[53] || CT.C53,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 108,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C58() {
+      return C[58] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "storyItems",
+        [_Location_column]: 45,
+        [_Location_line]: 128,
+        [_Location_file]: null
+      });
+    },
+    get C59() {
+      return C[59] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controller",
+        [_Location_column]: 45,
+        [_Location_line]: 130,
+        [_Location_file]: null
+      });
+    },
+    get C60() {
+      return C[60] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onComplete",
+        [_Location_column]: 45,
+        [_Location_line]: 131,
+        [_Location_file]: null
+      });
+    },
+    get C61() {
+      return C[61] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "inline",
+        [_Location_column]: 45,
+        [_Location_line]: 134,
+        [_Location_file]: null
+      });
+    },
+    get C62() {
+      return C[62] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "repeat",
+        [_Location_column]: 45,
+        [_Location_line]: 135,
+        [_Location_file]: null
+      });
+    },
+    get C63() {
+      return C[63] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onVerticalSwipeComplete",
+        [_Location_column]: 45,
+        [_Location_line]: 136,
+        [_Location_file]: null
+      });
+    },
+    get C57() {
+      return C[57] = dart.constList([C[58] || CT.C58, C[59] || CT.C59, C[60] || CT.C60, C[61] || CT.C61, C[62] || CT.C62, C[63] || CT.C63], widget_inspector._Location);
+    },
+    get C56() {
+      return C[56] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[57] || CT.C57,
+        [_Location_name]: null,
+        [_Location_column]: 50,
+        [_Location_line]: 127,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C66() {
+      return C[66] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 43,
+        [_Location_line]: 127,
+        [_Location_file]: null
+      });
+    },
+    get C65() {
+      return C[65] = dart.constList([C[66] || CT.C66], widget_inspector._Location);
+    },
+    get C64() {
+      return C[64] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[65] || CT.C65,
+        [_Location_name]: null,
+        [_Location_column]: 59,
+        [_Location_line]: 126,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C69() {
+      return C[69] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 31,
+        [_Location_line]: 146,
+        [_Location_file]: null
+      });
+    },
+    get C70() {
+      return C[70] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "index",
+        [_Location_column]: 51,
+        [_Location_line]: 146,
+        [_Location_file]: null
+      });
+    },
+    get C71() {
+      return C[71] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "choice",
+        [_Location_column]: 65,
+        [_Location_line]: 146,
+        [_Location_file]: null
+      });
+    },
+    get C68() {
+      return C[68] = dart.constList([C[69] || CT.C69, C[70] || CT.C70, C[71] || CT.C71], widget_inspector._Location);
+    },
+    get C67() {
+      return C[67] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[68] || CT.C68,
+        [_Location_name]: null,
+        [_Location_column]: 34,
+        [_Location_line]: 145,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C74() {
+      return C[74] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 27,
+        [_Location_line]: 122,
+        [_Location_file]: null
+      });
+    },
+    get C75() {
+      return C[75] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 27,
+        [_Location_line]: 145,
+        [_Location_file]: null
+      });
+    },
+    get C73() {
+      return C[73] = dart.constList([C[74] || CT.C74, C[75] || CT.C75], widget_inspector._Location);
+    },
+    get C72() {
+      return C[72] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[73] || CT.C73,
+        [_Location_name]: null,
+        [_Location_column]: 34,
+        [_Location_line]: 121,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C78() {
+      return C[78] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 19,
+        [_Location_line]: 119,
+        [_Location_file]: null
+      });
+    },
+    get C77() {
+      return C[77] = dart.constList([C[78] || CT.C78], widget_inspector._Location);
+    },
+    get C76() {
+      return C[76] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[77] || CT.C77,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 118,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C81() {
+      return C[81] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "crossAxisAlignment",
+        [_Location_column]: 15,
+        [_Location_line]: 51,
+        [_Location_file]: null
+      });
+    },
+    get C82() {
+      return C[82] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 15,
+        [_Location_line]: 52,
+        [_Location_file]: null
+      });
+    },
+    get C80() {
+      return C[80] = dart.constList([C[81] || CT.C81, C[82] || CT.C82], widget_inspector._Location);
+    },
+    get C79() {
+      return C[79] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[80] || CT.C80,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 50,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C85() {
+      return C[85] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "physics",
+        [_Location_column]: 13,
+        [_Location_line]: 49,
+        [_Location_file]: null
+      });
+    },
+    get C86() {
+      return C[86] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 50,
+        [_Location_file]: null
+      });
+    },
+    get C84() {
+      return C[84] = dart.constList([C[85] || CT.C85, C[86] || CT.C86], widget_inspector._Location);
+    },
+    get C83() {
+      return C[83] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[84] || CT.C84,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 48,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C89() {
+      return C[89] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 9,
+        [_Location_line]: 47,
+        [_Location_file]: null
+      });
+    },
+    get C88() {
+      return C[88] = dart.constList([C[89] || CT.C89], widget_inspector._Location);
+    },
+    get C87() {
+      return C[87] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[88] || CT.C88,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 46,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C92() {
+      return C[92] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "create",
+        [_Location_column]: 7,
+        [_Location_line]: 45,
+        [_Location_file]: null
+      });
+    },
+    get C93() {
+      return C[93] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 46,
+        [_Location_file]: null
+      });
+    },
+    get C91() {
+      return C[91] = dart.constList([C[92] || CT.C92, C[93] || CT.C93], widget_inspector._Location);
+    },
+    get C90() {
+      return C[90] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[91] || CT.C91,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 44,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C96() {
+      return C[96] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 13,
+        [_Location_line]: 172,
+        [_Location_file]: null
+      });
+    },
+    get C95() {
+      return C[95] = dart.constList([C[96] || CT.C96], widget_inspector._Location);
+    },
+    get C94() {
+      return C[94] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[95] || CT.C95,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 171,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C99() {
+      return C[99] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "minRadius",
+        [_Location_column]: 17,
+        [_Location_line]: 177,
+        [_Location_file]: null
+      });
+    },
+    get C100() {
+      return C[100] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "backgroundImage",
+        [_Location_column]: 17,
+        [_Location_line]: 178,
+        [_Location_file]: null
+      });
+    },
+    get C98() {
+      return C[98] = dart.constList([C[99] || CT.C99, C[100] || CT.C100], widget_inspector._Location);
+    },
+    get C97() {
+      return C[97] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[98] || CT.C98,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 176,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C103() {
+      return C[103] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 36,
+        [_Location_line]: 191,
+        [_Location_file]: null
+      });
+    },
+    get C104() {
+      return C[104] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 21,
+        [_Location_line]: 192,
+        [_Location_file]: null
+      });
+    },
+    get C105() {
+      return C[105] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 21,
+        [_Location_line]: 193,
+        [_Location_file]: null
+      });
+    },
+    get C102() {
+      return C[102] = dart.constList([C[103] || CT.C103, C[104] || CT.C104, C[105] || CT.C105], widget_inspector._Location);
+    },
+    get C101() {
+      return C[101] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[102] || CT.C102,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 190,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C108() {
+      return C[108] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 19,
+        [_Location_line]: 185,
+        [_Location_file]: null
+      });
+    },
+    get C109() {
+      return C[109] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 19,
+        [_Location_line]: 186,
+        [_Location_file]: null
+      });
+    },
+    get C110() {
+      return C[110] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 19,
+        [_Location_line]: 187,
+        [_Location_file]: null
+      });
+    },
+    get C111() {
+      return C[111] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 19,
+        [_Location_line]: 190,
+        [_Location_file]: null
+      });
+    },
+    get C107() {
+      return C[107] = dart.constList([C[108] || CT.C108, C[109] || CT.C109, C[110] || CT.C110, C[111] || CT.C111], widget_inspector._Location);
+    },
+    get C106() {
+      return C[106] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[107] || CT.C107,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 184,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C114() {
+      return C[114] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "bottom",
+        [_Location_column]: 17,
+        [_Location_line]: 182,
+        [_Location_file]: null
+      });
+    },
+    get C115() {
+      return C[115] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "right",
+        [_Location_column]: 17,
+        [_Location_line]: 183,
+        [_Location_file]: null
+      });
+    },
+    get C116() {
+      return C[116] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 184,
+        [_Location_file]: null
+      });
+    },
+    get C113() {
+      return C[113] = dart.constList([C[114] || CT.C114, C[115] || CT.C115, C[116] || CT.C116], widget_inspector._Location);
+    },
+    get C112() {
+      return C[112] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[113] || CT.C113,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 181,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C119() {
+      return C[119] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 13,
+        [_Location_line]: 175,
+        [_Location_file]: null
+      });
+    },
+    get C118() {
+      return C[118] = dart.constList([C[119] || CT.C119], widget_inspector._Location);
+    },
+    get C117() {
+      return C[117] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[118] || CT.C118,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 174,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C122() {
+      return C[122] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 13,
+        [_Location_line]: 200,
+        [_Location_file]: null
+      });
+    },
+    get C121() {
+      return C[121] = dart.constList([C[122] || CT.C122], widget_inspector._Location);
+    },
+    get C120() {
+      return C[120] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[121] || CT.C121,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 199,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C123() {
+      return C[123] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 0,
+        [EdgeInsets_right]: 0,
+        [EdgeInsets_top]: 15,
+        [EdgeInsets_left]: 0
+      });
+    },
+    get C126() {
+      return C[126] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 25,
+        [_Location_line]: 212,
+        [_Location_file]: null
+      });
+    },
+    get C127() {
+      return C[127] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 25,
+        [_Location_line]: 213,
+        [_Location_file]: null
+      });
+    },
+    get C125() {
+      return C[125] = dart.constList([C[126] || CT.C126, C[127] || CT.C127], widget_inspector._Location);
+    },
+    get C124() {
+      return C[124] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[125] || CT.C125,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 211,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C130() {
+      return C[130] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 21,
+        [_Location_line]: 210,
+        [_Location_file]: null
+      });
+    },
+    get C129() {
+      return C[129] = dart.constList([C[130] || CT.C130], widget_inspector._Location);
+    },
+    get C128() {
+      return C[128] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[129] || CT.C129,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 209,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C133() {
+      return C[133] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 25,
+        [_Location_line]: 220,
+        [_Location_file]: null
+      });
+    },
+    get C134() {
+      return C[134] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 25,
+        [_Location_line]: 221,
+        [_Location_file]: null
+      });
+    },
+    get C132() {
+      return C[132] = dart.constList([C[133] || CT.C133, C[134] || CT.C134], widget_inspector._Location);
+    },
+    get C131() {
+      return C[131] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[132] || CT.C132,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 219,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C137() {
+      return C[137] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 21,
+        [_Location_line]: 218,
+        [_Location_file]: null
+      });
+    },
+    get C136() {
+      return C[136] = dart.constList([C[137] || CT.C137], widget_inspector._Location);
+    },
+    get C135() {
+      return C[135] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[136] || CT.C136,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 217,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C140() {
+      return C[140] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "crossAxisAlignment",
+        [_Location_column]: 17,
+        [_Location_line]: 207,
+        [_Location_file]: null
+      });
+    },
+    get C141() {
+      return C[141] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 17,
+        [_Location_line]: 208,
+        [_Location_file]: null
+      });
+    },
+    get C139() {
+      return C[139] = dart.constList([C[140] || CT.C140, C[141] || CT.C141], widget_inspector._Location);
+    },
+    get C138() {
+      return C[138] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[139] || CT.C139,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 206,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C144() {
+      return C[144] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 15,
+        [_Location_line]: 205,
+        [_Location_file]: null
+      });
+    },
+    get C145() {
+      return C[145] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 206,
+        [_Location_file]: null
+      });
+    },
+    get C143() {
+      return C[143] = dart.constList([C[144] || CT.C144, C[145] || CT.C145], widget_inspector._Location);
+    },
+    get C142() {
+      return C[142] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[143] || CT.C143,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 204,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C148() {
+      return C[148] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 13,
+        [_Location_line]: 203,
+        [_Location_file]: null
+      });
+    },
+    get C149() {
+      return C[149] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 204,
+        [_Location_file]: null
+      });
+    },
+    get C147() {
+      return C[147] = dart.constList([C[148] || CT.C148, C[149] || CT.C149], widget_inspector._Location);
+    },
+    get C146() {
+      return C[146] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[147] || CT.C147,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 202,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C150() {
+      return C[150] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 230,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C153() {
+      return C[153] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 30,
+        [_Location_line]: 238,
+        [_Location_file]: null
+      });
+    },
+    get C154() {
+      return C[154] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 15,
+        [_Location_line]: 239,
+        [_Location_file]: null
+      });
+    },
+    get C155() {
+      return C[155] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 15,
+        [_Location_line]: 240,
+        [_Location_file]: null
+      });
+    },
+    get C152() {
+      return C[152] = dart.constList([C[153] || CT.C153, C[154] || CT.C154, C[155] || CT.C155], widget_inspector._Location);
+    },
+    get C151() {
+      return C[151] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[152] || CT.C152,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 237,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C158() {
+      return C[158] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 13,
+        [_Location_line]: 232,
+        [_Location_file]: null
+      });
+    },
+    get C159() {
+      return C[159] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 13,
+        [_Location_line]: 233,
+        [_Location_file]: null
+      });
+    },
+    get C160() {
+      return C[160] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 13,
+        [_Location_line]: 234,
+        [_Location_file]: null
+      });
+    },
+    get C161() {
+      return C[161] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 237,
+        [_Location_file]: null
+      });
+    },
+    get C157() {
+      return C[157] = dart.constList([C[158] || CT.C158, C[159] || CT.C159, C[160] || CT.C160, C[161] || CT.C161], widget_inspector._Location);
+    },
+    get C156() {
+      return C[156] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[157] || CT.C157,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 231,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C164() {
+      return C[164] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 13,
+        [_Location_line]: 244,
+        [_Location_file]: null
+      });
+    },
+    get C163() {
+      return C[163] = dart.constList([C[164] || CT.C164], widget_inspector._Location);
+    },
+    get C162() {
+      return C[162] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[163] || CT.C163,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 243,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C167() {
+      return C[167] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 30,
+        [_Location_line]: 253,
+        [_Location_file]: null
+      });
+    },
+    get C168() {
+      return C[168] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 15,
+        [_Location_line]: 254,
+        [_Location_file]: null
+      });
+    },
+    get C169() {
+      return C[169] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 15,
+        [_Location_line]: 255,
+        [_Location_file]: null
+      });
+    },
+    get C166() {
+      return C[166] = dart.constList([C[167] || CT.C167, C[168] || CT.C168, C[169] || CT.C169], widget_inspector._Location);
+    },
+    get C165() {
+      return C[165] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[166] || CT.C166,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 252,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C172() {
+      return C[172] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 13,
+        [_Location_line]: 247,
+        [_Location_file]: null
+      });
+    },
+    get C173() {
+      return C[173] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 13,
+        [_Location_line]: 248,
+        [_Location_file]: null
+      });
+    },
+    get C174() {
+      return C[174] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 13,
+        [_Location_line]: 249,
+        [_Location_file]: null
+      });
+    },
+    get C175() {
+      return C[175] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 252,
+        [_Location_file]: null
+      });
+    },
+    get C171() {
+      return C[171] = dart.constList([C[172] || CT.C172, C[173] || CT.C173, C[174] || CT.C174, C[175] || CT.C175], widget_inspector._Location);
+    },
+    get C170() {
+      return C[170] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[171] || CT.C171,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 246,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C178() {
+      return C[178] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 13,
+        [_Location_line]: 259,
+        [_Location_file]: null
+      });
+    },
+    get C177() {
+      return C[177] = dart.constList([C[178] || CT.C178], widget_inspector._Location);
+    },
+    get C176() {
+      return C[176] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[177] || CT.C177,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 258,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C181() {
+      return C[181] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 9,
+        [_Location_line]: 170,
+        [_Location_file]: null
+      });
+    },
+    get C180() {
+      return C[180] = dart.constList([C[181] || CT.C181], widget_inspector._Location);
+    },
+    get C179() {
+      return C[179] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[180] || CT.C180,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 169,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C184() {
+      return C[184] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 7,
+        [_Location_line]: 167,
+        [_Location_file]: null
+      });
+    },
+    get C185() {
+      return C[185] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 7,
+        [_Location_line]: 168,
+        [_Location_file]: null
+      });
+    },
+    get C186() {
+      return C[186] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 169,
+        [_Location_file]: null
+      });
+    },
+    get C183() {
+      return C[183] = dart.constList([C[184] || CT.C184, C[185] || CT.C185, C[186] || CT.C186], widget_inspector._Location);
+    },
+    get C182() {
+      return C[182] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[183] || CT.C183,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 166,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C189() {
+      return C[189] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 13,
+        [_Location_line]: 289,
+        [_Location_file]: null
+      });
+    },
+    get C188() {
+      return C[188] = dart.constList([C[189] || CT.C189], widget_inspector._Location);
+    },
+    get C187() {
+      return C[187] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[188] || CT.C188,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 288,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C190() {
+      return C[190] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 2,
+        [EdgeInsets_right]: 2,
+        [EdgeInsets_top]: 2,
+        [EdgeInsets_left]: 2
+      });
+    },
+    get C193() {
+      return C[193] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "minRadius",
+        [_Location_column]: 17,
+        [_Location_line]: 299,
+        [_Location_file]: null
+      });
+    },
+    get C194() {
+      return C[194] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "backgroundImage",
+        [_Location_column]: 17,
+        [_Location_line]: 300,
+        [_Location_file]: null
+      });
+    },
+    get C192() {
+      return C[192] = dart.constList([C[193] || CT.C193, C[194] || CT.C194], widget_inspector._Location);
+    },
+    get C191() {
+      return C[191] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[192] || CT.C192,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 298,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C197() {
+      return C[197] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 15,
+        [_Location_line]: 297,
+        [_Location_file]: null
+      });
+    },
+    get C198() {
+      return C[198] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 298,
+        [_Location_file]: null
+      });
+    },
+    get C196() {
+      return C[196] = dart.constList([C[197] || CT.C197, C[198] || CT.C198], widget_inspector._Location);
+    },
+    get C195() {
+      return C[195] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[196] || CT.C196,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 296,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C201() {
+      return C[201] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 13,
+        [_Location_line]: 292,
+        [_Location_file]: null
+      });
+    },
+    get C202() {
+      return C[202] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 13,
+        [_Location_line]: 293,
+        [_Location_file]: null
+      });
+    },
+    get C203() {
+      return C[203] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 13,
+        [_Location_line]: 294,
+        [_Location_file]: null
+      });
+    },
+    get C204() {
+      return C[204] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 296,
+        [_Location_file]: null
+      });
+    },
+    get C200() {
+      return C[200] = dart.constList([C[201] || CT.C201, C[202] || CT.C202, C[203] || CT.C203, C[204] || CT.C204], widget_inspector._Location);
+    },
+    get C199() {
+      return C[199] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[200] || CT.C200,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 291,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C207() {
+      return C[207] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 13,
+        [_Location_line]: 308,
+        [_Location_file]: null
+      });
+    },
+    get C206() {
+      return C[206] = dart.constList([C[207] || CT.C207], widget_inspector._Location);
+    },
+    get C205() {
+      return C[205] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[206] || CT.C206,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 307,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C208() {
+      return C[208] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 0,
+        [EdgeInsets_right]: 0,
+        [EdgeInsets_top]: 10,
+        [EdgeInsets_left]: 0
+      });
+    },
+    get C211() {
+      return C[211] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 29,
+        [_Location_line]: 321,
+        [_Location_file]: null
+      });
+    },
+    get C212() {
+      return C[212] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 25,
+        [_Location_line]: 324,
+        [_Location_file]: null
+      });
+    },
+    get C210() {
+      return C[210] = dart.constList([C[211] || CT.C211, C[212] || CT.C212], widget_inspector._Location);
+    },
+    get C209() {
+      return C[209] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[210] || CT.C210,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 319,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C215() {
+      return C[215] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 21,
+        [_Location_line]: 318,
+        [_Location_file]: null
+      });
+    },
+    get C214() {
+      return C[214] = dart.constList([C[215] || CT.C215], widget_inspector._Location);
+    },
+    get C213() {
+      return C[213] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[214] || CT.C214,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 317,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C218() {
+      return C[218] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 29,
+        [_Location_line]: 332,
+        [_Location_file]: null
+      });
+    },
+    get C219() {
+      return C[219] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 25,
+        [_Location_line]: 335,
+        [_Location_file]: null
+      });
+    },
+    get C217() {
+      return C[217] = dart.constList([C[218] || CT.C218, C[219] || CT.C219], widget_inspector._Location);
+    },
+    get C216() {
+      return C[216] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[217] || CT.C217,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 330,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C222() {
+      return C[222] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 21,
+        [_Location_line]: 329,
+        [_Location_file]: null
+      });
+    },
+    get C221() {
+      return C[221] = dart.constList([C[222] || CT.C222], widget_inspector._Location);
+    },
+    get C220() {
+      return C[220] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[221] || CT.C221,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 328,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C223() {
+      return C[223] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 340,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C224() {
+      return C[224] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 68,
+        [_Location_line]: 343,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C227() {
+      return C[227] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 36,
+        [_Location_line]: 343,
+        [_Location_file]: null
+      });
+    },
+    get C228() {
+      return C[228] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 61,
+        [_Location_line]: 343,
+        [_Location_file]: null
+      });
+    },
+    get C226() {
+      return C[226] = dart.constList([C[227] || CT.C227, C[228] || CT.C228], widget_inspector._Location);
+    },
+    get C225() {
+      return C[225] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[226] || CT.C226,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 343,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C231() {
+      return C[231] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 23,
+        [_Location_line]: 342,
+        [_Location_file]: null
+      });
+    },
+    get C230() {
+      return C[230] = dart.constList([C[231] || CT.C231], widget_inspector._Location);
+    },
+    get C229() {
+      return C[229] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[230] || CT.C230,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 341,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C234() {
+      return C[234] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "crossAxisAlignment",
+        [_Location_column]: 17,
+        [_Location_line]: 315,
+        [_Location_file]: null
+      });
+    },
+    get C235() {
+      return C[235] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 17,
+        [_Location_line]: 316,
+        [_Location_file]: null
+      });
+    },
+    get C233() {
+      return C[233] = dart.constList([C[234] || CT.C234, C[235] || CT.C235], widget_inspector._Location);
+    },
+    get C232() {
+      return C[232] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[233] || CT.C233,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 314,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C238() {
+      return C[238] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 15,
+        [_Location_line]: 313,
+        [_Location_file]: null
+      });
+    },
+    get C239() {
+      return C[239] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 314,
+        [_Location_file]: null
+      });
+    },
+    get C237() {
+      return C[237] = dart.constList([C[238] || CT.C238, C[239] || CT.C239], widget_inspector._Location);
+    },
+    get C236() {
+      return C[236] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[237] || CT.C237,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 312,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C242() {
+      return C[242] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 13,
+        [_Location_line]: 311,
+        [_Location_file]: null
+      });
+    },
+    get C243() {
+      return C[243] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 312,
+        [_Location_file]: null
+      });
+    },
+    get C241() {
+      return C[241] = dart.constList([C[242] || CT.C242, C[243] || CT.C243], widget_inspector._Location);
+    },
+    get C240() {
+      return C[240] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[241] || CT.C241,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 310,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C246() {
+      return C[246] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 9,
+        [_Location_line]: 286,
+        [_Location_file]: null
+      });
+    },
+    get C247() {
+      return C[247] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 9,
+        [_Location_line]: 287,
+        [_Location_file]: null
+      });
+    },
+    get C245() {
+      return C[245] = dart.constList([C[246] || CT.C246, C[247] || CT.C247], widget_inspector._Location);
+    },
+    get C244() {
+      return C[244] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[245] || CT.C245,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 285,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    },
+    get C250() {
+      return C[250] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 7,
+        [_Location_line]: 283,
+        [_Location_file]: null
+      });
+    },
+    get C251() {
+      return C[251] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 7,
+        [_Location_line]: 284,
+        [_Location_file]: null
+      });
+    },
+    get C252() {
+      return C[252] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 285,
+        [_Location_file]: null
+      });
+    },
+    get C249() {
+      return C[249] = dart.constList([C[250] || CT.C250, C[251] || CT.C251, C[252] || CT.C252], widget_inspector._Location);
+    },
+    get C248() {
+      return C[248] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[249] || CT.C249,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 282,
+        [_Location_file]: "file:///C:/Flutter_Projelerim/whatsapp_ui_clone/lib/Context.dart"
+      });
+    }
+  }, false);
+  var C = Array(253).fill(void 0);
+  var I = ["package:whatsapp_ui_clone/Context.dart"];
+  Context.Context = class Context$ extends framework.StatefulWidget {
+    createState() {
+      return new Context.ContextState.new();
+    }
+  };
+  (Context.Context.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    Context.Context.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = Context.Context.prototype;
+  dart.addTypeTests(Context.Context);
+  dart.addTypeCaches(Context.Context);
+  dart.setMethodSignature(Context.Context, () => ({
+    __proto__: dart.getMethods(Context.Context.__proto__),
+    createState: dart.fnType(Context.ContextState, [])
+  }));
+  dart.setLibraryUri(Context.Context, I[0]);
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  Context.ContextState = class ContextState extends framework.State$(Context.Context) {
+    build(context) {
+      return new scaffold.Scaffold.new({body: new Context.BodyWidget.new({$creationLocationd_0dea112b090073317d4: C[0] || CT.C0}), $creationLocationd_0dea112b090073317d4: C[2] || CT.C2});
+    }
+  };
+  (Context.ContextState.new = function() {
+    Context.ContextState.__proto__.new.call(this);
+    ;
+  }).prototype = Context.ContextState.prototype;
+  dart.addTypeTests(Context.ContextState);
+  dart.addTypeCaches(Context.ContextState);
+  dart.setMethodSignature(Context.ContextState, () => ({
+    __proto__: dart.getMethods(Context.ContextState.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(Context.ContextState, I[0]);
+  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
+  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
+  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
+  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
+  Context.BodyWidget = class BodyWidget extends framework.StatelessWidget {
+    build(context) {
+      return new (T.ChangeNotifierProviderOfStoryState()).new({create: dart.fn(context => new StoryState.StoryState.new(), T.BuildContextToStoryState()), child: new (T.ConsumerOfStoryState()).new({builder: dart.fn((context, state, child) => new single_child_scroll_view.SingleChildScrollView.new({physics: new scroll_physics.BouncingScrollPhysics.new(), child: new basic.Column.new({crossAxisAlignment: flex.CrossAxisAlignment.start, children: (() => {
+                let t0 = T.JSArrayOfWidget().of([new gesture_detector.GestureDetector.new({onTap: dart.fn(() => {
+                    }, T.VoidTovoid()), child: new Context.MyStateWidget.new({$creationLocationd_0dea112b090073317d4: C[5] || CT.C5}), $creationLocationd_0dea112b090073317d4: C[6] || CT.C6}), new basic.SizedBox.new({height: 20.0, $creationLocationd_0dea112b090073317d4: C[10] || CT.C10})]);
+                if (StoryItems.userSubList[$length] !== 0) t0[$add](new basic.Padding.new({padding: C[13] || CT.C13, child: new text.Text.new("SON GÜNCELLEMELER", {style: new text_style.TextStyle.new({fontSize: 10.0, letterSpacing: 0.5, fontWeight: ui.FontWeight.w500}), $creationLocationd_0dea112b090073317d4: C[14] || CT.C14}), $creationLocationd_0dea112b090073317d4: C[18] || CT.C18}));
+                t0[$add](new basic.Column.new({children: T.ListOfWidget().generate(StoryItems.userSubList[$length], dart.fn(index => new gesture_detector.GestureDetector.new({onTap: dart.fn(() => {
+                      navigator.Navigator.push(dart.dynamic, context, new page.MaterialPageRoute.new({builder: dart.fn(context => new material.Material.new({child: new story_view.StoryView.new({storyItems: StoryItems.userSubList[$_get](index).storyItems, controller: StoryItems.controller, onComplete: dart.fn(() => T.LinkedHashSetOfvoid().from([navigator.Navigator.pop(T.ObjectN(), context), state.setSubList(index)]), T.VoidTovoid()), inline: false, repeat: false, onVerticalSwipeComplete: dart.fn(value => (() => {
+                              let t1 = T.LinkedHashSetOfSetOfvoid().new();
+                              if (value === utils.Direction.down) t1.add(T.LinkedHashSetOfvoid().from([navigator.Navigator.pop(T.ObjectN(), context), state.setSubList(index)]));
+                              return t1;
+                            })(), T.DirectionNToSetOfSetOfvoid()), $creationLocationd_0dea112b090073317d4: C[22] || CT.C22}), $creationLocationd_0dea112b090073317d4: C[30] || CT.C30}), T.BuildContextToMaterial())}));
+                      state.setStateStory(index);
+                    }, T.VoidTovoid()), child: new Context.ListViewItem.new({color: colors.Colors.blue, index: index, choice: 0, $creationLocationd_0dea112b090073317d4: C[33] || CT.C33}), $creationLocationd_0dea112b090073317d4: C[38] || CT.C38}), T.intToGestureDetector())), $creationLocationd_0dea112b090073317d4: C[42] || CT.C42}));
+                t0[$add](new basic.SizedBox.new({height: 20.0, $creationLocationd_0dea112b090073317d4: C[45] || CT.C45}));
+                if (StoryItems.completedList[$length] !== 0) t0[$add](new basic.Padding.new({padding: C[13] || CT.C13, child: new text.Text.new("GÖRÜLEN GÜNCELLEMELER", {style: new text_style.TextStyle.new({fontSize: 10.0, letterSpacing: 0.5, fontWeight: ui.FontWeight.w500}), $creationLocationd_0dea112b090073317d4: C[48] || CT.C48}), $creationLocationd_0dea112b090073317d4: C[52] || CT.C52}));
+                t0[$add](new basic.Column.new({children: T.ListOfWidget().generate(StoryItems.completedList[$length], dart.fn(index => new gesture_detector.GestureDetector.new({onTap: dart.fn(() => {
+                      navigator.Navigator.push(dart.dynamic, context, new page.MaterialPageRoute.new({builder: dart.fn(context => new material.Material.new({child: new story_view.StoryView.new({storyItems: StoryItems.completedList[$_get](index).storyItems, controller: StoryItems.controller, onComplete: dart.fn(() => T.LinkedHashSetOfvoid().from([navigator.Navigator.pop(T.ObjectN(), context)]), T.VoidTovoid()), inline: false, repeat: false, onVerticalSwipeComplete: dart.fn(value => (() => {
+                              let t2 = T.LinkedHashSetOfSetOfvoid().new();
+                              if (value === utils.Direction.down) t2.add(T.LinkedHashSetOfvoid().from([navigator.Navigator.pop(T.ObjectN(), context)]));
+                              return t2;
+                            })(), T.DirectionNToSetOfSetOfvoid()), $creationLocationd_0dea112b090073317d4: C[56] || CT.C56}), $creationLocationd_0dea112b090073317d4: C[64] || CT.C64}), T.BuildContextToMaterial())}));
+                    }, T.VoidTovoid()), child: new Context.ListViewItem.new({color: colors.Colors.grey, index: index, choice: 1, $creationLocationd_0dea112b090073317d4: C[67] || CT.C67}), $creationLocationd_0dea112b090073317d4: C[72] || CT.C72}), T.intToGestureDetector())), $creationLocationd_0dea112b090073317d4: C[76] || CT.C76}));
+                return t0;
+              })(), $creationLocationd_0dea112b090073317d4: C[79] || CT.C79}), $creationLocationd_0dea112b090073317d4: C[83] || CT.C83}), T.BuildContextAndStoryStateAndWidgetNToSingleChildScrollView()), $creationLocationd_0dea112b090073317d4: C[87] || CT.C87}), $creationLocationd_0dea112b090073317d4: C[90] || CT.C90});
+    }
+  };
+  (Context.BodyWidget.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    Context.BodyWidget.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = Context.BodyWidget.prototype;
+  dart.addTypeTests(Context.BodyWidget);
+  dart.addTypeCaches(Context.BodyWidget);
+  dart.setMethodSignature(Context.BodyWidget, () => ({
+    __proto__: dart.getMethods(Context.BodyWidget.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(Context.BodyWidget, I[0]);
+  Context.MyStateWidget = class MyStateWidget extends framework.StatelessWidget {
+    build(context) {
+      return new container.Container.new({height: 64.0, color: colors.Colors.white, child: new basic.Row.new({children: T.JSArrayOfWidget().of([new basic.SizedBox.new({width: 10.0, $creationLocationd_0dea112b090073317d4: C[94] || CT.C94}), new basic.Stack.new({children: T.JSArrayOfWidget().of([new circle_avatar.CircleAvatar.new({minRadius: 25.0, backgroundImage: new _network_image_web.NetworkImage.new("https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80"), $creationLocationd_0dea112b090073317d4: C[97] || CT.C97}), new basic.Positioned.new({bottom: 4.0, right: 0.0, child: new container.Container.new({height: 20.0, width: 20.0, decoration: new box_decoration.BoxDecoration.new({borderRadius: new border_radius.BorderRadius.circular(20.0), color: colors.Colors.blue}), child: new icon.Icon.new(icons.CupertinoIcons.add, {color: colors.Colors.white, size: 14.0, $creationLocationd_0dea112b090073317d4: C[101] || CT.C101}), $creationLocationd_0dea112b090073317d4: C[106] || CT.C106}), $creationLocationd_0dea112b090073317d4: C[112] || CT.C112})]), $creationLocationd_0dea112b090073317d4: C[117] || CT.C117}), new basic.SizedBox.new({width: 10.0, $creationLocationd_0dea112b090073317d4: C[120] || CT.C120}), new basic.Padding.new({padding: C[123] || CT.C123, child: new container.Container.new({height: 64.0, child: new basic.Column.new({crossAxisAlignment: flex.CrossAxisAlignment.start, children: T.JSArrayOfWidget().of([new basic.Row.new({children: T.JSArrayOfWidget().of([new text.Text.new("Durumum", {style: new text_style.TextStyle.new({fontWeight: ui.FontWeight.w600}), $creationLocationd_0dea112b090073317d4: C[124] || CT.C124})]), $creationLocationd_0dea112b090073317d4: C[128] || CT.C128}), new basic.Row.new({children: T.JSArrayOfWidget().of([new text.Text.new("Durumuma ekle", {style: new text_style.TextStyle.new({fontWeight: ui.FontWeight.normal, fontSize: 13.0}), $creationLocationd_0dea112b090073317d4: C[131] || CT.C131})]), $creationLocationd_0dea112b090073317d4: C[135] || CT.C135})]), $creationLocationd_0dea112b090073317d4: C[138] || CT.C138}), $creationLocationd_0dea112b090073317d4: C[142] || CT.C142}), $creationLocationd_0dea112b090073317d4: C[146] || CT.C146}), new spacer.Spacer.new({$creationLocationd_0dea112b090073317d4: C[150] || CT.C150}), new container.Container.new({height: 30.0, width: 30.0, decoration: new box_decoration.BoxDecoration.new({borderRadius: new border_radius.BorderRadius.circular(20.0), color: colors.Colors.grey.withOpacity(0.3)}), child: new icon.Icon.new(icons.CupertinoIcons.photo_camera_solid, {color: colors.Colors.blue, size: 16.0, $creationLocationd_0dea112b090073317d4: C[151] || CT.C151}), $creationLocationd_0dea112b090073317d4: C[156] || CT.C156}), new basic.SizedBox.new({width: 10.0, $creationLocationd_0dea112b090073317d4: C[162] || CT.C162}), new container.Container.new({height: 30.0, width: 30.0, decoration: new box_decoration.BoxDecoration.new({borderRadius: new border_radius.BorderRadius.circular(20.0), color: colors.Colors.grey.withOpacity(0.3)}), child: new icon.Icon.new(icons.CupertinoIcons.pencil, {color: colors.Colors.blue, size: 22.0, $creationLocationd_0dea112b090073317d4: C[165] || CT.C165}), $creationLocationd_0dea112b090073317d4: C[170] || CT.C170}), new basic.SizedBox.new({width: 10.0, $creationLocationd_0dea112b090073317d4: C[176] || CT.C176})]), $creationLocationd_0dea112b090073317d4: C[179] || CT.C179}), $creationLocationd_0dea112b090073317d4: C[182] || CT.C182});
+    }
+  };
+  (Context.MyStateWidget.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    Context.MyStateWidget.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = Context.MyStateWidget.prototype;
+  dart.addTypeTests(Context.MyStateWidget);
+  dart.addTypeCaches(Context.MyStateWidget);
+  dart.setMethodSignature(Context.MyStateWidget, () => ({
+    __proto__: dart.getMethods(Context.MyStateWidget.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(Context.MyStateWidget, I[0]);
+  var index$ = dart.privateName(Context, "ListViewItem.index");
+  var color$ = dart.privateName(Context, "ListViewItem.color");
+  var choice$ = dart.privateName(Context, "ListViewItem.choice");
+  Context.ListViewItem = class ListViewItem extends framework.StatelessWidget {
+    get index() {
+      return this[index$];
+    }
+    set index(value) {
+      super.index = value;
+    }
+    get color() {
+      return this[color$];
+    }
+    set color(value) {
+      super.color = value;
+    }
+    get choice() {
+      return this[choice$];
+    }
+    set choice(value) {
+      super.choice = value;
+    }
+    build(context) {
+      let widgetwidth = media_query.MediaQuery.of(context).size.width;
+      return new container.Container.new({height: 64.0, color: colors.Colors.white, child: new basic.Row.new({mainAxisAlignment: flex.MainAxisAlignment.start, children: T.JSArrayOfWidget().of([new basic.SizedBox.new({width: 10.0, $creationLocationd_0dea112b090073317d4: C[187] || CT.C187}), new container.Container.new({height: 55.0, width: 55.0, decoration: new box_decoration.BoxDecoration.new({borderRadius: new border_radius.BorderRadius.circular(30.0), color: this.color}), child: new basic.Padding.new({padding: C[190] || CT.C190, child: new circle_avatar.CircleAvatar.new({minRadius: 25.0, backgroundImage: new _network_image_web.NetworkImage.new(this.choice === 0 ? StoryItems.userSubList[$_get](this.index).profilePicture : StoryItems.completedList[$_get](this.index).profilePicture), $creationLocationd_0dea112b090073317d4: C[191] || CT.C191}), $creationLocationd_0dea112b090073317d4: C[195] || CT.C195}), $creationLocationd_0dea112b090073317d4: C[199] || CT.C199}), new basic.SizedBox.new({width: 10.0, $creationLocationd_0dea112b090073317d4: C[205] || CT.C205}), new basic.Padding.new({padding: C[208] || CT.C208, child: new container.Container.new({height: 64.0, child: new basic.Column.new({crossAxisAlignment: flex.CrossAxisAlignment.start, children: T.JSArrayOfWidget().of([new basic.Row.new({children: T.JSArrayOfWidget().of([new text.Text.new(this.choice === 0 ? StoryItems.userSubList[$_get](this.index).username : StoryItems.completedList[$_get](this.index).username, {style: new text_style.TextStyle.new({fontWeight: ui.FontWeight.w600}), $creationLocationd_0dea112b090073317d4: C[209] || CT.C209})]), $creationLocationd_0dea112b090073317d4: C[213] || CT.C213}), new basic.Row.new({children: T.JSArrayOfWidget().of([new text.Text.new(this.choice === 0 ? StoryItems.userSubList[$_get](this.index).lastStoryTime : StoryItems.completedList[$_get](this.index).lastStoryTime, {style: new text_style.TextStyle.new({fontWeight: ui.FontWeight.normal, fontSize: 13.0}), $creationLocationd_0dea112b090073317d4: C[216] || CT.C216})]), $creationLocationd_0dea112b090073317d4: C[220] || CT.C220}), new spacer.Spacer.new({$creationLocationd_0dea112b090073317d4: C[223] || CT.C223}), new basic.Expanded.new({child: new basic.SizedBox.new({width: widgetwidth - 75, child: new divider.Divider.new({$creationLocationd_0dea112b090073317d4: C[224] || CT.C224}), $creationLocationd_0dea112b090073317d4: C[225] || CT.C225}), $creationLocationd_0dea112b090073317d4: C[229] || CT.C229})]), $creationLocationd_0dea112b090073317d4: C[232] || CT.C232}), $creationLocationd_0dea112b090073317d4: C[236] || CT.C236}), $creationLocationd_0dea112b090073317d4: C[240] || CT.C240})]), $creationLocationd_0dea112b090073317d4: C[244] || CT.C244}), $creationLocationd_0dea112b090073317d4: C[248] || CT.C248});
+    }
+  };
+  (Context.ListViewItem.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let color = opts && 'color' in opts ? opts.color : null;
+    let index = opts && 'index' in opts ? opts.index : null;
+    let choice = opts && 'choice' in opts ? opts.choice : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[color$] = color;
+    this[index$] = index;
+    this[choice$] = choice;
+    Context.ListViewItem.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = Context.ListViewItem.prototype;
+  dart.addTypeTests(Context.ListViewItem);
+  dart.addTypeCaches(Context.ListViewItem);
+  dart.setMethodSignature(Context.ListViewItem, () => ({
+    __proto__: dart.getMethods(Context.ListViewItem.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(Context.ListViewItem, I[0]);
+  dart.setFieldSignature(Context.ListViewItem, () => ({
+    __proto__: dart.getFields(Context.ListViewItem.__proto__),
+    index: dart.finalFieldType(core.int),
+    color: dart.finalFieldType(colors.MaterialColor),
+    choice: dart.finalFieldType(core.int)
+  }));
+  dart.trackLibraries("packages/whatsapp_ui_clone/Context.dart", {
+    "package:whatsapp_ui_clone/Context.dart": Context
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["Context.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAsBI,YAAQ;IACV;;;QAPc;;AAAQ,mDAAW,GAAG;;EAAC;;;;;;;;;;;;;;UAYX;AACxB,YAAO,kCAGG;IACZ;;;;;EACF;;;;;;;;;;;;;UAQ4B;AACxB,YAAO,2DACG,QAAC,WAAY,uEACd,6CACI,SAAC,SAAS,OAAO,UACjB,iEACI,uDACF,0CACkC,yCAC7B;iDAER,iDAAuB;+CAAc,iJACrC,gCACU;AAEV,oBAAI,AAAY,oCAAU,GACxB,iEAES,kBACL,6BACO,wCACO,qBACK,iBACQ;AAGjC,yDACiB,0BACX,AAAY,iCACZ,QAAC,SAAU,iDACA;AAsBU,sBArBL,uCACN,OAAO,EACP,yCACa,QAAC,WAAY,kCACT,0CAED,AAAW,AAAQ,8BAAP,KAAK,0BACT,mCACA,cAAM,8BACN,qCAAI,OAAO,GACrB,AAAM,KAAD,YAAY,KAAK,8BAEhB,eACA,gCACiB,QAAC,SACtB;;AACF,kCAAI,AAAM,KAAD,KAAc,sBACrB,qCAAW,qCAAI,OAAO,GACtB,AAAM,KAAD,YAAY,KAAK;;;AAIhB,sBAA1B,AAAM,KAAD,eAAe,KAAK;+CAEpB,qCACS,2BACP,KAAK,UACJ;AAGpB,yDACU;AAEV,oBAAI,AAAc,sCAAU,GAC1B,iEAES,kBACL,iCACO,wCACO,qBACK,iBACQ;AAGjC,yDACiB,0BACX,AAAc,mCACd,QAAC,SAAU,iDACA;AAqBU,sBApBL,uCACN,OAAO,EACP,yCACa,QAAC,WAAY,kCACT,0CACO,AAAa,AACpB,gCADqB,KAAK,0BAEnB,mCACA,cAAM,8BACN,qCAAI,OAAO,8BAEf,eACA,gCACiB,QAAC,SACtB;;AACF,kCAAI,AAAM,KAAD,KAAc,sBACrB,qCAAW,qCAAI,OAAO;;;+CAMrC,qCACW,2BAAa,KAAK,UAAU;;;IAQtE;;;QAnHO;;AACF,sDAAW,GAAG;;EAAC;;;;;;;;;UA6HM;AACxB,YAAO,sCACG,aACM,4BACP,6BACK,wBACR,+BACS,iEAET,+BACY,wBACR,+CACa,uBACM,wCACb,mNAEN,kCACU,YACD,YACA,qCACG,aACD,kBACK,oDACmB,wCAAS,cACtB,6BACX,kBACU,kCACD,2BACR,4PAMhB,+BACS,mEAET,0DAES,qCACG,aACD,0CACkC,yCAC7B,wBACR,6BACY,wBACR,kBACE,mBACO,0CAAiC,kJAI9C,6BACY,wBACR,kBACE,yBACO,0CACoB,gCAAkB,6TAQ3D,oFACA,qCACU,aACD,kBACK,oDACmB,wCAAS,cACtB,AAAK,+BAAY,eAC5B,kBACU,iDACD,0BACR,gIAGV,+BACS,mEAET,qCACU,aACD,kBACK,oDACmB,wCAAS,cACtB,AAAK,+BAAY,eAC5B,kBACU,qCACD,0BACR,gIAGV,+BACS;IAKjB;;;QAvGO;;AACF,yDAAW,GAAG;;EAAC;;;;;;;;;;;;IA0GV;;;;;;IACU;;;;;;IACV;;;;;;UAUgB;AACjB,wBAAyB,AAAY,AAAK,0BAAd,OAAO;AAC1C,YAAO,sCACG,aACM,4BACP,sCACgC,wCAC3B,wBACR,+BACS,mEAET,qCACU,aACD,kBACK,oDACmB,wCAAS,cAAY,qBAC7C,0DAEE,+CACM,uBACM,wCAAa,AAAO,gBAAG,IAClC,AAAW,AAAQ,8BAAP,6BACZ,AAAa,AACV,gCADW,oNAK1B,+BACS,mEAET,0DAES,qCACG,aACD,0CACkC,yCAC7B,wBACR,6BACY,wBACR,kBACE,AAAO,gBAAG,IACJ,AAAW,AAAQ,8BAAP,uBACZ,AAAa,AACV,gCADW,8BAEb,0CAAiC,kJAI9C,6BACY,wBACR,kBACE,AAAO,gBAAG,IACJ,AAAW,AAAQ,8BAAP,4BACZ,AAAa,AACV,gCADW,mCAEb,0CACoB,gCAAkB,oIAInD,oFACA,+BAEQ,+BAAgB,AAAY,WAAD,GAAG,WAAW;IAQjE;;;QA9EU;QACQ;QACA;QACA;;IAFA;IACA;IACA;AACZ,wDAAW,GAAG;;EAAC","file":"../../../packages/whatsapp_ui_clone/Context.dart.lib.js"}');
+  // Exports:
+  return {
+    Context: Context
+  };
+}));
+
+//# sourceMappingURL=Context.dart.lib.js.map

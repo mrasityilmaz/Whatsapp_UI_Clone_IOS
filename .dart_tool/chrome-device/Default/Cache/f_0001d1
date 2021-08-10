@@ -1,0 +1,406 @@
+define(['dart_sdk', 'packages/file/src/backends/memory/style.dart', 'packages/file/src/backends/memory/memory_file_stat.dart', 'packages/file/src/backends/memory/clock.dart', 'packages/file/src/backends/memory/common.dart'], (function load__packages__file__src__backends__memory__node_dart(dart_sdk, packages__file__src__backends__memory__style$46dart, packages__file__src__backends__memory__memory_file_stat$46dart, packages__file__src__backends__memory__clock$46dart, packages__file__src__backends__memory__common$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const io = dart_sdk.io;
+  const _internal = dart_sdk._internal;
+  const _js_helper = dart_sdk._js_helper;
+  const _native_typed_data = dart_sdk._native_typed_data;
+  const typed_data = dart_sdk.typed_data;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const style = packages__file__src__backends__memory__style$46dart.src__backends__memory__style;
+  const memory_file_stat = packages__file__src__backends__memory__memory_file_stat$46dart.src__backends__memory__memory_file_stat;
+  const clock = packages__file__src__backends__memory__clock$46dart.src__backends__memory__clock;
+  const common = packages__file__src__backends__memory__common$46dart.src__backends__memory__common;
+  var node = Object.create(dart.library);
+  var $_equals = dartx._equals;
+  var $length = dartx.length;
+  var $setRange = dartx.setRange;
+  var $sublist = dartx.sublist;
+  var $isNotEmpty = dartx.isNotEmpty;
+  dart._checkModuleNullSafetyMode(true);
+  var T = {
+    IdentityMapOfString$Node: () => (T.IdentityMapOfString$Node = dart.constFn(_js_helper.IdentityMap$(core.String, node.Node)))(),
+    NodeN: () => (T.NodeN = dart.constFn(dart.nullable(node.Node)))(),
+    DirectoryNodeAndStringAndNodeN__ToNodeN: () => (T.DirectoryNodeAndStringAndNodeN__ToNodeN = dart.constFn(dart.fnType(T.NodeN(), [node.DirectoryNode, core.String, T.NodeN(), core.int, core.int])))(),
+    VoidToString: () => (T.VoidToString = dart.constFn(dart.fnType(core.String, [])))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: io.FileSystemException.prototype,
+        [FileSystemException_osError]: null,
+        [FileSystemException_path]: "",
+        [FileSystemException_message]: "All nodes must have a parent."
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: io.FileSystemException.prototype,
+        [FileSystemException_osError]: null,
+        [FileSystemException_path]: "",
+        [FileSystemException_message]: "A directory cannot be its own ancestor."
+      });
+    }
+  }, false);
+  var C = Array(2).fill(void 0);
+  var I = [
+    "package:file/src/backends/memory/node.dart",
+    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/file-6.1.2/lib/src/backends/memory/node.dart"
+  ];
+  node.NodeBasedFileSystem = class NodeBasedFileSystem extends core.Object {};
+  (node.NodeBasedFileSystem.new = function() {
+    ;
+  }).prototype = node.NodeBasedFileSystem.prototype;
+  dart.addTypeTests(node.NodeBasedFileSystem);
+  dart.addTypeCaches(node.NodeBasedFileSystem);
+  node.NodeBasedFileSystem[dart.implements] = () => [style.StyleableFileSystem];
+  dart.setLibraryUri(node.NodeBasedFileSystem, I[0]);
+  var _parent$ = dart.privateName(node, "_parent");
+  var FileSystemException_osError = dart.privateName(io, "FileSystemException.osError");
+  var FileSystemException_path = dart.privateName(io, "FileSystemException.path");
+  var FileSystemException_message = dart.privateName(io, "FileSystemException.message");
+  node.Node = class Node extends core.Object {
+    get parent() {
+      return dart.nullCheck(this[_parent$]);
+    }
+    set parent(parent) {
+      let ancestor = parent;
+      while (!ancestor.isRoot) {
+        if (ancestor[$_equals](this)) {
+          dart.throw(C[1] || CT.C1);
+        }
+        ancestor = ancestor.parent;
+      }
+      this[_parent$] = parent;
+    }
+    get directory() {
+      return dart.nullCheck(this[_parent$]);
+    }
+    get isRoot() {
+      return false;
+    }
+    get fs() {
+      return dart.nullCheck(this[_parent$]).fs;
+    }
+  };
+  (node.Node.new = function(_parent) {
+    this[_parent$] = _parent;
+    if (this[_parent$] == null && !this.isRoot) {
+      dart.throw(C[0] || CT.C0);
+    }
+  }).prototype = node.Node.prototype;
+  dart.addTypeTests(node.Node);
+  dart.addTypeCaches(node.Node);
+  dart.setGetterSignature(node.Node, () => ({
+    __proto__: dart.getGetters(node.Node.__proto__),
+    parent: node.DirectoryNode,
+    directory: node.DirectoryNode,
+    isRoot: core.bool,
+    fs: node.NodeBasedFileSystem
+  }));
+  dart.setSetterSignature(node.Node, () => ({
+    __proto__: dart.getSetters(node.Node.__proto__),
+    parent: node.DirectoryNode
+  }));
+  dart.setLibraryUri(node.Node, I[0]);
+  dart.setFieldSignature(node.Node, () => ({
+    __proto__: dart.getFields(node.Node.__proto__),
+    [_parent$]: dart.fieldType(dart.nullable(node.DirectoryNode))
+  }));
+  var mode = dart.privateName(node, "RealNode.mode");
+  var __RealNode_changed = dart.privateName(node, "_#RealNode#changed");
+  var __RealNode_modified = dart.privateName(node, "_#RealNode#modified");
+  var __RealNode_accessed = dart.privateName(node, "_#RealNode#accessed");
+  node.RealNode = class RealNode extends node.Node {
+    get mode() {
+      return this[mode];
+    }
+    set mode(value) {
+      this[mode] = value;
+    }
+    get clock() {
+      return this.parent.clock;
+    }
+    get changed() {
+      let t0;
+      t0 = this[__RealNode_changed];
+      return t0 == null ? dart.throw(new _internal.LateError.fieldNI("changed")) : t0;
+    }
+    set changed(t0) {
+      this[__RealNode_changed] = t0;
+    }
+    get modified() {
+      let t1;
+      t1 = this[__RealNode_modified];
+      return t1 == null ? dart.throw(new _internal.LateError.fieldNI("modified")) : t1;
+    }
+    set modified(t1) {
+      this[__RealNode_modified] = t1;
+    }
+    get accessed() {
+      let t2;
+      t2 = this[__RealNode_accessed];
+      return t2 == null ? dart.throw(new _internal.LateError.fieldNI("accessed")) : t2;
+    }
+    set accessed(t2) {
+      this[__RealNode_accessed] = t2;
+    }
+    get stat() {
+      return new memory_file_stat.MemoryFileStat.new(new core.DateTime.fromMillisecondsSinceEpoch(this.changed), new core.DateTime.fromMillisecondsSinceEpoch(this.modified), new core.DateTime.fromMillisecondsSinceEpoch(this.accessed), this.type, this.mode, this.size);
+    }
+    touch() {
+      this.modified = this.clock.now.millisecondsSinceEpoch;
+    }
+  };
+  (node.RealNode.new = function(parent) {
+    this[__RealNode_changed] = null;
+    this[__RealNode_modified] = null;
+    this[__RealNode_accessed] = null;
+    this[mode] = 1911;
+    node.RealNode.__proto__.new.call(this, parent);
+    let now = this.clock.now.millisecondsSinceEpoch;
+    this.changed = now;
+    this.modified = now;
+    this.accessed = now;
+  }).prototype = node.RealNode.prototype;
+  dart.addTypeTests(node.RealNode);
+  dart.addTypeCaches(node.RealNode);
+  dart.setMethodSignature(node.RealNode, () => ({
+    __proto__: dart.getMethods(node.RealNode.__proto__),
+    touch: dart.fnType(dart.void, [])
+  }));
+  dart.setGetterSignature(node.RealNode, () => ({
+    __proto__: dart.getGetters(node.RealNode.__proto__),
+    clock: clock.Clock,
+    changed: core.int,
+    modified: core.int,
+    accessed: core.int,
+    stat: io.FileStat
+  }));
+  dart.setSetterSignature(node.RealNode, () => ({
+    __proto__: dart.getSetters(node.RealNode.__proto__),
+    changed: core.int,
+    modified: core.int,
+    accessed: core.int
+  }));
+  dart.setLibraryUri(node.RealNode, I[0]);
+  dart.setFieldSignature(node.RealNode, () => ({
+    __proto__: dart.getFields(node.RealNode.__proto__),
+    [__RealNode_changed]: dart.fieldType(dart.nullable(core.int)),
+    [__RealNode_modified]: dart.fieldType(dart.nullable(core.int)),
+    [__RealNode_accessed]: dart.fieldType(dart.nullable(core.int)),
+    mode: dart.fieldType(core.int)
+  }));
+  var children = dart.privateName(node, "DirectoryNode.children");
+  node.DirectoryNode = class DirectoryNode extends node.RealNode {
+    get children() {
+      return this[children];
+    }
+    set children(value) {
+      super.children = value;
+    }
+    get type() {
+      return io.FileSystemEntityType.directory;
+    }
+    get directory() {
+      return this;
+    }
+    get size() {
+      return 0;
+    }
+  };
+  (node.DirectoryNode.new = function(parent) {
+    this[children] = new (T.IdentityMapOfString$Node()).new();
+    node.DirectoryNode.__proto__.new.call(this, parent);
+    ;
+  }).prototype = node.DirectoryNode.prototype;
+  dart.addTypeTests(node.DirectoryNode);
+  dart.addTypeCaches(node.DirectoryNode);
+  dart.setGetterSignature(node.DirectoryNode, () => ({
+    __proto__: dart.getGetters(node.DirectoryNode.__proto__),
+    type: io.FileSystemEntityType,
+    size: core.int
+  }));
+  dart.setLibraryUri(node.DirectoryNode, I[0]);
+  dart.setFieldSignature(node.DirectoryNode, () => ({
+    __proto__: dart.getFields(node.DirectoryNode.__proto__),
+    children: dart.finalFieldType(core.Map$(core.String, node.Node))
+  }));
+  var fs$ = dart.privateName(node, "RootNode.fs");
+  node.RootNode = class RootNode extends node.DirectoryNode {
+    get fs() {
+      return this[fs$];
+    }
+    set fs(value) {
+      super.fs = value;
+    }
+    get clock() {
+      return this.fs.clock;
+    }
+    get parent() {
+      return this;
+    }
+    get isRoot() {
+      return true;
+    }
+    set parent(parent) {
+      return dart.throw(new core.UnsupportedError.new("Cannot set the parent of the root directory."));
+    }
+  };
+  (node.RootNode.new = function(fs) {
+    this[fs$] = fs;
+    if (!(fs.root == null)) dart.assertFailed(null, I[1], 217, 16, "fs.root == null");
+    node.RootNode.__proto__.new.call(this, null);
+    ;
+  }).prototype = node.RootNode.prototype;
+  dart.addTypeTests(node.RootNode);
+  dart.addTypeCaches(node.RootNode);
+  dart.setLibraryUri(node.RootNode, I[0]);
+  dart.setFieldSignature(node.RootNode, () => ({
+    __proto__: dart.getFields(node.RootNode.__proto__),
+    fs: dart.finalFieldType(node.NodeBasedFileSystem)
+  }));
+  var _content = dart.privateName(node, "_content");
+  node.FileNode = class FileNode extends node.RealNode {
+    get content() {
+      return this[_content];
+    }
+    get type() {
+      return io.FileSystemEntityType.file;
+    }
+    get size() {
+      return this[_content][$length];
+    }
+    write(bytes) {
+      let existing = this[_content];
+      this[_content] = _native_typed_data.NativeUint8List.new(existing[$length] + bytes[$length]);
+      this[_content][$setRange](0, existing[$length], existing);
+      this[_content][$setRange](existing[$length], this[_content][$length], bytes);
+    }
+    truncate(length) {
+      if (!(length >= 0)) dart.assertFailed(null, I[1], 264, 12, "length >= 0");
+      if (!(length <= this[_content][$length])) dart.assertFailed(null, I[1], 265, 12, "length <= _content.length");
+      this[_content] = this[_content][$sublist](0, length);
+    }
+    clear() {
+      this[_content] = _native_typed_data.NativeUint8List.new(0);
+    }
+    copyFrom(source) {
+      this.modified = this.changed = this.clock.now.millisecondsSinceEpoch;
+      this.accessed = source.accessed;
+      this.mode = source.mode;
+      this[_content] = _native_typed_data.NativeUint8List.fromList(source.content);
+    }
+  };
+  (node.FileNode.new = function(parent) {
+    this[_content] = _native_typed_data.NativeUint8List.new(0);
+    node.FileNode.__proto__.new.call(this, parent);
+    ;
+  }).prototype = node.FileNode.prototype;
+  dart.addTypeTests(node.FileNode);
+  dart.addTypeCaches(node.FileNode);
+  dart.setMethodSignature(node.FileNode, () => ({
+    __proto__: dart.getMethods(node.FileNode.__proto__),
+    write: dart.fnType(dart.void, [core.List$(core.int)]),
+    truncate: dart.fnType(dart.void, [core.int]),
+    clear: dart.fnType(dart.void, []),
+    copyFrom: dart.fnType(dart.void, [node.FileNode])
+  }));
+  dart.setGetterSignature(node.FileNode, () => ({
+    __proto__: dart.getGetters(node.FileNode.__proto__),
+    content: typed_data.Uint8List,
+    type: io.FileSystemEntityType,
+    size: core.int
+  }));
+  dart.setLibraryUri(node.FileNode, I[0]);
+  dart.setFieldSignature(node.FileNode, () => ({
+    __proto__: dart.getFields(node.FileNode.__proto__),
+    [_content]: dart.fieldType(typed_data.Uint8List)
+  }));
+  var target$ = dart.privateName(node, "LinkNode.target");
+  var _reentrant = dart.privateName(node, "_reentrant");
+  node.LinkNode = class LinkNode extends node.Node {
+    get target() {
+      return this[target$];
+    }
+    set target(value) {
+      this[target$] = value;
+    }
+    getReferent(opts) {
+      let tailVisitor = opts && 'tailVisitor' in opts ? opts.tailVisitor : null;
+      let referent = this.fs.findNode(this.target, {reference: this, segmentVisitor: dart.fn((parent, childName, child, currentSegment, finalSegment) => {
+          if (tailVisitor != null && currentSegment === finalSegment) {
+            child = tailVisitor(parent, childName, child);
+          }
+          return child;
+        }, T.DirectoryNodeAndStringAndNodeN__ToNodeN())});
+      common.checkExists(referent, dart.fn(() => this.target, T.VoidToString()));
+      return dart.nullCheck(referent);
+    }
+    get referentOrNull() {
+      try {
+        return this.getReferent();
+      } catch (e) {
+        let ex = dart.getThrown(e);
+        if (io.FileSystemException.is(ex)) {
+          return null;
+        } else
+          throw e;
+      }
+    }
+    get type() {
+      return io.FileSystemEntityType.link;
+    }
+    get stat() {
+      if (this[_reentrant]) {
+        return memory_file_stat.MemoryFileStat.notFound;
+      }
+      this[_reentrant] = true;
+      try {
+        let node = this.referentOrNull;
+        return node == null ? memory_file_stat.MemoryFileStat.notFound : node.stat;
+      } finally {
+        this[_reentrant] = false;
+      }
+    }
+  };
+  (node.LinkNode.new = function(parent, target) {
+    this[_reentrant] = false;
+    this[target$] = target;
+    if (!target[$isNotEmpty]) dart.assertFailed(null, I[1], 290, 16, "target.isNotEmpty");
+    node.LinkNode.__proto__.new.call(this, parent);
+    ;
+  }).prototype = node.LinkNode.prototype;
+  dart.addTypeTests(node.LinkNode);
+  dart.addTypeCaches(node.LinkNode);
+  dart.setMethodSignature(node.LinkNode, () => ({
+    __proto__: dart.getMethods(node.LinkNode.__proto__),
+    getReferent: dart.fnType(node.Node, [], {tailVisitor: dart.nullable(dart.fnType(dart.nullable(node.Node), [node.DirectoryNode, core.String, dart.nullable(node.Node)]))}, {})
+  }));
+  dart.setGetterSignature(node.LinkNode, () => ({
+    __proto__: dart.getGetters(node.LinkNode.__proto__),
+    referentOrNull: dart.nullable(node.Node),
+    type: io.FileSystemEntityType,
+    stat: io.FileStat
+  }));
+  dart.setLibraryUri(node.LinkNode, I[0]);
+  dart.setFieldSignature(node.LinkNode, () => ({
+    __proto__: dart.getFields(node.LinkNode.__proto__),
+    target: dart.fieldType(core.String),
+    [_reentrant]: dart.fieldType(core.bool)
+  }));
+  dart.trackLibraries("packages/file/src/backends/memory/node.dart", {
+    "package:file/src/backends/memory/node.dart": node
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["node.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../packages/file/src/backends/memory/node.dart.lib.js"}');
+  // Exports:
+  return {
+    src__backends__memory__node: node
+  };
+}));
+
+//# sourceMappingURL=node.dart.lib.js.map

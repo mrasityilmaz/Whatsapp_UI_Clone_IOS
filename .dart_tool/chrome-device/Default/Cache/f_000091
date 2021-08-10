@@ -1,0 +1,244 @@
+define(['dart_sdk'], (function load__packages__rxdart__src__streams__zip_dart(dart_sdk) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _interceptors = dart_sdk._interceptors;
+  const async = dart_sdk.async;
+  const _internal = dart_sdk._internal;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  var zip = Object.create(dart.library);
+  var $_get = dartx._get;
+  var $isEmpty = dartx.isEmpty;
+  var $length = dartx.length;
+  var $toList = dartx.toList;
+  var $remove = dartx.remove;
+  var $map = dartx.map;
+  var $forEach = dartx.forEach;
+  var $_set = dartx._set;
+  dart._checkModuleNullSafetyMode(true);
+  var T$ = {
+    JSArrayOfStream: () => (T$.JSArrayOfStream = dart.constFn(_interceptors.JSArray$(async.Stream)))(),
+    VoidToNull: () => (T$.VoidToNull = dart.constFn(dart.fnType(core.Null, [])))(),
+    VoidTovoid: () => (T$.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    FutureOfvoid: () => (T$.FutureOfvoid = dart.constFn(async.Future$(dart.void)))(),
+    FutureOfList: () => (T$.FutureOfList = dart.constFn(async.Future$(core.List)))(),
+    VoidToFutureOfList: () => (T$.VoidToFutureOfList = dart.constFn(dart.fnType(T$.FutureOfList(), [])))(),
+    ObjectN: () => (T$.ObjectN = dart.constFn(dart.nullable(core.Object)))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  var I = ["package:rxdart/src/streams/zip.dart"];
+  const _is_ZipStream_default = Symbol('_is_ZipStream_default');
+  zip.ZipStream$ = dart.generic((T, R) => {
+    class ZipStream extends async.StreamView$(R) {
+      static list(T, streams) {
+        return new (zip.ZipStream$(T, core.List$(T))).new(streams, dart.fn(values => values, dart.fnType(core.List$(T), [core.List$(T)])));
+      }
+      static zip2(A, B, R, streamOne, streamTwo, zipper) {
+        return new (zip.ZipStream$(dart.dynamic, R)).new(T$.JSArrayOfStream().of([streamOne, streamTwo]), dart.fn(values => zipper(A.as(values[$_get](0)), B.as(values[$_get](1))), dart.fnType(R, [core.List])));
+      }
+      static zip3(A, B, C, R, streamA, streamB, streamC, zipper) {
+        return new (zip.ZipStream$(dart.dynamic, R)).new(T$.JSArrayOfStream().of([streamA, streamB, streamC]), dart.fn(values => zipper(A.as(values[$_get](0)), B.as(values[$_get](1)), C.as(values[$_get](2))), dart.fnType(R, [core.List])));
+      }
+      static zip4(A, B, C, D, R, streamA, streamB, streamC, streamD, zipper) {
+        return new (zip.ZipStream$(dart.dynamic, R)).new(T$.JSArrayOfStream().of([streamA, streamB, streamC, streamD]), dart.fn(values => zipper(A.as(values[$_get](0)), B.as(values[$_get](1)), C.as(values[$_get](2)), D.as(values[$_get](3))), dart.fnType(R, [core.List])));
+      }
+      static zip5(A, B, C, D, E, R, streamA, streamB, streamC, streamD, streamE, zipper) {
+        return new (zip.ZipStream$(dart.dynamic, R)).new(T$.JSArrayOfStream().of([streamA, streamB, streamC, streamD, streamE]), dart.fn(values => zipper(A.as(values[$_get](0)), B.as(values[$_get](1)), C.as(values[$_get](2)), D.as(values[$_get](3)), E.as(values[$_get](4))), dart.fnType(R, [core.List])));
+      }
+      static zip6(A, B, C, D, E, F, R, streamA, streamB, streamC, streamD, streamE, streamF, zipper) {
+        return new (zip.ZipStream$(dart.dynamic, R)).new(T$.JSArrayOfStream().of([streamA, streamB, streamC, streamD, streamE, streamF]), dart.fn(values => zipper(A.as(values[$_get](0)), B.as(values[$_get](1)), C.as(values[$_get](2)), D.as(values[$_get](3)), E.as(values[$_get](4)), F.as(values[$_get](5))), dart.fnType(R, [core.List])));
+      }
+      static zip7(A, B, C, D, E, F, G, R, streamA, streamB, streamC, streamD, streamE, streamF, streamG, zipper) {
+        return new (zip.ZipStream$(dart.dynamic, R)).new(T$.JSArrayOfStream().of([streamA, streamB, streamC, streamD, streamE, streamF, streamG]), dart.fn(values => zipper(A.as(values[$_get](0)), B.as(values[$_get](1)), C.as(values[$_get](2)), D.as(values[$_get](3)), E.as(values[$_get](4)), F.as(values[$_get](5)), G.as(values[$_get](6))), dart.fnType(R, [core.List])));
+      }
+      static zip8(A, B, C, D, E, F, G, H, R, streamA, streamB, streamC, streamD, streamE, streamF, streamG, streamH, zipper) {
+        return new (zip.ZipStream$(dart.dynamic, R)).new(T$.JSArrayOfStream().of([streamA, streamB, streamC, streamD, streamE, streamF, streamG, streamH]), dart.fn(values => zipper(A.as(values[$_get](0)), B.as(values[$_get](1)), C.as(values[$_get](2)), D.as(values[$_get](3)), E.as(values[$_get](4)), F.as(values[$_get](5)), G.as(values[$_get](6)), H.as(values[$_get](7))), dart.fnType(R, [core.List])));
+      }
+      static zip9(A, B, C, D, E, F, G, H, I, R, streamA, streamB, streamC, streamD, streamE, streamF, streamG, streamH, streamI, zipper) {
+        return new (zip.ZipStream$(dart.dynamic, R)).new(T$.JSArrayOfStream().of([streamA, streamB, streamC, streamD, streamE, streamF, streamG, streamH, streamI]), dart.fn(values => zipper(A.as(values[$_get](0)), B.as(values[$_get](1)), C.as(values[$_get](2)), D.as(values[$_get](3)), E.as(values[$_get](4)), F.as(values[$_get](5)), G.as(values[$_get](6)), H.as(values[$_get](7)), I.as(values[$_get](8))), dart.fnType(R, [core.List])));
+      }
+      static _buildController(T, R, streams, zipper) {
+        let t0;
+        if (streams[$isEmpty]) {
+          t0 = async.StreamController$(R).new();
+          return (() => {
+            t0.close();
+            return t0;
+          })();
+        }
+        let controller = null;
+        function controller$35get() {
+          let t1;
+          t1 = controller;
+          return t1 == null ? dart.throw(new _internal.LateError.localNI("controller")) : t1;
+        }
+        dart.fn(controller$35get, dart.fnType(async.StreamController$(R), []));
+        function controller$35set(t2) {
+          return controller = t2;
+        }
+        dart.fn(controller$35set, dart.fnType(dart.dynamic, [async.StreamController$(R)]));
+        let len = streams[$length];
+        let subscriptions = null;
+        function subscriptions$35get() {
+          let t5;
+          t5 = subscriptions;
+          return t5 == null ? dart.throw(new _internal.LateError.localNI("subscriptions")) : t5;
+        }
+        dart.fn(subscriptions$35get, dart.fnType(core.List$(async.StreamSubscription$(T)), []));
+        function subscriptions$35set(t6) {
+          return subscriptions = t6;
+        }
+        dart.fn(subscriptions$35set, dart.fnType(dart.dynamic, [core.List$(async.StreamSubscription$(T))]));
+        let pendingSubscriptions = null;
+        function pendingSubscriptions$35get() {
+          let t9;
+          t9 = pendingSubscriptions;
+          return t9 == null ? dart.throw(new _internal.LateError.localNI("pendingSubscriptions")) : t9;
+        }
+        dart.fn(pendingSubscriptions$35get, dart.fnType(core.List$(async.StreamSubscription$(T)), []));
+        function pendingSubscriptions$35set(t10) {
+          return pendingSubscriptions = t10;
+        }
+        dart.fn(pendingSubscriptions$35set, dart.fnType(dart.dynamic, [core.List$(async.StreamSubscription$(T))]));
+        controller$35set(async.StreamController$(R).new({sync: true, onListen: dart.fn(() => {
+            try {
+              let completeCurrent = null;
+              let window = new (zip._Window$(T)).new(len);
+              let index = 0;
+              let next = dart.fn(() => {
+                let t12;
+                t12 = completeCurrent;
+                t12 == null ? null : t12.complete(null);
+                completeCurrent = async.Completer$(dart.nullable(core.List$(T))).new();
+                pendingSubscriptions$35set(subscriptions$35get()[$toList]());
+              }, T$.VoidToNull());
+              let doUpdate = dart.fn(index => dart.fn(value => {
+                let t13;
+                window.onValue(index, value);
+                if (window.isComplete) {
+                  try {
+                    controller$35get().add(zipper(window.flush()));
+                    next();
+                  } catch (e$) {
+                    let e = dart.getThrown(e$);
+                    let s = dart.stackTrace(e$);
+                    if (core.Object.is(e)) {
+                      controller$35get().addError(e, s);
+                    } else
+                      throw e$;
+                  }
+                } else {
+                  let subscription = (t13 = subscriptions$35get()[$_get](index), (() => {
+                    t13.pause(dart.nullCheck(completeCurrent).future);
+                    return t13;
+                  })());
+                  pendingSubscriptions$35get()[$remove](subscription);
+                }
+              }, dart.fnType(core.Null, [T])), dart.fnType(dart.fnType(core.Null, [T]), [core.int]));
+              subscriptions$35set(streams[$map](async.StreamSubscription$(T), dart.fn(stream => {
+                let t13;
+                return stream.listen(doUpdate((t13 = index, index = t13 + 1, t13)), {onError: dart.bind(controller$35get(), 'addError'), onDone: dart.bind(controller$35get(), 'close')});
+              }, dart.fnType(async.StreamSubscription$(T), [async.Stream$(T)])))[$toList]({growable: false}));
+              next();
+            } catch (e$) {
+              let e = dart.getThrown(e$);
+              let s = dart.stackTrace(e$);
+              if (core.Object.is(e)) {
+                controller$35get().addError(e, s);
+              } else
+                throw e$;
+            }
+          }, T$.VoidTovoid()), onPause: dart.fn(() => pendingSubscriptions$35get()[$forEach](dart.fn(subscription => subscription.pause(), dart.fnType(dart.void, [async.StreamSubscription$(T)]))), T$.VoidTovoid()), onResume: dart.fn(() => pendingSubscriptions$35get()[$forEach](dart.fn(subscription => subscription.resume(), dart.fnType(dart.void, [async.StreamSubscription$(T)]))), T$.VoidTovoid()), onCancel: dart.fn(() => async.Future.wait(dart.dynamic, subscriptions$35get()[$map](async.Future, dart.fn(subscription => subscription.cancel(), dart.fnType(T$.FutureOfvoid(), [async.StreamSubscription$(T)])))), T$.VoidToFutureOfList())}));
+        return controller$35get();
+      }
+    }
+    (ZipStream.new = function(streams, zipper) {
+      ZipStream.__proto__.new.call(this, zip.ZipStream._buildController(T, R, streams, zipper).stream);
+      ;
+    }).prototype = ZipStream.prototype;
+    dart.addTypeTests(ZipStream);
+    ZipStream.prototype[_is_ZipStream_default] = true;
+    dart.addTypeCaches(ZipStream);
+    dart.setLibraryUri(ZipStream, I[0]);
+    return ZipStream;
+  });
+  zip.ZipStream = zip.ZipStream$();
+  dart.addTypeTests(zip.ZipStream, _is_ZipStream_default);
+  var _valuesReceived = dart.privateName(zip, "_valuesReceived");
+  var _values = dart.privateName(zip, "_values");
+  const _is__Window_default = Symbol('_is__Window_default');
+  zip._Window$ = dart.generic(T => {
+    var TN = () => (TN = dart.constFn(dart.nullable(T)))();
+    var ListOfTN = () => (ListOfTN = dart.constFn(core.List$(TN())))();
+    var ListOfT = () => (ListOfT = dart.constFn(core.List$(T)))();
+    class _Window extends core.Object {
+      get isComplete() {
+        return this[_valuesReceived] === this.size;
+      }
+      onValue(index, value) {
+        T.as(value);
+        this[_values][$_set](index, value);
+        this[_valuesReceived] = this[_valuesReceived] + 1;
+      }
+      flush() {
+        this[_valuesReceived] = 0;
+        return ListOfT().unmodifiable(this[_values]);
+      }
+    }
+    (_Window.new = function(size) {
+      this[_valuesReceived] = 0;
+      this.size = size;
+      this[_values] = ListOfTN().filled(size, null);
+      ;
+    }).prototype = _Window.prototype;
+    dart.addTypeTests(_Window);
+    _Window.prototype[_is__Window_default] = true;
+    dart.addTypeCaches(_Window);
+    dart.setMethodSignature(_Window, () => ({
+      __proto__: dart.getMethods(_Window.__proto__),
+      onValue: dart.fnType(dart.void, [core.int, dart.nullable(core.Object)]),
+      flush: dart.fnType(core.List$(T), [])
+    }));
+    dart.setGetterSignature(_Window, () => ({
+      __proto__: dart.getGetters(_Window.__proto__),
+      isComplete: core.bool
+    }));
+    dart.setLibraryUri(_Window, I[0]);
+    dart.setFieldSignature(_Window, () => ({
+      __proto__: dart.getFields(_Window.__proto__),
+      size: dart.finalFieldType(core.int),
+      [_values]: dart.finalFieldType(core.List$(dart.nullable(T))),
+      [_valuesReceived]: dart.fieldType(core.int)
+    }));
+    return _Window;
+  });
+  zip._Window = zip._Window$();
+  dart.addTypeTests(zip._Window, _is__Window_default);
+  zip['ZipWithExtension|zipWith'] = function ZipWithExtension$124zipWith(T, S, R, $this, other, zipper) {
+    let stream = zip.ZipStream.zip2(T, S, R, $this, other, zipper);
+    return $this.isBroadcast ? stream.asBroadcastStream({onCancel: dart.fn(s => s.cancel(), dart.fnType(dart.void, [async.StreamSubscription$(R)]))}) : stream;
+  };
+  zip['ZipWithExtension|get#zipWith'] = function ZipWithExtension$124get$35zipWith(T, $this) {
+    return dart.fn((S, R, other, zipper) => zip['ZipWithExtension|zipWith'](T, S, R, $this, other, zipper), dart.gFnType((S, R) => {
+      var StreamOfS = () => (StreamOfS = dart.constFn(async.Stream$(S)))();
+      var StreamOfR = () => (StreamOfR = dart.constFn(async.Stream$(R)))();
+      return [StreamOfR(), [StreamOfS(), dart.fnType(R, [T, S])]];
+    }, (S, R) => {
+      var StreamOfS = () => (StreamOfS = dart.constFn(async.Stream$(S)))();
+      var StreamOfR = () => (StreamOfR = dart.constFn(async.Stream$(R)))();
+      return [T$.ObjectN(), T$.ObjectN()];
+    }));
+  };
+  dart.trackLibraries("packages/rxdart/src/streams/zip.dart", {
+    "package:rxdart/src/streams/zip.dart": zip
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["zip.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/rxdart/src/streams/zip.dart.lib.js"}');
+  // Exports:
+  return {
+    src__streams__zip: zip
+  };
+}));
+
+//# sourceMappingURL=zip.dart.lib.js.map

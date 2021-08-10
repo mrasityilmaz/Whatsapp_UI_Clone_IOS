@@ -1,0 +1,10 @@
+^C:\FLUTTER_PROJELERIM\WHATSAPP_UI_CLONE\BUILD\WINDOWS\CMAKEFILES\BE672896D47B8BE187A4531553DB0C54\INSTALL_FORCE.RULE
+setlocal
+cd .
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

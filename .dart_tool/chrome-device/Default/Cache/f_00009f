@@ -1,0 +1,345 @@
+define(['dart_sdk'], (function load__packages__sqflite_common__src__open_options_dart(dart_sdk) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _js_helper = dart_sdk._js_helper;
+  const _internal = dart_sdk._internal;
+  const async = dart_sdk.async;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  var open_options = Object.create(dart.library);
+  var sqlite_api = Object.create(dart.library);
+  var $_set = dartx._set;
+  var $toString = dartx.toString;
+  var $noSuchMethod = dartx.noSuchMethod;
+  dart._checkModuleNullSafetyMode(true);
+  var T = {
+    ObjectN: () => (T.ObjectN = dart.constFn(dart.nullable(core.Object)))(),
+    IdentityMapOfString$ObjectN: () => (T.IdentityMapOfString$ObjectN = dart.constFn(_js_helper.IdentityMap$(core.String, T.ObjectN())))(),
+    boolN: () => (T.boolN = dart.constFn(dart.nullable(core.bool)))(),
+    FutureOfvoid: () => (T.FutureOfvoid = dart.constFn(async.Future$(dart.void)))(),
+    DatabaseAndintAndintToFutureOfvoid: () => (T.DatabaseAndintAndintToFutureOfvoid = dart.constFn(dart.fnType(T.FutureOfvoid(), [sqlite_api.Database, core.int, core.int])))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const(new _js_helper.PrivateSymbol.new('_#OpenDatabaseOptions#singleInstance', __OpenDatabaseOptions_singleInstance));
+    },
+    get C1() {
+      return C[1] = dart.const(new _js_helper.PrivateSymbol.new('_#OpenDatabaseOptions#readOnly', __OpenDatabaseOptions_readOnly));
+    },
+    get C2() {
+      return C[2] = dart.const(new _js_helper.PrivateSymbol.new('_#OpenDatabaseOptions#singleInstance=', __OpenDatabaseOptions_singleInstance_));
+    },
+    get C3() {
+      return C[3] = dart.const(new _js_helper.PrivateSymbol.new('_#OpenDatabaseOptions#readOnly=', __OpenDatabaseOptions_readOnly_));
+    },
+    get C4() {
+      return C[4] = dart.fn(sqlite_api.__onDatabaseDowngradeDelete, T.DatabaseAndintAndintToFutureOfvoid());
+    }
+  }, false);
+  var C = Array(5).fill(void 0);
+  var I = [
+    "package:sqflite_common/src/open_options.dart",
+    "package:sqflite_common/sqlite_api.dart"
+  ];
+  var version$ = dart.privateName(open_options, "SqfliteOpenDatabaseOptions.version");
+  var onConfigure$ = dart.privateName(open_options, "SqfliteOpenDatabaseOptions.onConfigure");
+  var onCreate$ = dart.privateName(open_options, "SqfliteOpenDatabaseOptions.onCreate");
+  var onUpgrade$ = dart.privateName(open_options, "SqfliteOpenDatabaseOptions.onUpgrade");
+  var onDowngrade$ = dart.privateName(open_options, "SqfliteOpenDatabaseOptions.onDowngrade");
+  var onOpen$ = dart.privateName(open_options, "SqfliteOpenDatabaseOptions.onOpen");
+  var readOnly$ = dart.privateName(open_options, "SqfliteOpenDatabaseOptions.readOnly");
+  var singleInstance$ = dart.privateName(open_options, "SqfliteOpenDatabaseOptions.singleInstance");
+  var __OpenDatabaseOptions_singleInstance = dart.privateName(open_options, "_#OpenDatabaseOptions#singleInstance");
+  var __OpenDatabaseOptions_singleInstance$ = dart.privateName(sqlite_api, "_#OpenDatabaseOptions#singleInstance");
+  var __OpenDatabaseOptions_readOnly = dart.privateName(open_options, "_#OpenDatabaseOptions#readOnly");
+  var __OpenDatabaseOptions_readOnly$ = dart.privateName(sqlite_api, "_#OpenDatabaseOptions#readOnly");
+  var __OpenDatabaseOptions_singleInstance_ = dart.privateName(open_options, "_#OpenDatabaseOptions#singleInstance=");
+  var __OpenDatabaseOptions_readOnly_ = dart.privateName(open_options, "_#OpenDatabaseOptions#readOnly=");
+  open_options.SqfliteOpenDatabaseOptions = class SqfliteOpenDatabaseOptions extends core.Object {
+    get version() {
+      return this[version$];
+    }
+    set version(value) {
+      this[version$] = value;
+    }
+    get onConfigure() {
+      return this[onConfigure$];
+    }
+    set onConfigure(value) {
+      this[onConfigure$] = value;
+    }
+    get onCreate() {
+      return this[onCreate$];
+    }
+    set onCreate(value) {
+      this[onCreate$] = value;
+    }
+    get onUpgrade() {
+      return this[onUpgrade$];
+    }
+    set onUpgrade(value) {
+      this[onUpgrade$] = value;
+    }
+    get onDowngrade() {
+      return this[onDowngrade$];
+    }
+    set onDowngrade(value) {
+      this[onDowngrade$] = value;
+    }
+    get onOpen() {
+      return this[onOpen$];
+    }
+    set onOpen(value) {
+      this[onOpen$] = value;
+    }
+    get readOnly() {
+      return this[readOnly$];
+    }
+    set readOnly(value) {
+      this[readOnly$] = value;
+    }
+    get singleInstance() {
+      return this[singleInstance$];
+    }
+    set singleInstance(value) {
+      this[singleInstance$] = value;
+    }
+    toString() {
+      let map = new (T.IdentityMapOfString$ObjectN()).new();
+      if (this.version != null) {
+        map[$_set]("version", this.version);
+      }
+      map[$_set]("readOnly", this.readOnly);
+      map[$_set]("singleInstance", this.singleInstance);
+      return map[$toString]();
+    }
+    get [__OpenDatabaseOptions_singleInstance$]() {
+      return T.boolN().as(this[$noSuchMethod](new core._Invocation.getter(C[0] || CT.C0)));
+    }
+    get [__OpenDatabaseOptions_readOnly$]() {
+      return T.boolN().as(this[$noSuchMethod](new core._Invocation.getter(C[1] || CT.C1)));
+    }
+    set [__OpenDatabaseOptions_singleInstance$](value) {
+      return this[$noSuchMethod](new core._Invocation.setter(C[2] || CT.C2, value));
+    }
+    set [__OpenDatabaseOptions_readOnly$](value) {
+      return this[$noSuchMethod](new core._Invocation.setter(C[3] || CT.C3, value));
+    }
+  };
+  (open_options.SqfliteOpenDatabaseOptions.new = function(opts) {
+    let version = opts && 'version' in opts ? opts.version : null;
+    let onConfigure = opts && 'onConfigure' in opts ? opts.onConfigure : null;
+    let onCreate = opts && 'onCreate' in opts ? opts.onCreate : null;
+    let onUpgrade = opts && 'onUpgrade' in opts ? opts.onUpgrade : null;
+    let onDowngrade = opts && 'onDowngrade' in opts ? opts.onDowngrade : null;
+    let onOpen = opts && 'onOpen' in opts ? opts.onOpen : null;
+    let readOnly = opts && 'readOnly' in opts ? opts.readOnly : false;
+    let singleInstance = opts && 'singleInstance' in opts ? opts.singleInstance : true;
+    this[version$] = version;
+    this[onConfigure$] = onConfigure;
+    this[onCreate$] = onCreate;
+    this[onUpgrade$] = onUpgrade;
+    this[onDowngrade$] = onDowngrade;
+    this[onOpen$] = onOpen;
+    this[readOnly$] = readOnly;
+    this[singleInstance$] = singleInstance;
+    ;
+  }).prototype = open_options.SqfliteOpenDatabaseOptions.prototype;
+  dart.addTypeTests(open_options.SqfliteOpenDatabaseOptions);
+  dart.addTypeCaches(open_options.SqfliteOpenDatabaseOptions);
+  open_options.SqfliteOpenDatabaseOptions[dart.implements] = () => [sqlite_api.OpenDatabaseOptions];
+  dart.setGetterSignature(open_options.SqfliteOpenDatabaseOptions, () => ({
+    __proto__: dart.getGetters(open_options.SqfliteOpenDatabaseOptions.__proto__),
+    [__OpenDatabaseOptions_singleInstance$]: dart.nullable(core.bool),
+    [__OpenDatabaseOptions_readOnly$]: dart.nullable(core.bool)
+  }));
+  dart.setSetterSignature(open_options.SqfliteOpenDatabaseOptions, () => ({
+    __proto__: dart.getSetters(open_options.SqfliteOpenDatabaseOptions.__proto__),
+    [__OpenDatabaseOptions_singleInstance$]: dart.nullable(core.bool),
+    [__OpenDatabaseOptions_readOnly$]: dart.nullable(core.bool)
+  }));
+  dart.setLibraryUri(open_options.SqfliteOpenDatabaseOptions, I[0]);
+  dart.setFieldSignature(open_options.SqfliteOpenDatabaseOptions, () => ({
+    __proto__: dart.getFields(open_options.SqfliteOpenDatabaseOptions.__proto__),
+    version: dart.fieldType(dart.nullable(core.int)),
+    onConfigure: dart.fieldType(dart.nullable(dart.fnType(dart.void, [sqlite_api.Database]))),
+    onCreate: dart.fieldType(dart.nullable(dart.fnType(dart.void, [sqlite_api.Database, core.int]))),
+    onUpgrade: dart.fieldType(dart.nullable(dart.fnType(dart.void, [sqlite_api.Database, core.int, core.int]))),
+    onDowngrade: dart.fieldType(dart.nullable(dart.fnType(dart.void, [sqlite_api.Database, core.int, core.int]))),
+    onOpen: dart.fieldType(dart.nullable(dart.fnType(dart.void, [sqlite_api.Database]))),
+    readOnly: dart.fieldType(core.bool),
+    singleInstance: dart.fieldType(core.bool)
+  }));
+  dart.defineExtensionMethods(open_options.SqfliteOpenDatabaseOptions, ['toString']);
+  sqlite_api.DatabaseFactory = class DatabaseFactory extends core.Object {};
+  (sqlite_api.DatabaseFactory.new = function() {
+    ;
+  }).prototype = sqlite_api.DatabaseFactory.prototype;
+  dart.addTypeTests(sqlite_api.DatabaseFactory);
+  dart.addTypeCaches(sqlite_api.DatabaseFactory);
+  dart.setLibraryUri(sqlite_api.DatabaseFactory, I[1]);
+  sqlite_api.DatabaseExecutor = class DatabaseExecutor extends core.Object {};
+  (sqlite_api.DatabaseExecutor.new = function() {
+    ;
+  }).prototype = sqlite_api.DatabaseExecutor.prototype;
+  dart.addTypeTests(sqlite_api.DatabaseExecutor);
+  dart.addTypeCaches(sqlite_api.DatabaseExecutor);
+  dart.setLibraryUri(sqlite_api.DatabaseExecutor, I[1]);
+  sqlite_api.Transaction = class Transaction extends core.Object {};
+  (sqlite_api.Transaction.new = function() {
+    ;
+  }).prototype = sqlite_api.Transaction.prototype;
+  dart.addTypeTests(sqlite_api.Transaction);
+  dart.addTypeCaches(sqlite_api.Transaction);
+  sqlite_api.Transaction[dart.implements] = () => [sqlite_api.DatabaseExecutor];
+  dart.setLibraryUri(sqlite_api.Transaction, I[1]);
+  sqlite_api.Database = class Database extends core.Object {};
+  (sqlite_api.Database.new = function() {
+    ;
+  }).prototype = sqlite_api.Database.prototype;
+  dart.addTypeTests(sqlite_api.Database);
+  dart.addTypeCaches(sqlite_api.Database);
+  sqlite_api.Database[dart.implements] = () => [sqlite_api.DatabaseExecutor];
+  dart.setLibraryUri(sqlite_api.Database, I[1]);
+  var version = dart.privateName(sqlite_api, "OpenDatabaseOptions.version");
+  var onConfigure = dart.privateName(sqlite_api, "OpenDatabaseOptions.onConfigure");
+  var onCreate = dart.privateName(sqlite_api, "OpenDatabaseOptions.onCreate");
+  var onUpgrade = dart.privateName(sqlite_api, "OpenDatabaseOptions.onUpgrade");
+  var onDowngrade = dart.privateName(sqlite_api, "OpenDatabaseOptions.onDowngrade");
+  var onOpen = dart.privateName(sqlite_api, "OpenDatabaseOptions.onOpen");
+  sqlite_api.OpenDatabaseOptions = class OpenDatabaseOptions extends core.Object {
+    get version() {
+      return this[version];
+    }
+    set version(value) {
+      this[version] = value;
+    }
+    get onConfigure() {
+      return this[onConfigure];
+    }
+    set onConfigure(value) {
+      this[onConfigure] = value;
+    }
+    get onCreate() {
+      return this[onCreate];
+    }
+    set onCreate(value) {
+      this[onCreate] = value;
+    }
+    get onUpgrade() {
+      return this[onUpgrade];
+    }
+    set onUpgrade(value) {
+      this[onUpgrade] = value;
+    }
+    get onDowngrade() {
+      return this[onDowngrade];
+    }
+    set onDowngrade(value) {
+      this[onDowngrade] = value;
+    }
+    get onOpen() {
+      return this[onOpen];
+    }
+    set onOpen(value) {
+      this[onOpen] = value;
+    }
+    static new(opts) {
+      let version = opts && 'version' in opts ? opts.version : null;
+      let onConfigure = opts && 'onConfigure' in opts ? opts.onConfigure : null;
+      let onCreate = opts && 'onCreate' in opts ? opts.onCreate : null;
+      let onUpgrade = opts && 'onUpgrade' in opts ? opts.onUpgrade : null;
+      let onDowngrade = opts && 'onDowngrade' in opts ? opts.onDowngrade : null;
+      let onOpen = opts && 'onOpen' in opts ? opts.onOpen : null;
+      let readOnly = opts && 'readOnly' in opts ? opts.readOnly : false;
+      let singleInstance = opts && 'singleInstance' in opts ? opts.singleInstance : true;
+      return new open_options.SqfliteOpenDatabaseOptions.new({version: version, onConfigure: onConfigure, onCreate: onCreate, onUpgrade: onUpgrade, onDowngrade: onDowngrade, onOpen: onOpen, readOnly: readOnly, singleInstance: singleInstance});
+    }
+    get readOnly() {
+      let t0;
+      t0 = this[__OpenDatabaseOptions_readOnly$];
+      return t0 == null ? dart.throw(new _internal.LateError.fieldNI("readOnly")) : t0;
+    }
+    set readOnly(t0) {
+      this[__OpenDatabaseOptions_readOnly$] = t0;
+    }
+    get singleInstance() {
+      let t1;
+      t1 = this[__OpenDatabaseOptions_singleInstance$];
+      return t1 == null ? dart.throw(new _internal.LateError.fieldNI("singleInstance")) : t1;
+    }
+    set singleInstance(t1) {
+      this[__OpenDatabaseOptions_singleInstance$] = t1;
+    }
+  };
+  (sqlite_api.OpenDatabaseOptions[dart.mixinNew] = function() {
+    this[version] = null;
+    this[onConfigure] = null;
+    this[onCreate] = null;
+    this[onUpgrade] = null;
+    this[onDowngrade] = null;
+    this[onOpen] = null;
+    this[__OpenDatabaseOptions_readOnly$] = null;
+    this[__OpenDatabaseOptions_singleInstance$] = null;
+  }).prototype = sqlite_api.OpenDatabaseOptions.prototype;
+  dart.addTypeTests(sqlite_api.OpenDatabaseOptions);
+  dart.addTypeCaches(sqlite_api.OpenDatabaseOptions);
+  dart.setGetterSignature(sqlite_api.OpenDatabaseOptions, () => ({
+    __proto__: dart.getGetters(sqlite_api.OpenDatabaseOptions.__proto__),
+    readOnly: core.bool,
+    singleInstance: core.bool
+  }));
+  dart.setSetterSignature(sqlite_api.OpenDatabaseOptions, () => ({
+    __proto__: dart.getSetters(sqlite_api.OpenDatabaseOptions.__proto__),
+    readOnly: core.bool,
+    singleInstance: core.bool
+  }));
+  dart.setLibraryUri(sqlite_api.OpenDatabaseOptions, I[1]);
+  dart.setFieldSignature(sqlite_api.OpenDatabaseOptions, () => ({
+    __proto__: dart.getFields(sqlite_api.OpenDatabaseOptions.__proto__),
+    version: dart.fieldType(dart.nullable(core.int)),
+    onConfigure: dart.fieldType(dart.nullable(dart.fnType(dart.void, [sqlite_api.Database]))),
+    onCreate: dart.fieldType(dart.nullable(dart.fnType(dart.void, [sqlite_api.Database, core.int]))),
+    onUpgrade: dart.fieldType(dart.nullable(dart.fnType(dart.void, [sqlite_api.Database, core.int, core.int]))),
+    onDowngrade: dart.fieldType(dart.nullable(dart.fnType(dart.void, [sqlite_api.Database, core.int, core.int]))),
+    onOpen: dart.fieldType(dart.nullable(dart.fnType(dart.void, [sqlite_api.Database]))),
+    [__OpenDatabaseOptions_readOnly$]: dart.fieldType(dart.nullable(core.bool)),
+    [__OpenDatabaseOptions_singleInstance$]: dart.fieldType(dart.nullable(core.bool))
+  }));
+  sqlite_api.Batch = class Batch extends core.Object {};
+  (sqlite_api.Batch.new = function() {
+    ;
+  }).prototype = sqlite_api.Batch.prototype;
+  dart.addTypeTests(sqlite_api.Batch);
+  dart.addTypeCaches(sqlite_api.Batch);
+  dart.setLibraryUri(sqlite_api.Batch, I[1]);
+  sqlite_api.onDatabaseVersionChangeError = function onDatabaseVersionChangeError(db, oldVersion, newVersion) {
+    return async.async(dart.void, function* onDatabaseVersionChangeError() {
+      dart.throw(new core.ArgumentError.new("can't change version from " + dart.str(oldVersion) + " to " + dart.str(newVersion)));
+    });
+  };
+  sqlite_api.__onDatabaseDowngradeDelete = function __onDatabaseDowngradeDelete(db, oldVersion, newVersion) {
+    return async.async(dart.void, function* __onDatabaseDowngradeDelete() {
+    });
+  };
+  dart.defineLazy(sqlite_api, {
+    /*sqlite_api.onDatabaseDowngradeDelete*/get onDatabaseDowngradeDelete() {
+      return C[4] || CT.C4;
+    }
+  }, false);
+  dart.trackLibraries("packages/sqflite_common/src/open_options.dart", {
+    "package:sqflite_common/src/open_options.dart": open_options,
+    "package:sqflite_common/sqlite_api.dart": sqlite_api
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["open_options.dart","../sqlite_api.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAoBO;;;;;;IAEkB;;;;;;IAEH;;;;;;IAEO;;;;;;IAEA;;;;;;IAET;;;;;;IAEb;;;;;;IAEA;;;;;;;AAIG,gBAAuB;AAC7B,UAAI;AACsB,QAAxB,AAAG,GAAA,QAAC,WAAa;;AAEO,MAA1B,AAAG,GAAA,QAAC,YAAc;AACoB,MAAtC,AAAG,GAAA,QAAC,kBAAoB;AACxB,YAAO,AAAI,IAAD;IACZ;;;;;;;;;;;;;;;QApCO;QACA;QACA;QACA;QACA;QACA;QACA;QACA;IAPA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;;EACL;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;ECyBJ;;;;;;;EAwKA;;;;;;;EAIwD;;;;;;;;EAiDxD;;;;;;;;;;;;IAyHO;;;;;;IAGkB;;;;;;IAGH;;;;;;IAGO;;;;;;IAKA;;;;;;IAGT;;;;;;;UArCR;UACiB;UACH;UACO;UACA;UACT;UACb;UACA;AACP,YAAY,2DACC,OAAO,eACH,WAAW,YACd,QAAQ,aACP,SAAS,eACP,WAAW,UAChB,MAAM,YACJ,QAAQ,kBACF,cAAc;IACpC;;;AAuBU;;IAAQ;;AAAR;IAAQ;;;AAGR;;IAAc;;AAAd;IAAc;;;IAvBnB;IAGkB;IAGH;IAGO;IAKA;IAGT;4CAGR;kDAGA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EA0EZ;;;;kFA7La,IAAQ,YAAgB;AADI;AAEoC,MAA3E,WAAM,2BAAc,AAAsD,wCAA1B,UAAU,sBAAK,UAAU;IAC3E;;gFAGa,IAAQ,YAAgB;AADG;IAGxC;;;MAKgC,oCAAyB","file":"../../../../../../../../packages/sqflite_common/src/open_options.dart.lib.js"}');
+  // Exports:
+  return {
+    src__open_options: open_options,
+    sqlite_api: sqlite_api
+  };
+}));
+
+//# sourceMappingURL=open_options.dart.lib.js.map

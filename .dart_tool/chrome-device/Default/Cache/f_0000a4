@@ -1,0 +1,1565 @@
+define(['dart_sdk', 'packages/synchronized/src/reentrant_lock.dart', 'packages/sqflite_common/src/open_options.dart', 'packages/sqflite_common/src/exception.dart', 'packages/path/src/path_set.dart', 'packages/sqflite_common/src/utils.dart', 'packages/sqflite_common/src/collection_utils.dart', 'packages/sqflite_common/utils/utils.dart', 'packages/sqflite_common/src/sql_builder.dart', 'packages/sqflite_common/src/value_utils.dart', 'packages/sqflite_common/src/constant.dart'], (function load__packages__sqflite_common__src__mixin__factory_dart(dart_sdk, packages__synchronized__src__reentrant_lock$46dart, packages__sqflite_common__src__open_options$46dart, packages__sqflite_common__src__exception$46dart, packages__path__src__path_set$46dart, packages__sqflite_common__src__utils$46dart, packages__sqflite_common__src__collection_utils$46dart, packages__sqflite_common__utils__utils$46dart, packages__sqflite_common__src__sql_builder$46dart, packages__sqflite_common__src__value_utils$46dart, packages__sqflite_common__src__constant$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const async = dart_sdk.async;
+  const _js_helper = dart_sdk._js_helper;
+  const _internal = dart_sdk._internal;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const synchronized = packages__synchronized__src__reentrant_lock$46dart.synchronized;
+  const sqlite_api = packages__sqflite_common__src__open_options$46dart.sqlite_api;
+  const open_options = packages__sqflite_common__src__open_options$46dart.src__open_options;
+  const exception = packages__sqflite_common__src__exception$46dart.src__exception;
+  const path$ = packages__path__src__path_set$46dart.path;
+  const utils = packages__sqflite_common__src__utils$46dart.src__utils;
+  const collection_utils = packages__sqflite_common__src__collection_utils$46dart.src__collection_utils;
+  const utils$ = packages__sqflite_common__utils__utils$46dart.utils__utils;
+  const sql_builder = packages__sqflite_common__src__sql_builder$46dart.src__sql_builder;
+  const value_utils = packages__sqflite_common__src__value_utils$46dart.src__value_utils;
+  const constant = packages__sqflite_common__src__constant$46dart.src__constant;
+  var factory = Object.create(dart.library);
+  var factory$ = Object.create(dart.library);
+  var database_mixin = Object.create(dart.library);
+  var transaction = Object.create(dart.library);
+  var batch = Object.create(dart.library);
+  var database = Object.create(dart.library);
+  var factory_mixin = Object.create(dart.library);
+  var $remove = dartx.remove;
+  var $_get = dartx._get;
+  var $_set = dartx._set;
+  var $toString = dartx.toString;
+  var $map = dartx.map;
+  var $addAll = dartx.addAll;
+  var $runtimeType = dartx.runtimeType;
+  var $add = dartx.add;
+  dart._checkModuleNullSafetyMode(true);
+  var T$ = {
+    IdentityMapOfString$SqfliteDatabaseOpenHelper: () => (T$.IdentityMapOfString$SqfliteDatabaseOpenHelper = dart.constFn(_js_helper.IdentityMap$(core.String, database.SqfliteDatabaseOpenHelper)))(),
+    FutureOfvoid: () => (T$.FutureOfvoid = dart.constFn(async.Future$(dart.void)))(),
+    VoidToFutureOfvoid: () => (T$.VoidToFutureOfvoid = dart.constFn(dart.fnType(T$.FutureOfvoid(), [])))(),
+    SqfliteDatabaseOpenHelperN: () => (T$.SqfliteDatabaseOpenHelperN = dart.constFn(dart.nullable(database.SqfliteDatabaseOpenHelper)))(),
+    StringToSqfliteDatabaseOpenHelperN: () => (T$.StringToSqfliteDatabaseOpenHelperN = dart.constFn(dart.fnType(T$.SqfliteDatabaseOpenHelperN(), [core.String])))(),
+    SqfliteDatabaseOpenHelperNTovoid: () => (T$.SqfliteDatabaseOpenHelperNTovoid = dart.constFn(dart.fnType(dart.void, [T$.SqfliteDatabaseOpenHelperN()])))(),
+    FutureOfSqfliteDatabase: () => (T$.FutureOfSqfliteDatabase = dart.constFn(async.Future$(database.SqfliteDatabase)))(),
+    VoidToFutureOfSqfliteDatabase: () => (T$.VoidToFutureOfSqfliteDatabase = dart.constFn(dart.fnType(T$.FutureOfSqfliteDatabase(), [])))(),
+    ObjectN: () => (T$.ObjectN = dart.constFn(dart.nullable(core.Object)))(),
+    IdentityMapOfString$ObjectN: () => (T$.IdentityMapOfString$ObjectN = dart.constFn(_js_helper.IdentityMap$(core.String, T$.ObjectN())))(),
+    StringN: () => (T$.StringN = dart.constFn(dart.nullable(core.String)))(),
+    MapEntryOfString$SqfliteDatabaseDebugInfo: () => (T$.MapEntryOfString$SqfliteDatabaseDebugInfo = dart.constFn(core.MapEntry$(core.String, factory_mixin.SqfliteDatabaseDebugInfo)))(),
+    dynamicAnddynamicToMapEntryOfString$SqfliteDatabaseDebugInfo: () => (T$.dynamicAnddynamicToMapEntryOfString$SqfliteDatabaseDebugInfo = dart.constFn(dart.fnType(T$.MapEntryOfString$SqfliteDatabaseDebugInfo(), [dart.dynamic, dart.dynamic])))(),
+    intN: () => (T$.intN = dart.constFn(dart.nullable(core.int)))(),
+    VoidToCompleter: () => (T$.VoidToCompleter = dart.constFn(dart.fnType(async.Completer, [])))(),
+    CompleterTodynamic: () => (T$.CompleterTodynamic = dart.constFn(dart.fnType(dart.dynamic, [async.Completer])))(),
+    VoidToNull: () => (T$.VoidToNull = dart.constFn(dart.fnType(core.Null, [])))(),
+    TransactionN: () => (T$.TransactionN = dart.constFn(dart.nullable(sqlite_api.Transaction)))(),
+    FutureOfint: () => (T$.FutureOfint = dart.constFn(async.Future$(core.int)))(),
+    TransactionNToFutureOfint: () => (T$.TransactionNToFutureOfint = dart.constFn(dart.fnType(T$.FutureOfint(), [T$.TransactionN()])))(),
+    MapOfString$ObjectN: () => (T$.MapOfString$ObjectN = dart.constFn(core.Map$(core.String, T$.ObjectN())))(),
+    ListOfMapOfString$ObjectN: () => (T$.ListOfMapOfString$ObjectN = dart.constFn(core.List$(T$.MapOfString$ObjectN())))(),
+    FutureOfListOfMapOfString$ObjectN: () => (T$.FutureOfListOfMapOfString$ObjectN = dart.constFn(async.Future$(T$.ListOfMapOfString$ObjectN())))(),
+    TransactionNToFutureOfListOfMapOfString$ObjectN: () => (T$.TransactionNToFutureOfListOfMapOfString$ObjectN = dart.constFn(dart.fnType(T$.FutureOfListOfMapOfString$ObjectN(), [T$.TransactionN()])))(),
+    ListOfObjectN: () => (T$.ListOfObjectN = dart.constFn(core.List$(T$.ObjectN())))(),
+    ListN: () => (T$.ListN = dart.constFn(dart.nullable(core.List)))(),
+    FutureOfList: () => (T$.FutureOfList = dart.constFn(async.Future$(core.List)))(),
+    TransactionNToFutureOfList: () => (T$.TransactionNToFutureOfList = dart.constFn(dart.fnType(T$.FutureOfList(), [T$.TransactionN()])))(),
+    FutureOfNull: () => (T$.FutureOfNull = dart.constFn(async.Future$(core.Null)))(),
+    TransactionNToFutureOfNull: () => (T$.TransactionNToFutureOfNull = dart.constFn(dart.fnType(T$.FutureOfNull(), [T$.TransactionN()])))(),
+    VoidToFutureOfNull: () => (T$.VoidToFutureOfNull = dart.constFn(dart.fnType(T$.FutureOfNull(), [])))(),
+    DatabaseAndintAndintToFutureOfvoid: () => (T$.DatabaseAndintAndintToFutureOfvoid = dart.constFn(dart.fnType(T$.FutureOfvoid(), [sqlite_api.Database, core.int, core.int])))(),
+    TransactionToFutureOfNull: () => (T$.TransactionToFutureOfNull = dart.constFn(dart.fnType(T$.FutureOfNull(), [sqlite_api.Transaction])))(),
+    JSArrayOfMapOfString$ObjectN: () => (T$.JSArrayOfMapOfString$ObjectN = dart.constFn(_interceptors.JSArray$(T$.MapOfString$ObjectN())))(),
+    FutureOfListOfObjectN: () => (T$.FutureOfListOfObjectN = dart.constFn(async.Future$(T$.ListOfObjectN())))(),
+    TransactionToFutureOfListOfObjectN: () => (T$.TransactionToFutureOfListOfObjectN = dart.constFn(dart.fnType(T$.FutureOfListOfObjectN(), [sqlite_api.Transaction])))(),
+    IdentityMapOfString$_NamedLock: () => (T$.IdentityMapOfString$_NamedLock = dart.constFn(_js_helper.IdentityMap$(core.String, factory_mixin._NamedLock)))(),
+    boolN: () => (T$.boolN = dart.constFn(dart.nullable(core.bool)))(),
+    MapEntryOfString$MapOfString$ObjectN: () => (T$.MapEntryOfString$MapOfString$ObjectN = dart.constFn(core.MapEntry$(core.String, T$.MapOfString$ObjectN())))(),
+    StringAndSqfliteDatabaseDebugInfoToMapEntryOfString$MapOfString$ObjectN: () => (T$.StringAndSqfliteDatabaseDebugInfoToMapEntryOfString$MapOfString$ObjectN = dart.constFn(dart.fnType(T$.MapEntryOfString$MapOfString$ObjectN(), [core.String, factory_mixin.SqfliteDatabaseDebugInfo])))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  var I = [
+    "package:sqflite_common/src/mixin/factory.dart",
+    "package:sqflite_common/src/factory_mixin.dart",
+    "package:sqflite_common/src/factory.dart",
+    "package:sqflite_common/src/database_mixin.dart",
+    "package:sqflite_common/src/transaction.dart",
+    "package:sqflite_common/src/batch.dart",
+    "package:sqflite_common/src/database.dart"
+  ];
+  factory.SqfliteInvokeHandler = class SqfliteInvokeHandler extends core.Object {};
+  (factory.SqfliteInvokeHandler.new = function() {
+    ;
+  }).prototype = factory.SqfliteInvokeHandler.prototype;
+  dart.addTypeTests(factory.SqfliteInvokeHandler);
+  dart.addTypeCaches(factory.SqfliteInvokeHandler);
+  dart.setLibraryUri(factory.SqfliteInvokeHandler, I[0]);
+  var _invokeMethod$ = dart.privateName(factory, "_invokeMethod");
+  var databaseOpenHelpers = dart.privateName(factory_mixin, "SqfliteDatabaseFactoryMixin.databaseOpenHelpers");
+  var lock = dart.privateName(factory_mixin, "SqfliteDatabaseFactoryMixin.lock");
+  var _databasesPath = dart.privateName(factory_mixin, "SqfliteDatabaseFactoryMixin._databasesPath");
+  var _databasesPath$ = dart.privateName(factory_mixin, "_databasesPath");
+  var _getDatabaseOpenLock = dart.privateName(factory_mixin, "_getDatabaseOpenLock");
+  factory_mixin.SqfliteDatabaseFactoryMixin = class SqfliteDatabaseFactoryMixin extends core.Object {
+    static isInMemoryDatabasePath(path) {
+      return path === ":memory:";
+    }
+  };
+  factory_mixin.SqfliteDatabaseFactoryMixin[dart.mixinOn] = Object => class SqfliteDatabaseFactoryMixin extends Object {
+    get databaseOpenHelpers() {
+      return this[databaseOpenHelpers];
+    }
+    set databaseOpenHelpers(value) {
+      this[databaseOpenHelpers] = value;
+    }
+    get lock() {
+      return this[lock];
+    }
+    set lock(value) {
+      super.lock = value;
+    }
+    get [_databasesPath$]() {
+      return this[_databasesPath];
+    }
+    set [_databasesPath$](value) {
+      this[_databasesPath] = value;
+    }
+    wrapDatabaseException(T, action) {
+      return action();
+    }
+    safeInvokeMethod(T, method, $arguments = null) {
+      return this.wrapDatabaseException(T, dart.fn(() => this.invokeMethod(T, method, $arguments), dart.fnType(async.Future$(T), [])));
+    }
+    [_getDatabaseOpenLock](path) {
+      return factory_mixin._NamedLock.new(path).lock;
+    }
+    newDatabase(openHelper, path) {
+      return new database_mixin.SqfliteDatabaseBase.new(openHelper, path);
+    }
+    removeDatabaseOpenHelper(path) {
+      this.databaseOpenHelpers[$remove](path);
+    }
+    closeDatabase(database) {
+      let lock = this[_getDatabaseOpenLock](database.path);
+      return lock.synchronized(dart.void, dart.fn(() => async.async(dart.void, (function*() {
+        let t0;
+        yield dart.nullCheck(database_mixin.SqfliteDatabaseMixin.as(database).openHelper).closeDatabase(database);
+        if ((t0 = database.options, t0 == null ? null : t0.singleInstance) !== false) {
+          this.removeDatabaseOpenHelper(database.path);
+        }
+      }).bind(this)), T$.VoidToFutureOfvoid()));
+    }
+    openDatabase(path, opts) {
+      let options = opts && 'options' in opts ? opts.options : null;
+      return async.async(sqlite_api.Database, (function* openDatabase() {
+        path = (yield this.fixPath(path));
+        let lock = this[_getDatabaseOpenLock](path);
+        return lock.synchronized(sqlite_api.Database, dart.fn(() => async.async(database.SqfliteDatabase, (function*() {
+          let t0;
+          options == null ? options = new open_options.SqfliteOpenDatabaseOptions.new() : null;
+          if ((t0 = options, t0 == null ? null : t0.singleInstance) !== false) {
+            const getExistingDatabaseOpenHelper = path => {
+              return this.databaseOpenHelpers[$_get](path);
+            };
+            dart.fn(getExistingDatabaseOpenHelper, T$.StringToSqfliteDatabaseOpenHelperN());
+            const setDatabaseOpenHelper = helper => {
+              if (helper == null) {
+                this.databaseOpenHelpers[$remove](path);
+              } else {
+                this.databaseOpenHelpers[$_set](path, helper);
+              }
+            };
+            dart.fn(setDatabaseOpenHelper, T$.SqfliteDatabaseOpenHelperNTovoid());
+            let databaseOpenHelper = getExistingDatabaseOpenHelper(path);
+            let firstOpen = databaseOpenHelper == null;
+            if (firstOpen) {
+              databaseOpenHelper = new database.SqfliteDatabaseOpenHelper.new(this, path, options);
+              setDatabaseOpenHelper(databaseOpenHelper);
+            }
+            try {
+              return yield dart.nullCheck(databaseOpenHelper).openDatabase();
+            } catch (e$) {
+              let e = dart.getThrown(e$);
+              if (core.Object.is(e)) {
+                if (firstOpen) {
+                  this.removeDatabaseOpenHelper(path);
+                }
+                dart.rethrow(e$);
+              } else
+                throw e$;
+            }
+          } else {
+            let databaseOpenHelper = new database.SqfliteDatabaseOpenHelper.new(this, path, options);
+            return yield databaseOpenHelper.openDatabase();
+          }
+        }).bind(this)), T$.VoidToFutureOfSqfliteDatabase()));
+      }).bind(this));
+    }
+    deleteDatabase(path) {
+      return async.async(dart.void, (function* deleteDatabase() {
+        path = (yield this.fixPath(path));
+        let lock = this[_getDatabaseOpenLock](path);
+        return lock.synchronized(dart.void, dart.fn(() => async.async(dart.void, (function*() {
+          this.removeDatabaseOpenHelper(path);
+          return this.safeInvokeMethod(dart.void, "deleteDatabase", new (T$.IdentityMapOfString$ObjectN()).from(["path", path]));
+        }).bind(this)), T$.VoidToFutureOfvoid()));
+      }).bind(this));
+    }
+    databaseExists(path) {
+      return async.async(core.bool, (function* databaseExists() {
+        path = (yield this.fixPath(path));
+        return this.safeInvokeMethod(core.bool, "databaseExists", new (T$.IdentityMapOfString$ObjectN()).from(["path", path]));
+      }).bind(this));
+    }
+    getDatabasesPath() {
+      return async.async(core.String, (function* getDatabasesPath() {
+        if (this[_databasesPath$] == null) {
+          let path = (yield this.safeInvokeMethod(T$.StringN(), "getDatabasesPath"));
+          if (path == null) {
+            dart.throw(new exception.SqfliteDatabaseException.new("getDatabasesPath is null", null));
+          }
+          this[_databasesPath$] = path;
+        }
+        return dart.nullCheck(this[_databasesPath$]);
+      }).bind(this));
+    }
+    setDatabasesPath(path) {
+      return async.async(dart.void, (function* setDatabasesPath() {
+        this[_databasesPath$] = path;
+      }).bind(this));
+    }
+    fixPath(path) {
+      return async.async(core.String, (function* fixPath() {
+        if (factory_mixin.SqfliteDatabaseFactoryMixin.isInMemoryDatabasePath(path)) {
+        } else {
+          if (path$.isRelative(path)) {
+            path = path$.join(yield this.getDatabasesPath(), path);
+          }
+          path = path$.absolute(path$.normalize(path));
+        }
+        return path;
+      }).bind(this));
+    }
+    isPath(path) {
+      return !factory_mixin.SqfliteDatabaseFactoryMixin.isInMemoryDatabasePath(path);
+    }
+    getDebugInfo() {
+      return async.async(factory_mixin.SqfliteDebugInfo, (function* getDebugInfo() {
+        let info = new factory_mixin.SqfliteDebugInfo.new();
+        let map = (yield this.safeInvokeMethod(dart.dynamic, "debug", new (T$.IdentityMapOfString$ObjectN()).from(["cmd", "get"])));
+        let databasesMap = dart.dsend(map, '_get', ["databases"]);
+        if (core.Map.is(databasesMap)) {
+          info.databases = databasesMap[$map](core.String, factory_mixin.SqfliteDatabaseDebugInfo, dart.fn((id, info) => {
+            let dbInfo = new factory_mixin.SqfliteDatabaseDebugInfo.new();
+            let databaseId = dart.toString(id);
+            if (core.Map.is(info)) {
+              dbInfo.fromMap(info);
+            }
+            return new (T$.MapEntryOfString$SqfliteDatabaseDebugInfo()).__(databaseId, dbInfo);
+          }, T$.dynamicAnddynamicToMapEntryOfString$SqfliteDatabaseDebugInfo()));
+        }
+        info.logLevel = T$.intN().as(dart.dsend(map, '_get', ["logLevel"]));
+        return info;
+      }).bind(this));
+    }
+  };
+  (factory_mixin.SqfliteDatabaseFactoryMixin[dart.mixinNew] = function() {
+    this[databaseOpenHelpers] = new (T$.IdentityMapOfString$SqfliteDatabaseOpenHelper()).new();
+    this[lock] = synchronized.Lock.new({reentrant: true});
+    this[_databasesPath] = null;
+  }).prototype = factory_mixin.SqfliteDatabaseFactoryMixin.prototype;
+  dart.addTypeTests(factory_mixin.SqfliteDatabaseFactoryMixin);
+  dart.addTypeCaches(factory_mixin.SqfliteDatabaseFactoryMixin);
+  factory_mixin.SqfliteDatabaseFactoryMixin[dart.implements] = () => [factory$.SqfliteDatabaseFactory, factory.SqfliteInvokeHandler, core.Object];
+  dart.setMethodSignature(factory_mixin.SqfliteDatabaseFactoryMixin, () => ({
+    __proto__: dart.getMethods(factory_mixin.SqfliteDatabaseFactoryMixin.__proto__),
+    wrapDatabaseException: dart.gFnType(T => [async.Future$(T), [dart.fnType(async.Future$(T), [])]], T => [dart.nullable(core.Object)]),
+    safeInvokeMethod: dart.gFnType(T => [async.Future$(T), [core.String], [dart.dynamic]], T => [dart.nullable(core.Object)]),
+    [_getDatabaseOpenLock]: dart.fnType(synchronized.Lock, [core.String]),
+    newDatabase: dart.fnType(database.SqfliteDatabase, [database.SqfliteDatabaseOpenHelper, core.String]),
+    removeDatabaseOpenHelper: dart.fnType(dart.void, [core.String]),
+    closeDatabase: dart.fnType(async.Future$(dart.void), [database.SqfliteDatabase]),
+    openDatabase: dart.fnType(async.Future$(sqlite_api.Database), [core.String], {options: dart.nullable(sqlite_api.OpenDatabaseOptions)}, {}),
+    deleteDatabase: dart.fnType(async.Future$(dart.void), [core.String]),
+    databaseExists: dart.fnType(async.Future$(core.bool), [core.String]),
+    getDatabasesPath: dart.fnType(async.Future$(core.String), []),
+    setDatabasesPath: dart.fnType(async.Future$(dart.void), [dart.nullable(core.String)]),
+    fixPath: dart.fnType(async.Future$(core.String), [core.String]),
+    isPath: dart.fnType(core.bool, [core.String]),
+    getDebugInfo: dart.fnType(async.Future$(factory_mixin.SqfliteDebugInfo), [])
+  }));
+  dart.setLibraryUri(factory_mixin.SqfliteDatabaseFactoryMixin, I[1]);
+  dart.setFieldSignature(factory_mixin.SqfliteDatabaseFactoryMixin, () => ({
+    __proto__: dart.getFields(factory_mixin.SqfliteDatabaseFactoryMixin.__proto__),
+    databaseOpenHelpers: dart.fieldType(core.Map$(core.String, database.SqfliteDatabaseOpenHelper)),
+    lock: dart.finalFieldType(synchronized.Lock),
+    [_databasesPath$]: dart.fieldType(dart.nullable(core.String))
+  }));
+  const Object_SqfliteDatabaseFactoryMixin$36 = class Object_SqfliteDatabaseFactoryMixin extends core.Object {};
+  (Object_SqfliteDatabaseFactoryMixin$36.new = function() {
+    factory_mixin.SqfliteDatabaseFactoryMixin[dart.mixinNew].call(this);
+  }).prototype = Object_SqfliteDatabaseFactoryMixin$36.prototype;
+  dart.applyMixin(Object_SqfliteDatabaseFactoryMixin$36, factory_mixin.SqfliteDatabaseFactoryMixin);
+  factory._SqfliteDatabaseFactoryImpl = class _SqfliteDatabaseFactoryImpl extends Object_SqfliteDatabaseFactoryMixin$36 {
+    invokeMethod(T, method, $arguments = null) {
+      return async.async(T, (function* invokeMethod() {
+        let t1, t0;
+        return T.as(yield (t0 = method, t1 = $arguments, this[_invokeMethod$](t0, t1)));
+      }).bind(this));
+    }
+  };
+  (factory._SqfliteDatabaseFactoryImpl.new = function(_invokeMethod) {
+    this[_invokeMethod$] = _invokeMethod;
+    factory._SqfliteDatabaseFactoryImpl.__proto__.new.call(this);
+    ;
+  }).prototype = factory._SqfliteDatabaseFactoryImpl.prototype;
+  dart.addTypeTests(factory._SqfliteDatabaseFactoryImpl);
+  dart.addTypeCaches(factory._SqfliteDatabaseFactoryImpl);
+  factory._SqfliteDatabaseFactoryImpl[dart.implements] = () => [factory.SqfliteInvokeHandler];
+  dart.setMethodSignature(factory._SqfliteDatabaseFactoryImpl, () => ({
+    __proto__: dart.getMethods(factory._SqfliteDatabaseFactoryImpl.__proto__),
+    invokeMethod: dart.gFnType(T => [async.Future$(T), [core.String], [dart.dynamic]], T => [dart.nullable(core.Object)])
+  }));
+  dart.setLibraryUri(factory._SqfliteDatabaseFactoryImpl, I[0]);
+  dart.setFieldSignature(factory._SqfliteDatabaseFactoryImpl, () => ({
+    __proto__: dart.getFields(factory._SqfliteDatabaseFactoryImpl.__proto__),
+    [_invokeMethod$]: dart.finalFieldType(dart.fnType(async.Future, [core.String], [dart.dynamic]))
+  }));
+  factory.buildDatabaseFactory = function buildDatabaseFactory(opts) {
+    let invokeMethod = opts && 'invokeMethod' in opts ? opts.invokeMethod : null;
+    let impl = new factory._SqfliteDatabaseFactoryImpl.new(invokeMethod);
+    return impl;
+  };
+  var lock$ = dart.privateName(factory$, "SqfliteDatabaseFactory.lock");
+  factory$.SqfliteDatabaseFactory = class SqfliteDatabaseFactory extends core.Object {
+    get lock() {
+      return this[lock$];
+    }
+    set lock(value) {
+      super.lock = value;
+    }
+  };
+  (factory$.SqfliteDatabaseFactory.new = function() {
+    this[lock$] = synchronized.Lock.new();
+    ;
+  }).prototype = factory$.SqfliteDatabaseFactory.prototype;
+  dart.addTypeTests(factory$.SqfliteDatabaseFactory);
+  dart.addTypeCaches(factory$.SqfliteDatabaseFactory);
+  factory$.SqfliteDatabaseFactory[dart.implements] = () => [sqlite_api.DatabaseFactory, factory.SqfliteInvokeHandler];
+  dart.setLibraryUri(factory$.SqfliteDatabaseFactory, I[2]);
+  dart.setFieldSignature(factory$.SqfliteDatabaseFactory, () => ({
+    __proto__: dart.getFields(factory$.SqfliteDatabaseFactory.__proto__),
+    lock: dart.finalFieldType(synchronized.Lock)
+  }));
+  var openHelper = dart.privateName(database_mixin, "SqfliteDatabaseMixin.openHelper");
+  var options = dart.privateName(database_mixin, "SqfliteDatabaseMixin.options");
+  var isClosed = dart.privateName(database_mixin, "SqfliteDatabaseMixin.isClosed");
+  var _$35SqfliteDatabaseMixin$35path = dart.privateName(database_mixin, "SqfliteDatabaseMixin._#SqfliteDatabaseMixin#path");
+  var transactionRefCount = dart.privateName(database_mixin, "SqfliteDatabaseMixin.transactionRefCount");
+  var openTransaction = dart.privateName(database_mixin, "SqfliteDatabaseMixin.openTransaction");
+  var rawLock = dart.privateName(database_mixin, "SqfliteDatabaseMixin.rawLock");
+  var id = dart.privateName(database_mixin, "SqfliteDatabaseMixin.id");
+  var inTransaction = dart.privateName(database_mixin, "SqfliteDatabaseMixin.inTransaction");
+  var _closeLock = dart.privateName(database_mixin, "SqfliteDatabaseMixin._closeLock");
+  var __SqfliteDatabaseMixin_path = dart.privateName(database_mixin, "_#SqfliteDatabaseMixin#path");
+  var _closeLock$ = dart.privateName(database_mixin, "_closeLock");
+  var _runTransaction = dart.privateName(database_mixin, "_runTransaction");
+  var _closeDatabase = dart.privateName(database_mixin, "_closeDatabase");
+  database_mixin.SqfliteDatabaseMixin = class SqfliteDatabaseMixin extends core.Object {
+    static getBaseDatabaseMethodArguments(id) {
+      let map = new (T$.IdentityMapOfString$ObjectN()).from(["id", id]);
+      return map;
+    }
+    static getBaseDatabaseMethodArgumentsInTransaction(id, inTransaction) {
+      let map = database_mixin.SqfliteDatabaseMixin.getBaseDatabaseMethodArguments(id);
+      if (inTransaction != null) {
+        map[$_set]("inTransaction", inTransaction);
+      }
+      return map;
+    }
+  };
+  database_mixin.SqfliteDatabaseMixin[dart.mixinOn] = Object => {
+    class SqfliteDatabaseMixin extends Object {
+      get openHelper() {
+        return this[openHelper];
+      }
+      set openHelper(value) {
+        this[openHelper] = value;
+      }
+      get options() {
+        return this[options];
+      }
+      set options(value) {
+        this[options] = value;
+      }
+      get isClosed() {
+        return this[isClosed];
+      }
+      set isClosed(value) {
+        this[isClosed] = value;
+      }
+      get [__SqfliteDatabaseMixin_path]() {
+        return this[_$35SqfliteDatabaseMixin$35path];
+      }
+      set [__SqfliteDatabaseMixin_path](value) {
+        this[_$35SqfliteDatabaseMixin$35path] = value;
+      }
+      get transactionRefCount() {
+        return this[transactionRefCount];
+      }
+      set transactionRefCount(value) {
+        this[transactionRefCount] = value;
+      }
+      get openTransaction() {
+        return this[openTransaction];
+      }
+      set openTransaction(value) {
+        this[openTransaction] = value;
+      }
+      get rawLock() {
+        return this[rawLock];
+      }
+      set rawLock(value) {
+        super.rawLock = value;
+      }
+      get id() {
+        return this[id];
+      }
+      set id(value) {
+        this[id] = value;
+      }
+      get inTransaction() {
+        return this[inTransaction];
+      }
+      set inTransaction(value) {
+        this[inTransaction] = value;
+      }
+      get [_closeLock$]() {
+        return this[_closeLock];
+      }
+      set [_closeLock$](value) {
+        super[_closeLock$] = value;
+      }
+      safeInvokeMethod(T, method, $arguments = null) {
+        return this.factory.wrapDatabaseException(T, dart.fn(() => this.invokeMethod(T, method, $arguments), dart.fnType(async.Future$(T), [])));
+      }
+      get factory() {
+        return dart.nullCheck(this.openHelper).factory;
+      }
+      get readOnly() {
+        let t2, t1, t1$;
+        t1$ = (t1 = this.openHelper, t1 == null ? null : (t2 = t1.options, t2 == null ? null : t2.readOnly));
+        return t1$ == null ? false : t1$;
+      }
+      get db() {
+        return this;
+      }
+      get isOpen() {
+        return dart.nullCheck(this.openHelper).isOpen;
+      }
+      get path() {
+        let t1;
+        t1 = this[__SqfliteDatabaseMixin_path];
+        return t1 == null ? dart.throw(new _internal.LateError.fieldNI("path")) : t1;
+      }
+      set path(t1) {
+        this[__SqfliteDatabaseMixin_path] = t1;
+      }
+      get txn() {
+        return this.openTransaction;
+      }
+      get baseDatabaseMethodArguments() {
+        return database_mixin.SqfliteDatabaseMixin.getBaseDatabaseMethodArguments(dart.nullCheck(this.id));
+      }
+      batch() {
+        return new batch.SqfliteDatabaseBatch.new(this);
+      }
+      checkNotClosed() {
+        if (this.isClosed) {
+          dart.throw(new exception.SqfliteDatabaseException.new("error database_closed", null));
+        }
+      }
+      invokeMethod(T, method, $arguments = null) {
+        return this.factory.invokeMethod(T, method, $arguments);
+      }
+      devInvokeMethod(T, method, $arguments = null) {
+        let t2, t2$;
+        return this.invokeMethod(T, method, (t2$ = (t2 = $arguments, t2 == null ? new (T$.IdentityMapOfString$ObjectN()).new() : t2), (() => {
+          dart.dsend(t2$, 'addAll', [this.baseDatabaseMethodArguments]);
+          return t2$;
+        })()));
+      }
+      devInvokeSqlMethod(T, method, sql, $arguments = null) {
+        return this.devInvokeMethod(T, method, new (T$.IdentityMapOfString$ObjectN()).from(["sql", sql, "arguments", $arguments]));
+      }
+      txnSynchronized(T, txn, action) {
+        return async.async(T, (function* txnSynchronized() {
+          if (txn != null) {
+            return yield action(txn);
+          } else {
+            let handleTimeoutWarning = utils.lockWarningDuration != null && utils.lockWarningCallback != null;
+            let timeoutCompleter = null;
+            function timeoutCompleter$35get() {
+              let t3;
+              t3 = timeoutCompleter;
+              return t3 == null ? dart.throw(new _internal.LateError.localNI("timeoutCompleter")) : t3;
+            }
+            dart.fn(timeoutCompleter$35get, T$.VoidToCompleter());
+            function timeoutCompleter$35set(t4) {
+              return timeoutCompleter = t4;
+            }
+            dart.fn(timeoutCompleter$35set, T$.CompleterTodynamic());
+            if (handleTimeoutWarning) {
+              timeoutCompleter$35set(async.Completer.new());
+            }
+            let operation = this.rawLock.synchronized(T, dart.fn(() => {
+              if (handleTimeoutWarning) {
+                timeoutCompleter$35get().complete();
+              }
+              return action(txn);
+            }, dart.fnType(async.Future$(T), [])));
+            if (handleTimeoutWarning) {
+              timeoutCompleter$35get().future.timeout(dart.nullCheck(utils.lockWarningDuration), {onTimeout: dart.fn(() => {
+                  dart.nullCheck(utils.lockWarningCallback)();
+                }, T$.VoidToNull())});
+            }
+            return yield operation;
+          }
+        }).bind(this));
+      }
+      txnWriteSynchronized(T, txn, action) {
+        return this.txnSynchronized(T, txn, action);
+      }
+      txnExecute(T, txn, sql, $arguments = null) {
+        return this.txnWriteSynchronized(T, txn, dart.fn(_ => {
+          let t6;
+          let inTransactionChange = utils.getSqlInTransactionArgument(sql);
+          if (dart.test((t6 = inTransactionChange, t6 == null ? false : t6))) {
+            inTransactionChange = true;
+            this.inTransaction = true;
+          } else if (inTransactionChange === false) {
+            inTransactionChange = false;
+            this.inTransaction = false;
+          }
+          return this.invokeExecute(T, sql, $arguments, {inTransactionChange: inTransactionChange});
+        }, dart.fnType(async.Future$(T), [T$.TransactionN()])));
+      }
+      invokeExecute(T, sql, $arguments, opts) {
+        let t6;
+        let inTransactionChange = opts && 'inTransactionChange' in opts ? opts.inTransactionChange : null;
+        return this.safeInvokeMethod(T, "execute", (t6 = new (T$.IdentityMapOfString$ObjectN()).from(["sql", sql, "arguments", $arguments]), (() => {
+          t6[$addAll](database_mixin.SqfliteDatabaseMixin.getBaseDatabaseMethodArgumentsInTransaction(dart.nullCheck(this.id), inTransactionChange));
+          return t6;
+        })()));
+      }
+      txnRawInsert(txn, sql, $arguments) {
+        return this.txnWriteSynchronized(core.int, txn, dart.fn(_ => async.async(core.int, (function*() {
+          let t6, t6$;
+          t6$ = (yield this.safeInvokeMethod(T$.intN(), "insert", (t6 = new (T$.IdentityMapOfString$ObjectN()).from(["sql", sql, "arguments", $arguments]), (() => {
+            t6[$addAll](this.baseDatabaseMethodArguments);
+            return t6;
+          })())));
+          return t6$ == null ? 0 : t6$;
+        }).bind(this)), T$.TransactionNToFutureOfint()));
+      }
+      txnRawQuery(txn, sql, $arguments) {
+        return this.txnSynchronized(T$.ListOfMapOfString$ObjectN(), txn, dart.fn(_ => async.async(T$.ListOfMapOfString$ObjectN(), (function*() {
+          let t6;
+          let result = (yield this.safeInvokeMethod(dart.dynamic, "query", (t6 = new (T$.IdentityMapOfString$ObjectN()).from(["sql", sql, "arguments", $arguments]), (() => {
+            t6[$addAll](this.baseDatabaseMethodArguments);
+            return t6;
+          })())));
+          return collection_utils.queryResultToList(result);
+        }).bind(this)), T$.TransactionNToFutureOfListOfMapOfString$ObjectN()));
+      }
+      txnRawUpdate(txn, sql, $arguments) {
+        return this.txnWriteSynchronized(core.int, txn, dart.fn(_ => async.async(core.int, (function*() {
+          let t6, t6$;
+          let result = (yield this.safeInvokeMethod(T$.intN(), "update", (t6 = new (T$.IdentityMapOfString$ObjectN()).from(["sql", sql, "arguments", $arguments]), (() => {
+            t6[$addAll](this.baseDatabaseMethodArguments);
+            return t6;
+          })())));
+          t6$ = result;
+          return t6$ == null ? 0 : t6$;
+        }).bind(this)), T$.TransactionNToFutureOfint()));
+      }
+      txnApplyBatch(txn, batch, opts) {
+        let noResult = opts && 'noResult' in opts ? opts.noResult : null;
+        let continueOnError = opts && 'continueOnError' in opts ? opts.continueOnError : null;
+        return this.txnWriteSynchronized(T$.ListOfObjectN(), txn, dart.fn(_ => async.async(core.List, (function*() {
+          let t6;
+          let $arguments = (t6 = new (T$.IdentityMapOfString$ObjectN()).from(["operations", batch.operations]), (() => {
+            t6[$addAll](this.baseDatabaseMethodArguments);
+            return t6;
+          })());
+          if (noResult === true) {
+            $arguments[$_set]("noResult", noResult);
+          }
+          if (continueOnError === true) {
+            $arguments[$_set]("continueOnError", continueOnError);
+          }
+          let results = (yield this.safeInvokeMethod(T$.ListN(), "batch", $arguments));
+          if (results == null) {
+            return [];
+          }
+          return new collection_utils.BatchResults.from(results);
+        }).bind(this)), T$.TransactionNToFutureOfList()));
+      }
+      beginTransaction(opts) {
+        let exclusive = opts && 'exclusive' in opts ? opts.exclusive : null;
+        return async.async(transaction.SqfliteTransaction, (function* beginTransaction() {
+          let txn = new transaction.SqfliteTransaction.new(this);
+          if (this.readOnly !== true) {
+            if (exclusive === true) {
+              yield this.txnExecute(dart.dynamic, txn, "BEGIN EXCLUSIVE");
+            } else {
+              yield this.txnExecute(dart.dynamic, txn, "BEGIN IMMEDIATE");
+            }
+          }
+          return txn;
+        }).bind(this));
+      }
+      endTransaction(txn) {
+        return async.async(dart.void, (function* endTransaction() {
+          if (this.readOnly !== true) {
+            if (txn.successful === true) {
+              yield this.txnExecute(dart.dynamic, txn, "COMMIT");
+            } else {
+              yield this.txnExecute(dart.dynamic, txn, "ROLLBACK");
+            }
+          }
+        }).bind(this));
+      }
+      [_runTransaction](T, txn, action, opts) {
+        let exclusive = opts && 'exclusive' in opts ? opts.exclusive : null;
+        return async.async(T, (function* _runTransaction() {
+          let successfull = null;
+          if (this.transactionRefCount === 0) {
+            txn = (yield this.beginTransaction({exclusive: exclusive}));
+          }
+          this.transactionRefCount = this.transactionRefCount + 1;
+          let result = null;
+          try {
+            result = (yield action(dart.nullCheck(txn)));
+            successfull = true;
+          } finally {
+            if ((this.transactionRefCount = this.transactionRefCount - 1) === 0) {
+              let sqfliteTransaction = transaction.SqfliteTransaction.as(txn);
+              sqfliteTransaction.successful = successfull;
+              yield this.endTransaction(sqfliteTransaction);
+            }
+          }
+          return result;
+        }).bind(this));
+      }
+      transaction(T, action, opts) {
+        let exclusive = opts && 'exclusive' in opts ? opts.exclusive : null;
+        this.checkNotClosed();
+        return this.txnWriteSynchronized(T, this.txn, dart.fn(txn => async.async(T, (function*() {
+          return this[_runTransaction](T, txn, action, {exclusive: exclusive});
+        }).bind(this)), dart.fnType(async.Future$(T), [T$.TransactionN()])));
+      }
+      getVersion() {
+        return async.async(core.int, (function* getVersion() {
+          let t6;
+          let rows = (yield this.rawQuery("PRAGMA user_version"));
+          t6 = utils$.firstIntValue(rows);
+          return t6 == null ? 0 : t6;
+        }).bind(this));
+      }
+      setVersion(version) {
+        return async.async(dart.void, (function* setVersion() {
+          yield this.execute("PRAGMA user_version = " + dart.str(version));
+        }).bind(this));
+      }
+      close() {
+        return this.factory.closeDatabase(this);
+      }
+      doClose() {
+        return this[_closeDatabase](this.id);
+      }
+      toString() {
+        return dart.str(this.id) + " " + this.path;
+      }
+      openDatabase() {
+        return async.async(core.int, (function* openDatabase() {
+          let t6, t6$, t6$0, t7;
+          let params = new (T$.IdentityMapOfString$ObjectN()).from(["path", this.path]);
+          if (this.readOnly === true) {
+            params[$_set]("readOnly", true);
+          }
+          let singleInstance = (t6$ = (t6 = this.options, t6 == null ? null : t6.singleInstance), t6$ == null ? false : t6$);
+          params[$_set]("singleInstance", singleInstance);
+          let openResult = (yield this.safeInvokeMethod(dart.dynamic, "openDatabase", params));
+          if (core.int.is(openResult)) {
+            return openResult;
+          } else if (core.Map.is(openResult)) {
+            let id = T$.intN().as(openResult[$_get]("id"));
+            let recoveredInTransaction = dart.equals(openResult[$_get]("recoveredInTransaction"), true);
+            if (recoveredInTransaction) {
+              if (this.readOnly !== true) {
+                try {
+                  yield this.safeInvokeMethod(dart.dynamic, "execute", (t6$0 = new (T$.IdentityMapOfString$ObjectN()).from(["sql", "ROLLBACK"]), (() => {
+                    t6$0[$addAll](database_mixin.SqfliteDatabaseMixin.getBaseDatabaseMethodArgumentsInTransaction(dart.nullCheck(id), false));
+                    return t6$0;
+                  })()));
+                } catch (e$) {
+                  let e = dart.getThrown(e$);
+                  if (core.Object.is(e)) {
+                    core.print("ignore recovered database ROLLBACK error " + dart.str(e));
+                  } else
+                    throw e$;
+                }
+              }
+            }
+            return dart.nullCheck(id);
+          } else {
+            dart.throw("unsupported result " + dart.str(openResult) + " (" + dart.str((t7 = openResult, t7 == null ? null : dart.runtimeType(t7))) + ")");
+          }
+        }).bind(this));
+      }
+      [_closeDatabase](databaseId) {
+        return async.async(dart.void, (function* _closeDatabase() {
+          yield this[_closeLock$].synchronized(core.Null, dart.fn(() => async.async(core.Null, (function*() {
+            if (!this.isClosed) {
+              this.isClosed = true;
+              if (this.readOnly !== true && this.inTransaction) {
+                try {
+                  yield this.txnWriteSynchronized(core.Null, this.txn, dart.fn(txn => async.async(core.Null, (function*() {
+                    try {
+                      yield this.invokeExecute(dart.dynamic, "ROLLBACK", null, {inTransactionChange: false});
+                    } catch (e) {
+                      let _ = dart.getThrown(e);
+                      if (core.Object.is(_)) {
+                      } else
+                        throw e;
+                    }
+                  }).bind(this)), T$.TransactionNToFutureOfNull()));
+                } catch (e$) {
+                  let e = dart.getThrown(e$);
+                  if (core.Object.is(e)) {
+                    core.print("Error " + dart.str(e) + " before rollback");
+                  } else
+                    throw e$;
+                }
+              }
+              try {
+                yield this.safeInvokeMethod(dart.dynamic, "closeDatabase", new (T$.IdentityMapOfString$ObjectN()).from(["id", databaseId]));
+              } catch (e$0) {
+                let e = dart.getThrown(e$0);
+                if (core.Object.is(e)) {
+                  core.print("error " + dart.str(e) + " closing database " + dart.str(databaseId));
+                } else
+                  throw e$0;
+              }
+            }
+          }).bind(this)), T$.VoidToFutureOfNull()));
+        }).bind(this));
+      }
+      doOpen(options) {
+        return async.async(database.SqfliteDatabase, (function* doOpen() {
+          if (options.version != null) {
+            if (options.version === 0) {
+              dart.throw(new core.ArgumentError.new("version cannot be set to 0 in openDatabase"));
+            }
+          } else {
+            if (options.onCreate != null) {
+              dart.throw(new core.ArgumentError.new("onCreate must be null if no version is specified"));
+            }
+            if (options.onUpgrade != null) {
+              dart.throw(new core.ArgumentError.new("onUpgrade must be null if no version is specified"));
+            }
+            if (options.onDowngrade != null) {
+              dart.throw(new core.ArgumentError.new("onDowngrade must be null if no version is specified"));
+            }
+          }
+          this.options = options;
+          let databaseId = (yield this.openDatabase());
+          try {
+            if (dart.equals(options.onDowngrade, sqlite_api.onDatabaseDowngradeDelete)) {
+              const _onDatabaseDowngradeDelete = (_db, oldVersion, newVersion) => {
+                return async.async(dart.void, (function* _onDatabaseDowngradeDelete() {
+                  let db = database.SqfliteDatabase.as(_db);
+                  yield db.doClose();
+                  this.isClosed = false;
+                  yield this.factory.deleteDatabase(db.path);
+                  db.id = databaseId = (yield this.openDatabase());
+                  try {
+                    if (options.onConfigure != null) {
+                      yield dart.nullCheck(options.onConfigure)(db);
+                    }
+                  } catch (e$) {
+                    let e = dart.getThrown(e$);
+                    if (core.Object.is(e)) {
+                      core.print(e);
+                      yield db.beginTransaction({exclusive: true});
+                      dart.rethrow(e$);
+                    } else
+                      throw e$;
+                  }
+                  yield db.beginTransaction({exclusive: true});
+                  if (options.onCreate != null) {
+                    yield dart.nullCheck(options.onCreate)(db, dart.nullCheck(options.version));
+                  }
+                }).bind(this));
+              };
+              dart.fn(_onDatabaseDowngradeDelete, T$.DatabaseAndintAndintToFutureOfvoid());
+              options.onDowngrade = _onDatabaseDowngradeDelete;
+            }
+            this.id = databaseId;
+            this.openTransaction = new transaction.SqfliteTransaction.new(this);
+            if (options.onConfigure != null) {
+              yield dart.nullCheck(options.onConfigure)(this);
+            }
+            if (options.version != null) {
+              let oldVersion = (yield this.getVersion());
+              if (oldVersion !== options.version) {
+                yield this.transaction(core.Null, dart.fn(txn => async.async(core.Null, (function*() {
+                  let sqfliteTransaction = transaction.SqfliteTransaction.as(txn);
+                  this.openTransaction = sqfliteTransaction;
+                  let oldVersion = (yield this.getVersion());
+                  if (oldVersion === 0) {
+                    if (options.onCreate != null) {
+                      yield dart.nullCheck(options.onCreate)(this, dart.nullCheck(options.version));
+                    } else if (options.onUpgrade != null) {
+                      yield dart.nullCheck(options.onUpgrade)(this, 0, dart.nullCheck(options.version));
+                    }
+                  } else if (dart.nullCheck(options.version) > oldVersion) {
+                    if (options.onUpgrade != null) {
+                      yield dart.nullCheck(options.onUpgrade)(this, oldVersion, dart.nullCheck(options.version));
+                    }
+                  } else if (dart.nullCheck(options.version) < oldVersion) {
+                    if (options.onDowngrade != null) {
+                      yield dart.nullCheck(options.onDowngrade)(this, oldVersion, dart.nullCheck(options.version));
+                    }
+                  }
+                  if (oldVersion !== options.version) {
+                    yield this.setVersion(dart.nullCheck(options.version));
+                  }
+                }).bind(this)), T$.TransactionToFutureOfNull()), {exclusive: true});
+              }
+            }
+            if (options.onOpen != null) {
+              yield dart.nullCheck(options.onOpen)(this);
+            }
+            return this;
+          } catch (e$) {
+            let e = dart.getThrown(e$);
+            if (core.Object.is(e)) {
+              core.print("error " + dart.str(e) + " during open, closing...");
+              yield this[_closeDatabase](databaseId);
+              dart.rethrow(e$);
+            } else
+              throw e$;
+          } finally {
+            this.openTransaction = null;
+          }
+        }).bind(this));
+      }
+    }
+    dart.defineExtensionMethods(SqfliteDatabaseMixin, ['toString']);
+    return SqfliteDatabaseMixin;
+  };
+  (database_mixin.SqfliteDatabaseMixin[dart.mixinNew] = function() {
+    this[openHelper] = null;
+    this[options] = null;
+    this[isClosed] = false;
+    this[_$35SqfliteDatabaseMixin$35path] = null;
+    this[transactionRefCount] = 0;
+    this[openTransaction] = null;
+    this[rawLock] = synchronized.Lock.new();
+    this[id] = null;
+    this[inTransaction] = false;
+    this[_closeLock] = synchronized.Lock.new();
+  }).prototype = database_mixin.SqfliteDatabaseMixin.prototype;
+  dart.addTypeTests(database_mixin.SqfliteDatabaseMixin);
+  dart.addTypeCaches(database_mixin.SqfliteDatabaseMixin);
+  database_mixin.SqfliteDatabaseMixin[dart.implements] = () => [database.SqfliteDatabase, core.Object];
+  dart.setMethodSignature(database_mixin.SqfliteDatabaseMixin, () => ({
+    __proto__: dart.getMethods(database_mixin.SqfliteDatabaseMixin.__proto__),
+    safeInvokeMethod: dart.gFnType(T => [async.Future$(T), [core.String], [dart.dynamic]], T => [dart.nullable(core.Object)]),
+    batch: dart.fnType(sqlite_api.Batch, []),
+    checkNotClosed: dart.fnType(dart.void, []),
+    invokeMethod: dart.gFnType(T => [async.Future$(T), [core.String], [dart.dynamic]], T => [dart.nullable(core.Object)]),
+    devInvokeMethod: dart.gFnType(T => [async.Future$(T), [core.String], [dart.dynamic]], T => [dart.nullable(core.Object)]),
+    devInvokeSqlMethod: dart.gFnType(T => [async.Future$(T), [core.String, core.String], [dart.nullable(core.List$(dart.nullable(core.Object)))]], T => [dart.nullable(core.Object)]),
+    txnSynchronized: dart.gFnType(T => [async.Future$(T), [dart.nullable(sqlite_api.Transaction), dart.fnType(async.Future$(T), [dart.nullable(sqlite_api.Transaction)])]], T => [dart.nullable(core.Object)]),
+    txnWriteSynchronized: dart.gFnType(T => [async.Future$(T), [dart.nullable(sqlite_api.Transaction), dart.fnType(async.Future$(T), [dart.nullable(sqlite_api.Transaction)])]], T => [dart.nullable(core.Object)]),
+    txnExecute: dart.gFnType(T => [async.Future$(T), [dart.nullable(transaction.SqfliteTransaction), core.String], [dart.nullable(core.List$(dart.nullable(core.Object)))]], T => [dart.nullable(core.Object)]),
+    invokeExecute: dart.gFnType(T => [async.Future$(T), [core.String, dart.nullable(core.List$(dart.nullable(core.Object)))], {inTransactionChange: dart.nullable(core.bool)}, {}], T => [dart.nullable(core.Object)]),
+    txnRawInsert: dart.fnType(async.Future$(core.int), [dart.nullable(transaction.SqfliteTransaction), core.String, dart.nullable(core.List$(dart.nullable(core.Object)))]),
+    txnRawQuery: dart.fnType(async.Future$(core.List$(core.Map$(core.String, dart.nullable(core.Object)))), [dart.nullable(transaction.SqfliteTransaction), core.String, dart.nullable(core.List$(dart.nullable(core.Object)))]),
+    txnRawUpdate: dart.fnType(async.Future$(core.int), [dart.nullable(transaction.SqfliteTransaction), core.String, dart.nullable(core.List$(dart.nullable(core.Object)))]),
+    txnApplyBatch: dart.fnType(async.Future$(core.List$(dart.nullable(core.Object))), [transaction.SqfliteTransaction, batch.SqfliteBatch], {continueOnError: dart.nullable(core.bool), noResult: dart.nullable(core.bool)}, {}),
+    beginTransaction: dart.fnType(async.Future$(transaction.SqfliteTransaction), [], {exclusive: dart.nullable(core.bool)}, {}),
+    endTransaction: dart.fnType(async.Future$(dart.void), [transaction.SqfliteTransaction]),
+    [_runTransaction]: dart.gFnType(T => [async.Future$(T), [dart.nullable(sqlite_api.Transaction), dart.fnType(async.Future$(T), [sqlite_api.Transaction])], {exclusive: dart.nullable(core.bool)}, {}], T => [dart.nullable(core.Object)]),
+    transaction: dart.gFnType(T => [async.Future$(T), [dart.fnType(async.Future$(T), [sqlite_api.Transaction])], {exclusive: dart.nullable(core.bool)}, {}], T => [dart.nullable(core.Object)]),
+    getVersion: dart.fnType(async.Future$(core.int), []),
+    setVersion: dart.fnType(async.Future$(dart.void), [core.int]),
+    close: dart.fnType(async.Future$(dart.void), []),
+    doClose: dart.fnType(async.Future$(dart.void), []),
+    openDatabase: dart.fnType(async.Future$(core.int), []),
+    [_closeDatabase]: dart.fnType(async.Future$(dart.void), [dart.nullable(core.int)]),
+    doOpen: dart.fnType(async.Future$(database.SqfliteDatabase), [sqlite_api.OpenDatabaseOptions])
+  }));
+  dart.setGetterSignature(database_mixin.SqfliteDatabaseMixin, () => ({
+    __proto__: dart.getGetters(database_mixin.SqfliteDatabaseMixin.__proto__),
+    factory: factory$.SqfliteDatabaseFactory,
+    readOnly: core.bool,
+    db: database.SqfliteDatabase,
+    isOpen: core.bool,
+    path: core.String,
+    txn: dart.nullable(transaction.SqfliteTransaction),
+    baseDatabaseMethodArguments: core.Map$(core.String, dart.nullable(core.Object))
+  }));
+  dart.setSetterSignature(database_mixin.SqfliteDatabaseMixin, () => ({
+    __proto__: dart.getSetters(database_mixin.SqfliteDatabaseMixin.__proto__),
+    path: core.String
+  }));
+  dart.setLibraryUri(database_mixin.SqfliteDatabaseMixin, I[3]);
+  dart.setFieldSignature(database_mixin.SqfliteDatabaseMixin, () => ({
+    __proto__: dart.getFields(database_mixin.SqfliteDatabaseMixin.__proto__),
+    openHelper: dart.fieldType(dart.nullable(database.SqfliteDatabaseOpenHelper)),
+    options: dart.fieldType(dart.nullable(sqlite_api.OpenDatabaseOptions)),
+    isClosed: dart.fieldType(core.bool),
+    [__SqfliteDatabaseMixin_path]: dart.fieldType(dart.nullable(core.String)),
+    transactionRefCount: dart.fieldType(core.int),
+    openTransaction: dart.fieldType(dart.nullable(transaction.SqfliteTransaction)),
+    rawLock: dart.finalFieldType(synchronized.Lock),
+    id: dart.fieldType(dart.nullable(core.int)),
+    inTransaction: dart.fieldType(core.bool),
+    [_closeLock$]: dart.finalFieldType(synchronized.Lock)
+  }));
+  var _rawQuery = dart.privateName(database_mixin, "_rawQuery");
+  var _rawUpdate = dart.privateName(database_mixin, "_rawUpdate");
+  var _rawDelete = dart.privateName(database_mixin, "_rawDelete");
+  database_mixin.SqfliteDatabaseExecutorMixin = class SqfliteDatabaseExecutorMixin extends core.Object {};
+  database_mixin.SqfliteDatabaseExecutorMixin[dart.mixinOn] = Object => class SqfliteDatabaseExecutorMixin extends Object {
+    execute(sql, $arguments = null) {
+      this.db.checkNotClosed();
+      return this.db.txnExecute(dart.dynamic, this.txn, sql, $arguments);
+    }
+    rawInsert(sql, $arguments = null) {
+      this.db.checkNotClosed();
+      return this.db.txnRawInsert(this.txn, sql, $arguments);
+    }
+    insert(table, values, opts) {
+      let nullColumnHack = opts && 'nullColumnHack' in opts ? opts.nullColumnHack : null;
+      let conflictAlgorithm = opts && 'conflictAlgorithm' in opts ? opts.conflictAlgorithm : null;
+      let builder = new sql_builder.SqlBuilder.insert(table, values, {nullColumnHack: nullColumnHack, conflictAlgorithm: conflictAlgorithm});
+      return this.rawInsert(builder.sql, builder.arguments);
+    }
+    query(table, opts) {
+      let distinct = opts && 'distinct' in opts ? opts.distinct : null;
+      let columns = opts && 'columns' in opts ? opts.columns : null;
+      let where = opts && 'where' in opts ? opts.where : null;
+      let whereArgs = opts && 'whereArgs' in opts ? opts.whereArgs : null;
+      let groupBy = opts && 'groupBy' in opts ? opts.groupBy : null;
+      let having = opts && 'having' in opts ? opts.having : null;
+      let orderBy = opts && 'orderBy' in opts ? opts.orderBy : null;
+      let limit = opts && 'limit' in opts ? opts.limit : null;
+      let offset = opts && 'offset' in opts ? opts.offset : null;
+      let builder = new sql_builder.SqlBuilder.query(table, {distinct: distinct, columns: columns, where: where, groupBy: groupBy, having: having, orderBy: orderBy, limit: limit, offset: offset, whereArgs: whereArgs});
+      return this[_rawQuery](builder.sql, builder.arguments);
+    }
+    rawQuery(sql, $arguments = null) {
+      value_utils.checkRawArgs($arguments);
+      return this[_rawQuery](sql, $arguments);
+    }
+    [_rawQuery](sql, $arguments = null) {
+      this.db.checkNotClosed();
+      return this.db.txnRawQuery(this.txn, sql, $arguments);
+    }
+    rawUpdate(sql, $arguments = null) {
+      value_utils.checkRawArgs($arguments);
+      return this[_rawUpdate](sql, $arguments);
+    }
+    [_rawUpdate](sql, $arguments = null) {
+      this.db.checkNotClosed();
+      return this.db.txnRawUpdate(this.txn, sql, $arguments);
+    }
+    update(table, values, opts) {
+      let where = opts && 'where' in opts ? opts.where : null;
+      let whereArgs = opts && 'whereArgs' in opts ? opts.whereArgs : null;
+      let conflictAlgorithm = opts && 'conflictAlgorithm' in opts ? opts.conflictAlgorithm : null;
+      let builder = new sql_builder.SqlBuilder.update(table, values, {where: where, whereArgs: whereArgs, conflictAlgorithm: conflictAlgorithm});
+      return this.rawUpdate(builder.sql, builder.arguments);
+    }
+    rawDelete(sql, $arguments = null) {
+      value_utils.checkRawArgs($arguments);
+      return this[_rawDelete](sql, $arguments);
+    }
+    [_rawDelete](sql, $arguments = null) {
+      return this.rawUpdate(sql, $arguments);
+    }
+    delete(table, opts) {
+      let where = opts && 'where' in opts ? opts.where : null;
+      let whereArgs = opts && 'whereArgs' in opts ? opts.whereArgs : null;
+      let builder = new sql_builder.SqlBuilder.delete(table, {where: where, whereArgs: whereArgs});
+      return this[_rawDelete](builder.sql, builder.arguments);
+    }
+  };
+  (database_mixin.SqfliteDatabaseExecutorMixin[dart.mixinNew] = function() {
+  }).prototype = database_mixin.SqfliteDatabaseExecutorMixin.prototype;
+  dart.addTypeTests(database_mixin.SqfliteDatabaseExecutorMixin);
+  dart.addTypeCaches(database_mixin.SqfliteDatabaseExecutorMixin);
+  database_mixin.SqfliteDatabaseExecutorMixin[dart.implements] = () => [database.SqfliteDatabaseExecutor, core.Object];
+  dart.setMethodSignature(database_mixin.SqfliteDatabaseExecutorMixin, () => ({
+    __proto__: dart.getMethods(database_mixin.SqfliteDatabaseExecutorMixin.__proto__),
+    execute: dart.fnType(async.Future$(dart.void), [core.String], [dart.nullable(core.List$(dart.nullable(core.Object)))]),
+    rawInsert: dart.fnType(async.Future$(core.int), [core.String], [dart.nullable(core.List$(dart.nullable(core.Object)))]),
+    insert: dart.fnType(async.Future$(core.int), [core.String, core.Map$(core.String, dart.nullable(core.Object))], {conflictAlgorithm: dart.nullable(sql_builder.ConflictAlgorithm), nullColumnHack: dart.nullable(core.String)}, {}),
+    query: dart.fnType(async.Future$(core.List$(core.Map$(core.String, dart.nullable(core.Object)))), [core.String], {columns: dart.nullable(core.List$(core.String)), distinct: dart.nullable(core.bool), groupBy: dart.nullable(core.String), having: dart.nullable(core.String), limit: dart.nullable(core.int), offset: dart.nullable(core.int), orderBy: dart.nullable(core.String), where: dart.nullable(core.String), whereArgs: dart.nullable(core.List$(dart.nullable(core.Object)))}, {}),
+    rawQuery: dart.fnType(async.Future$(core.List$(core.Map$(core.String, dart.nullable(core.Object)))), [core.String], [dart.nullable(core.List$(dart.nullable(core.Object)))]),
+    [_rawQuery]: dart.fnType(async.Future$(core.List$(core.Map$(core.String, dart.nullable(core.Object)))), [core.String], [dart.nullable(core.List$(dart.nullable(core.Object)))]),
+    rawUpdate: dart.fnType(async.Future$(core.int), [core.String], [dart.nullable(core.List$(dart.nullable(core.Object)))]),
+    [_rawUpdate]: dart.fnType(async.Future$(core.int), [core.String], [dart.nullable(core.List$(dart.nullable(core.Object)))]),
+    update: dart.fnType(async.Future$(core.int), [core.String, core.Map$(core.String, dart.nullable(core.Object))], {conflictAlgorithm: dart.nullable(sql_builder.ConflictAlgorithm), where: dart.nullable(core.String), whereArgs: dart.nullable(core.List$(dart.nullable(core.Object)))}, {}),
+    rawDelete: dart.fnType(async.Future$(core.int), [core.String], [dart.nullable(core.List$(dart.nullable(core.Object)))]),
+    [_rawDelete]: dart.fnType(async.Future$(core.int), [core.String], [dart.nullable(core.List$(dart.nullable(core.Object)))]),
+    delete: dart.fnType(async.Future$(core.int), [core.String], {where: dart.nullable(core.String), whereArgs: dart.nullable(core.List$(dart.nullable(core.Object)))}, {})
+  }));
+  dart.setLibraryUri(database_mixin.SqfliteDatabaseExecutorMixin, I[3]);
+  const Object_SqfliteDatabaseMixin$36 = class Object_SqfliteDatabaseMixin extends core.Object {};
+  (Object_SqfliteDatabaseMixin$36.new = function() {
+    database_mixin.SqfliteDatabaseMixin[dart.mixinNew].call(this);
+  }).prototype = Object_SqfliteDatabaseMixin$36.prototype;
+  dart.applyMixin(Object_SqfliteDatabaseMixin$36, database_mixin.SqfliteDatabaseMixin);
+  const Object_SqfliteDatabaseExecutorMixin$36 = class Object_SqfliteDatabaseExecutorMixin extends Object_SqfliteDatabaseMixin$36 {};
+  (Object_SqfliteDatabaseExecutorMixin$36.new = function() {
+    Object_SqfliteDatabaseExecutorMixin$36.__proto__.new.call(this);
+  }).prototype = Object_SqfliteDatabaseExecutorMixin$36.prototype;
+  dart.applyMixin(Object_SqfliteDatabaseExecutorMixin$36, database_mixin.SqfliteDatabaseExecutorMixin);
+  database_mixin.SqfliteDatabaseBase = class SqfliteDatabaseBase extends Object_SqfliteDatabaseExecutorMixin$36 {};
+  (database_mixin.SqfliteDatabaseBase.new = function(openHelper, path, opts) {
+    let options = opts && 'options' in opts ? opts.options : null;
+    database_mixin.SqfliteDatabaseBase.__proto__.new.call(this);
+    this.openHelper = openHelper;
+    this.path = path;
+  }).prototype = database_mixin.SqfliteDatabaseBase.prototype;
+  dart.addTypeTests(database_mixin.SqfliteDatabaseBase);
+  dart.addTypeCaches(database_mixin.SqfliteDatabaseBase);
+  dart.setLibraryUri(database_mixin.SqfliteDatabaseBase, I[3]);
+  var database$ = dart.privateName(transaction, "SqfliteTransaction.database");
+  var successful = dart.privateName(transaction, "SqfliteTransaction.successful");
+  const Object_SqfliteDatabaseExecutorMixin$36$ = class Object_SqfliteDatabaseExecutorMixin extends core.Object {};
+  (Object_SqfliteDatabaseExecutorMixin$36$.new = function() {
+  }).prototype = Object_SqfliteDatabaseExecutorMixin$36$.prototype;
+  dart.applyMixin(Object_SqfliteDatabaseExecutorMixin$36$, database_mixin.SqfliteDatabaseExecutorMixin);
+  transaction.SqfliteTransaction = class SqfliteTransaction extends Object_SqfliteDatabaseExecutorMixin$36$ {
+    get database() {
+      return this[database$];
+    }
+    set database(value) {
+      super.database = value;
+    }
+    get successful() {
+      return this[successful];
+    }
+    set successful(value) {
+      this[successful] = value;
+    }
+    get db() {
+      return this.database;
+    }
+    get txn() {
+      return this;
+    }
+    batch() {
+      return new batch.SqfliteTransactionBatch.new(this);
+    }
+  };
+  (transaction.SqfliteTransaction.new = function(database) {
+    this[successful] = null;
+    this[database$] = database;
+    ;
+  }).prototype = transaction.SqfliteTransaction.prototype;
+  dart.addTypeTests(transaction.SqfliteTransaction);
+  dart.addTypeCaches(transaction.SqfliteTransaction);
+  transaction.SqfliteTransaction[dart.implements] = () => [sqlite_api.Transaction];
+  dart.setMethodSignature(transaction.SqfliteTransaction, () => ({
+    __proto__: dart.getMethods(transaction.SqfliteTransaction.__proto__),
+    batch: dart.fnType(sqlite_api.Batch, [])
+  }));
+  dart.setGetterSignature(transaction.SqfliteTransaction, () => ({
+    __proto__: dart.getGetters(transaction.SqfliteTransaction.__proto__),
+    db: database.SqfliteDatabase,
+    txn: transaction.SqfliteTransaction
+  }));
+  dart.setLibraryUri(transaction.SqfliteTransaction, I[4]);
+  dart.setFieldSignature(transaction.SqfliteTransaction, () => ({
+    __proto__: dart.getFields(transaction.SqfliteTransaction.__proto__),
+    database: dart.finalFieldType(database.SqfliteDatabase),
+    successful: dart.fieldType(dart.nullable(core.bool))
+  }));
+  var operations = dart.privateName(batch, "SqfliteBatch.operations");
+  var _getOperationMap = dart.privateName(batch, "_getOperationMap");
+  var _add = dart.privateName(batch, "_add");
+  var _addExecute = dart.privateName(batch, "_addExecute");
+  batch.SqfliteBatch = class SqfliteBatch extends core.Object {
+    get operations() {
+      return this[operations];
+    }
+    set operations(value) {
+      super.operations = value;
+    }
+    [_getOperationMap](method, sql, $arguments) {
+      return new (T$.IdentityMapOfString$ObjectN()).from(["method", method, "sql", sql, "arguments", $arguments]);
+    }
+    [_add](method, sql, $arguments) {
+      this.operations[$add](this[_getOperationMap](method, sql, $arguments));
+    }
+    [_addExecute](method, sql, $arguments, inTransaction) {
+      let map = this[_getOperationMap](method, sql, $arguments);
+      if (inTransaction != null) {
+        map[$_set]("inTransaction", inTransaction);
+      }
+      this.operations[$add](map);
+    }
+    rawInsert(sql, $arguments = null) {
+      this[_add]("insert", sql, $arguments);
+    }
+    insert(table, values, opts) {
+      let nullColumnHack = opts && 'nullColumnHack' in opts ? opts.nullColumnHack : null;
+      let conflictAlgorithm = opts && 'conflictAlgorithm' in opts ? opts.conflictAlgorithm : null;
+      let builder = new sql_builder.SqlBuilder.insert(table, values, {nullColumnHack: nullColumnHack, conflictAlgorithm: conflictAlgorithm});
+      return this.rawInsert(builder.sql, builder.arguments);
+    }
+    rawQuery(sql, $arguments = null) {
+      this[_add]("query", sql, $arguments);
+    }
+    query(table, opts) {
+      let distinct = opts && 'distinct' in opts ? opts.distinct : null;
+      let columns = opts && 'columns' in opts ? opts.columns : null;
+      let where = opts && 'where' in opts ? opts.where : null;
+      let whereArgs = opts && 'whereArgs' in opts ? opts.whereArgs : null;
+      let groupBy = opts && 'groupBy' in opts ? opts.groupBy : null;
+      let having = opts && 'having' in opts ? opts.having : null;
+      let orderBy = opts && 'orderBy' in opts ? opts.orderBy : null;
+      let limit = opts && 'limit' in opts ? opts.limit : null;
+      let offset = opts && 'offset' in opts ? opts.offset : null;
+      let builder = new sql_builder.SqlBuilder.query(table, {distinct: distinct, columns: columns, where: where, whereArgs: whereArgs, groupBy: groupBy, having: having, orderBy: orderBy, limit: limit, offset: offset});
+      return this.rawQuery(builder.sql, builder.arguments);
+    }
+    rawUpdate(sql, $arguments = null) {
+      this[_add]("update", sql, $arguments);
+    }
+    update(table, values, opts) {
+      let where = opts && 'where' in opts ? opts.where : null;
+      let whereArgs = opts && 'whereArgs' in opts ? opts.whereArgs : null;
+      let conflictAlgorithm = opts && 'conflictAlgorithm' in opts ? opts.conflictAlgorithm : null;
+      let builder = new sql_builder.SqlBuilder.update(table, values, {where: where, whereArgs: whereArgs, conflictAlgorithm: conflictAlgorithm});
+      return this.rawUpdate(builder.sql, builder.arguments);
+    }
+    delete(table, opts) {
+      let where = opts && 'where' in opts ? opts.where : null;
+      let whereArgs = opts && 'whereArgs' in opts ? opts.whereArgs : null;
+      let builder = new sql_builder.SqlBuilder.delete(table, {where: where, whereArgs: whereArgs});
+      return this.rawDelete(builder.sql, builder.arguments);
+    }
+    rawDelete(sql, $arguments = null) {
+      this.rawUpdate(sql, $arguments);
+    }
+    execute(sql, $arguments = null) {
+      let inTransaction = utils.getSqlInTransactionArgument(sql);
+      this[_addExecute]("execute", sql, $arguments, inTransaction);
+    }
+  };
+  (batch.SqfliteBatch.new = function() {
+    this[operations] = T$.JSArrayOfMapOfString$ObjectN().of([]);
+    ;
+  }).prototype = batch.SqfliteBatch.prototype;
+  dart.addTypeTests(batch.SqfliteBatch);
+  dart.addTypeCaches(batch.SqfliteBatch);
+  batch.SqfliteBatch[dart.implements] = () => [sqlite_api.Batch];
+  dart.setMethodSignature(batch.SqfliteBatch, () => ({
+    __proto__: dart.getMethods(batch.SqfliteBatch.__proto__),
+    [_getOperationMap]: dart.fnType(core.Map$(core.String, dart.nullable(core.Object)), [core.String, core.String, dart.nullable(core.List$(dart.nullable(core.Object)))]),
+    [_add]: dart.fnType(dart.void, [core.String, core.String, dart.nullable(core.List$(dart.nullable(core.Object)))]),
+    [_addExecute]: dart.fnType(dart.void, [core.String, core.String, dart.nullable(core.List$(dart.nullable(core.Object))), dart.nullable(core.bool)]),
+    rawInsert: dart.fnType(dart.void, [core.String], [dart.nullable(core.List$(dart.nullable(core.Object)))]),
+    insert: dart.fnType(dart.void, [core.String, core.Map$(core.String, dart.nullable(core.Object))], {conflictAlgorithm: dart.nullable(sql_builder.ConflictAlgorithm), nullColumnHack: dart.nullable(core.String)}, {}),
+    rawQuery: dart.fnType(dart.void, [core.String], [dart.nullable(core.List$(dart.nullable(core.Object)))]),
+    query: dart.fnType(dart.void, [core.String], {columns: dart.nullable(core.List$(core.String)), distinct: dart.nullable(core.bool), groupBy: dart.nullable(core.String), having: dart.nullable(core.String), limit: dart.nullable(core.int), offset: dart.nullable(core.int), orderBy: dart.nullable(core.String), where: dart.nullable(core.String), whereArgs: dart.nullable(core.List$(dart.nullable(core.Object)))}, {}),
+    rawUpdate: dart.fnType(dart.void, [core.String], [dart.nullable(core.List$(dart.nullable(core.Object)))]),
+    update: dart.fnType(dart.void, [core.String, core.Map$(core.String, dart.nullable(core.Object))], {conflictAlgorithm: dart.nullable(sql_builder.ConflictAlgorithm), where: dart.nullable(core.String), whereArgs: dart.nullable(core.List$(dart.nullable(core.Object)))}, {}),
+    delete: dart.fnType(dart.void, [core.String], {where: dart.nullable(core.String), whereArgs: dart.nullable(core.List$(dart.nullable(core.Object)))}, {}),
+    rawDelete: dart.fnType(dart.void, [core.String], [dart.nullable(core.List$(dart.nullable(core.Object)))]),
+    execute: dart.fnType(dart.void, [core.String], [dart.nullable(core.List$(dart.nullable(core.Object)))])
+  }));
+  dart.setLibraryUri(batch.SqfliteBatch, I[5]);
+  dart.setFieldSignature(batch.SqfliteBatch, () => ({
+    __proto__: dart.getFields(batch.SqfliteBatch.__proto__),
+    operations: dart.finalFieldType(core.List$(core.Map$(core.String, dart.nullable(core.Object))))
+  }));
+  var database$0 = dart.privateName(batch, "SqfliteDatabaseBatch.database");
+  batch.SqfliteDatabaseBatch = class SqfliteDatabaseBatch extends batch.SqfliteBatch {
+    get database() {
+      return this[database$0];
+    }
+    set database(value) {
+      super.database = value;
+    }
+    commit(opts) {
+      let exclusive = opts && 'exclusive' in opts ? opts.exclusive : null;
+      let noResult = opts && 'noResult' in opts ? opts.noResult : null;
+      let continueOnError = opts && 'continueOnError' in opts ? opts.continueOnError : null;
+      this.database.checkNotClosed();
+      return this.database.transaction(T$.ListOfObjectN(), dart.fn(txn => {
+        let sqfliteTransaction = transaction.SqfliteTransaction.as(txn);
+        return this.database.txnApplyBatch(sqfliteTransaction, this, {noResult: noResult, continueOnError: continueOnError});
+      }, T$.TransactionToFutureOfListOfObjectN()), {exclusive: exclusive});
+    }
+  };
+  (batch.SqfliteDatabaseBatch.new = function(database) {
+    this[database$0] = database;
+    batch.SqfliteDatabaseBatch.__proto__.new.call(this);
+    ;
+  }).prototype = batch.SqfliteDatabaseBatch.prototype;
+  dart.addTypeTests(batch.SqfliteDatabaseBatch);
+  dart.addTypeCaches(batch.SqfliteDatabaseBatch);
+  dart.setMethodSignature(batch.SqfliteDatabaseBatch, () => ({
+    __proto__: dart.getMethods(batch.SqfliteDatabaseBatch.__proto__),
+    commit: dart.fnType(async.Future$(core.List$(dart.nullable(core.Object))), [], {continueOnError: dart.nullable(core.bool), exclusive: dart.nullable(core.bool), noResult: dart.nullable(core.bool)}, {})
+  }));
+  dart.setLibraryUri(batch.SqfliteDatabaseBatch, I[5]);
+  dart.setFieldSignature(batch.SqfliteDatabaseBatch, () => ({
+    __proto__: dart.getFields(batch.SqfliteDatabaseBatch.__proto__),
+    database: dart.finalFieldType(database.SqfliteDatabase)
+  }));
+  var transaction$ = dart.privateName(batch, "SqfliteTransactionBatch.transaction");
+  batch.SqfliteTransactionBatch = class SqfliteTransactionBatch extends batch.SqfliteBatch {
+    get transaction() {
+      return this[transaction$];
+    }
+    set transaction(value) {
+      super.transaction = value;
+    }
+    commit(opts) {
+      let exclusive = opts && 'exclusive' in opts ? opts.exclusive : null;
+      let noResult = opts && 'noResult' in opts ? opts.noResult : null;
+      let continueOnError = opts && 'continueOnError' in opts ? opts.continueOnError : null;
+      if (exclusive != null) {
+        dart.throw(new core.ArgumentError.value(exclusive, "exclusive", "must not be set when commiting a batch in a transaction"));
+      }
+      return this.transaction.database.txnApplyBatch(this.transaction, this, {noResult: noResult, continueOnError: continueOnError});
+    }
+  };
+  (batch.SqfliteTransactionBatch.new = function(transaction) {
+    this[transaction$] = transaction;
+    batch.SqfliteTransactionBatch.__proto__.new.call(this);
+    ;
+  }).prototype = batch.SqfliteTransactionBatch.prototype;
+  dart.addTypeTests(batch.SqfliteTransactionBatch);
+  dart.addTypeCaches(batch.SqfliteTransactionBatch);
+  dart.setMethodSignature(batch.SqfliteTransactionBatch, () => ({
+    __proto__: dart.getMethods(batch.SqfliteTransactionBatch.__proto__),
+    commit: dart.fnType(async.Future$(core.List$(dart.nullable(core.Object))), [], {continueOnError: dart.nullable(core.bool), exclusive: dart.nullable(core.bool), noResult: dart.nullable(core.bool)}, {})
+  }));
+  dart.setLibraryUri(batch.SqfliteTransactionBatch, I[5]);
+  dart.setFieldSignature(batch.SqfliteTransactionBatch, () => ({
+    __proto__: dart.getFields(batch.SqfliteTransactionBatch.__proto__),
+    transaction: dart.finalFieldType(transaction.SqfliteTransaction)
+  }));
+  database.SqfliteDatabaseExecutor = class SqfliteDatabaseExecutor extends core.Object {};
+  (database.SqfliteDatabaseExecutor.new = function() {
+    ;
+  }).prototype = database.SqfliteDatabaseExecutor.prototype;
+  dart.addTypeTests(database.SqfliteDatabaseExecutor);
+  dart.addTypeCaches(database.SqfliteDatabaseExecutor);
+  database.SqfliteDatabaseExecutor[dart.implements] = () => [sqlite_api.DatabaseExecutor];
+  dart.setLibraryUri(database.SqfliteDatabaseExecutor, I[6]);
+  var factory$0 = dart.privateName(database, "SqfliteDatabaseOpenHelper.factory");
+  var options$ = dart.privateName(database, "SqfliteDatabaseOpenHelper.options");
+  var path$0 = dart.privateName(database, "SqfliteDatabaseOpenHelper.path");
+  var sqfliteDatabase = dart.privateName(database, "SqfliteDatabaseOpenHelper.sqfliteDatabase");
+  database.SqfliteDatabaseOpenHelper = class SqfliteDatabaseOpenHelper extends core.Object {
+    get factory() {
+      return this[factory$0];
+    }
+    set factory(value) {
+      super.factory = value;
+    }
+    get options() {
+      return this[options$];
+    }
+    set options(value) {
+      super.options = value;
+    }
+    get path() {
+      return this[path$0];
+    }
+    set path(value) {
+      super.path = value;
+    }
+    get sqfliteDatabase() {
+      return this[sqfliteDatabase];
+    }
+    set sqfliteDatabase(value) {
+      this[sqfliteDatabase] = value;
+    }
+    newDatabase(path) {
+      return this.factory.newDatabase(this, path);
+    }
+    get isOpen() {
+      return this.sqfliteDatabase != null;
+    }
+    openDatabase() {
+      return async.async(database.SqfliteDatabase, (function* openDatabase() {
+        if (!this.isOpen) {
+          let database = this.newDatabase(this.path);
+          yield database.doOpen(dart.nullCheck(this.options));
+          this.sqfliteDatabase = database;
+        }
+        return dart.nullCheck(this.sqfliteDatabase);
+      }).bind(this));
+    }
+    closeDatabase(sqfliteDatabase) {
+      return async.async(dart.void, (function* closeDatabase() {
+        if (!this.isOpen) {
+          return;
+        }
+        yield sqfliteDatabase.doClose();
+        this.sqfliteDatabase = null;
+      }).bind(this));
+    }
+  };
+  (database.SqfliteDatabaseOpenHelper.new = function(factory, path, options) {
+    this[sqfliteDatabase] = null;
+    this[factory$0] = factory;
+    this[path$0] = path;
+    this[options$] = options;
+    ;
+  }).prototype = database.SqfliteDatabaseOpenHelper.prototype;
+  dart.addTypeTests(database.SqfliteDatabaseOpenHelper);
+  dart.addTypeCaches(database.SqfliteDatabaseOpenHelper);
+  dart.setMethodSignature(database.SqfliteDatabaseOpenHelper, () => ({
+    __proto__: dart.getMethods(database.SqfliteDatabaseOpenHelper.__proto__),
+    newDatabase: dart.fnType(database.SqfliteDatabase, [core.String]),
+    openDatabase: dart.fnType(async.Future$(database.SqfliteDatabase), []),
+    closeDatabase: dart.fnType(async.Future$(dart.void), [database.SqfliteDatabase])
+  }));
+  dart.setGetterSignature(database.SqfliteDatabaseOpenHelper, () => ({
+    __proto__: dart.getGetters(database.SqfliteDatabaseOpenHelper.__proto__),
+    isOpen: core.bool
+  }));
+  dart.setLibraryUri(database.SqfliteDatabaseOpenHelper, I[6]);
+  dart.setFieldSignature(database.SqfliteDatabaseOpenHelper, () => ({
+    __proto__: dart.getFields(database.SqfliteDatabaseOpenHelper.__proto__),
+    factory: dart.finalFieldType(factory$.SqfliteDatabaseFactory),
+    options: dart.finalFieldType(dart.nullable(sqlite_api.OpenDatabaseOptions)),
+    path: dart.finalFieldType(core.String),
+    sqfliteDatabase: dart.fieldType(dart.nullable(database.SqfliteDatabase))
+  }));
+  var id$ = dart.privateName(database, "SqfliteDatabase.id");
+  var options$0 = dart.privateName(database, "SqfliteDatabase.options");
+  database.SqfliteDatabase = class SqfliteDatabase extends database.SqfliteDatabaseExecutor {
+    get id() {
+      return this[id$];
+    }
+    set id(value) {
+      this[id$] = value;
+    }
+    get options() {
+      return this[options$0];
+    }
+    set options(value) {
+      this[options$0] = value;
+    }
+  };
+  (database.SqfliteDatabase.new = function() {
+    this[id$] = null;
+    this[options$0] = null;
+    ;
+  }).prototype = database.SqfliteDatabase.prototype;
+  dart.addTypeTests(database.SqfliteDatabase);
+  dart.addTypeCaches(database.SqfliteDatabase);
+  database.SqfliteDatabase[dart.implements] = () => [sqlite_api.Database];
+  dart.setLibraryUri(database.SqfliteDatabase, I[6]);
+  dart.setFieldSignature(database.SqfliteDatabase, () => ({
+    __proto__: dart.getFields(database.SqfliteDatabase.__proto__),
+    id: dart.fieldType(dart.nullable(core.int)),
+    options: dart.fieldType(dart.nullable(sqlite_api.OpenDatabaseOptions))
+  }));
+  const Object_SqfliteDatabaseFactoryMixin$36$ = class Object_SqfliteDatabaseFactoryMixin extends core.Object {};
+  (Object_SqfliteDatabaseFactoryMixin$36$.new = function() {
+    factory_mixin.SqfliteDatabaseFactoryMixin[dart.mixinNew].call(this);
+  }).prototype = Object_SqfliteDatabaseFactoryMixin$36$.prototype;
+  dart.applyMixin(Object_SqfliteDatabaseFactoryMixin$36$, factory_mixin.SqfliteDatabaseFactoryMixin);
+  factory_mixin.SqfliteDatabaseFactoryBase = class SqfliteDatabaseFactoryBase extends Object_SqfliteDatabaseFactoryMixin$36$ {};
+  (factory_mixin.SqfliteDatabaseFactoryBase.new = function() {
+    factory_mixin.SqfliteDatabaseFactoryBase.__proto__.new.call(this);
+    ;
+  }).prototype = factory_mixin.SqfliteDatabaseFactoryBase.prototype;
+  dart.addTypeTests(factory_mixin.SqfliteDatabaseFactoryBase);
+  dart.addTypeCaches(factory_mixin.SqfliteDatabaseFactoryBase);
+  dart.setLibraryUri(factory_mixin.SqfliteDatabaseFactoryBase, I[1]);
+  factory_mixin._NamedLock = class _NamedLock extends core.Object {
+    static new(name) {
+      let t15, t14, t13, t12;
+      t12 = factory_mixin._NamedLock.cacheLocks;
+      t13 = name;
+      t14 = t12[$_get](t13);
+      return t14 == null ? (t15 = new factory_mixin._NamedLock.__(name, synchronized.Lock.new({reentrant: true})), t12[$_set](t13, t15), t15) : t14;
+    }
+  };
+  (factory_mixin._NamedLock.__ = function(name, lock) {
+    this.name = name;
+    this.lock = lock;
+    ;
+  }).prototype = factory_mixin._NamedLock.prototype;
+  dart.addTypeTests(factory_mixin._NamedLock);
+  dart.addTypeCaches(factory_mixin._NamedLock);
+  dart.setLibraryUri(factory_mixin._NamedLock, I[1]);
+  dart.setFieldSignature(factory_mixin._NamedLock, () => ({
+    __proto__: dart.getFields(factory_mixin._NamedLock.__proto__),
+    name: dart.finalFieldType(core.String),
+    lock: dart.finalFieldType(synchronized.Lock)
+  }));
+  dart.defineLazy(factory_mixin._NamedLock, {
+    /*factory_mixin._NamedLock.cacheLocks*/get cacheLocks() {
+      return new (T$.IdentityMapOfString$_NamedLock()).new();
+    }
+  }, false);
+  var path = dart.privateName(factory_mixin, "SqfliteDatabaseDebugInfo.path");
+  var singleInstance = dart.privateName(factory_mixin, "SqfliteDatabaseDebugInfo.singleInstance");
+  var logLevel = dart.privateName(factory_mixin, "SqfliteDatabaseDebugInfo.logLevel");
+  factory_mixin.SqfliteDatabaseDebugInfo = class SqfliteDatabaseDebugInfo extends core.Object {
+    get path() {
+      return this[path];
+    }
+    set path(value) {
+      this[path] = value;
+    }
+    get singleInstance() {
+      return this[singleInstance];
+    }
+    set singleInstance(value) {
+      this[singleInstance] = value;
+    }
+    get logLevel() {
+      return this[logLevel];
+    }
+    set logLevel(value) {
+      this[logLevel] = value;
+    }
+    fromMap(map) {
+      let t12;
+      this.path = (t12 = map[$_get]("path"), t12 == null ? null : dart.toString(t12));
+      this.singleInstance = T$.boolN().as(map[$_get]("singleInstance"));
+      this.logLevel = T$.intN().as(map[$_get]("logLevel"));
+    }
+    toDebugMap() {
+      let t12;
+      let map = new (T$.IdentityMapOfString$ObjectN()).from(["path", this.path, "singleInstance", this.singleInstance]);
+      if (dart.notNull((t12 = this.logLevel, t12 == null ? constant.sqfliteLogLevelNone : t12)) > constant.sqfliteLogLevelNone) {
+        map[$_set]("logLevel", this.logLevel);
+      }
+      return map;
+    }
+    toString() {
+      return this.toDebugMap()[$toString]();
+    }
+  };
+  (factory_mixin.SqfliteDatabaseDebugInfo.new = function() {
+    this[path] = null;
+    this[singleInstance] = null;
+    this[logLevel] = null;
+    ;
+  }).prototype = factory_mixin.SqfliteDatabaseDebugInfo.prototype;
+  dart.addTypeTests(factory_mixin.SqfliteDatabaseDebugInfo);
+  dart.addTypeCaches(factory_mixin.SqfliteDatabaseDebugInfo);
+  dart.setMethodSignature(factory_mixin.SqfliteDatabaseDebugInfo, () => ({
+    __proto__: dart.getMethods(factory_mixin.SqfliteDatabaseDebugInfo.__proto__),
+    fromMap: dart.fnType(dart.void, [core.Map]),
+    toDebugMap: dart.fnType(core.Map$(core.String, dart.nullable(core.Object)), [])
+  }));
+  dart.setLibraryUri(factory_mixin.SqfliteDatabaseDebugInfo, I[1]);
+  dart.setFieldSignature(factory_mixin.SqfliteDatabaseDebugInfo, () => ({
+    __proto__: dart.getFields(factory_mixin.SqfliteDatabaseDebugInfo.__proto__),
+    path: dart.fieldType(dart.nullable(core.String)),
+    singleInstance: dart.fieldType(dart.nullable(core.bool)),
+    logLevel: dart.fieldType(dart.nullable(core.int))
+  }));
+  dart.defineExtensionMethods(factory_mixin.SqfliteDatabaseDebugInfo, ['toString']);
+  var databases = dart.privateName(factory_mixin, "SqfliteDebugInfo.databases");
+  var logLevel$ = dart.privateName(factory_mixin, "SqfliteDebugInfo.logLevel");
+  factory_mixin.SqfliteDebugInfo = class SqfliteDebugInfo extends core.Object {
+    get databases() {
+      return this[databases];
+    }
+    set databases(value) {
+      this[databases] = value;
+    }
+    get logLevel() {
+      return this[logLevel$];
+    }
+    set logLevel(value) {
+      this[logLevel$] = value;
+    }
+    toDebugMap() {
+      let t12;
+      let map = new (T$.IdentityMapOfString$ObjectN()).new();
+      if (this.databases != null) {
+        map[$_set]("databases", dart.nullCheck(this.databases)[$map](core.String, T$.MapOfString$ObjectN(), dart.fn((key, dbInfo) => new (T$.MapEntryOfString$MapOfString$ObjectN()).__(key, dbInfo.toDebugMap()), T$.StringAndSqfliteDatabaseDebugInfoToMapEntryOfString$MapOfString$ObjectN())));
+      }
+      if (dart.notNull((t12 = this.logLevel, t12 == null ? constant.sqfliteLogLevelNone : t12)) > constant.sqfliteLogLevelNone) {
+        map[$_set]("logLevel", this.logLevel);
+      }
+      return map;
+    }
+    toString() {
+      return this.toDebugMap()[$toString]();
+    }
+  };
+  (factory_mixin.SqfliteDebugInfo.new = function() {
+    this[databases] = null;
+    this[logLevel$] = null;
+    ;
+  }).prototype = factory_mixin.SqfliteDebugInfo.prototype;
+  dart.addTypeTests(factory_mixin.SqfliteDebugInfo);
+  dart.addTypeCaches(factory_mixin.SqfliteDebugInfo);
+  dart.setMethodSignature(factory_mixin.SqfliteDebugInfo, () => ({
+    __proto__: dart.getMethods(factory_mixin.SqfliteDebugInfo.__proto__),
+    toDebugMap: dart.fnType(core.Map$(core.String, dart.nullable(core.Object)), [])
+  }));
+  dart.setLibraryUri(factory_mixin.SqfliteDebugInfo, I[1]);
+  dart.setFieldSignature(factory_mixin.SqfliteDebugInfo, () => ({
+    __proto__: dart.getFields(factory_mixin.SqfliteDebugInfo.__proto__),
+    databases: dart.fieldType(dart.nullable(core.Map$(core.String, factory_mixin.SqfliteDatabaseDebugInfo))),
+    logLevel: dart.fieldType(dart.nullable(core.int))
+  }));
+  dart.defineExtensionMethods(factory_mixin.SqfliteDebugInfo, ['toString']);
+  dart.defineLazy(factory_mixin, {
+    /*factory_mixin.paramLogLevel*/get paramLogLevel() {
+      return "logLevel";
+    },
+    /*factory_mixin.paramDatabases*/get paramDatabases() {
+      return "databases";
+    }
+  }, false);
+  dart.trackLibraries("packages/sqflite_common/src/mixin/factory.dart", {
+    "package:sqflite_common/src/mixin/factory.dart": factory,
+    "package:sqflite_common/src/factory.dart": factory$,
+    "package:sqflite_common/src/database_mixin.dart": database_mixin,
+    "package:sqflite_common/src/transaction.dart": transaction,
+    "package:sqflite_common/src/batch.dart": batch,
+    "package:sqflite_common/src/database.dart": database,
+    "package:sqflite_common/src/factory_mixin.dart": factory_mixin
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["factory.dart","../factory_mixin.dart","../factory.dart","../database_mixin.dart","../transaction.dart","../batch.dart","../database.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/sqflite_common/src/mixin/factory.dart.lib.js"}');
+  // Exports:
+  return {
+    src__mixin__factory: factory,
+    src__factory: factory$,
+    src__database_mixin: database_mixin,
+    src__transaction: transaction,
+    src__batch: batch,
+    src__database: database,
+    src__factory_mixin: factory_mixin
+  };
+}));
+
+//# sourceMappingURL=factory.dart.lib.js.map

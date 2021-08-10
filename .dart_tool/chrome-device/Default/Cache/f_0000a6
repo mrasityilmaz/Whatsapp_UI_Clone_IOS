@@ -1,0 +1,1691 @@
+define(['dart_sdk', 'packages/file/src/backends/memory/operations.dart', 'packages/file/src/interface/link.dart', 'packages/file/src/backends/memory/node.dart', 'packages/file/src/common.dart', 'packages/file/src/backends/memory/utils.dart', 'packages/file/src/backends/memory/common.dart', 'packages/file/src/backends/memory/style.dart'], (function load__packages__file__src__backends__memory__memory_link_dart(dart_sdk, packages__file__src__backends__memory__operations$46dart, packages__file__src__interface__link$46dart, packages__file__src__backends__memory__node$46dart, packages__file__src__common$46dart, packages__file__src__backends__memory__utils$46dart, packages__file__src__backends__memory__common$46dart, packages__file__src__backends__memory__style$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const io = dart_sdk.io;
+  const async = dart_sdk.async;
+  const _js_helper = dart_sdk._js_helper;
+  const _internal = dart_sdk._internal;
+  const typed_data = dart_sdk.typed_data;
+  const _interceptors = dart_sdk._interceptors;
+  const math = dart_sdk.math;
+  const _native_typed_data = dart_sdk._native_typed_data;
+  const convert = dart_sdk.convert;
+  const collection = dart_sdk.collection;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const operations = packages__file__src__backends__memory__operations$46dart.src__backends__memory__operations;
+  const link = packages__file__src__interface__link$46dart.src__interface__link;
+  const file_system_entity = packages__file__src__interface__link$46dart.src__interface__file_system_entity;
+  const directory = packages__file__src__interface__link$46dart.src__interface__directory;
+  const file = packages__file__src__interface__link$46dart.src__interface__file;
+  const node$ = packages__file__src__backends__memory__node$46dart.src__backends__memory__node;
+  const common = packages__file__src__common$46dart.src__common;
+  const utils = packages__file__src__backends__memory__utils$46dart.src__backends__memory__utils;
+  const common$ = packages__file__src__backends__memory__common$46dart.src__backends__memory__common;
+  const style = packages__file__src__backends__memory__style$46dart.src__backends__memory__style;
+  var memory_link = Object.create(dart.library);
+  var memory_random_access_file = Object.create(dart.library);
+  var memory_file_system_entity = Object.create(dart.library);
+  var memory_file = Object.create(dart.library);
+  var memory_directory = Object.create(dart.library);
+  var $_equals = dartx._equals;
+  var $noSuchMethod = dartx.noSuchMethod;
+  var $isEmpty = dartx.isEmpty;
+  var $add = dartx.add;
+  var $join = dartx.join;
+  var $containsKey = dartx.containsKey;
+  var $_set = dartx._set;
+  var $remove = dartx.remove;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $sublist = dartx.sublist;
+  var $_get = dartx._get;
+  var $length = dartx.length;
+  var $setRange = dartx.setRange;
+  var $last = dartx.last;
+  var $split = dartx.split;
+  var $endsWith = dartx.endsWith;
+  var $removeLast = dartx.removeLast;
+  var $toString = dartx.toString;
+  var $substring = dartx.substring;
+  var $forEach = dartx.forEach;
+  dart._checkModuleNullSafetyMode(true);
+  var T$ = {
+    NodeTovoid: () => (T$.NodeTovoid = dart.constFn(dart.fnType(dart.void, [node$.Node])))(),
+    NodeN: () => (T$.NodeN = dart.constFn(dart.nullable(node$.Node)))(),
+    DirectoryNodeAndboolToNodeN: () => (T$.DirectoryNodeAndboolToNodeN = dart.constFn(dart.fnType(T$.NodeN(), [node$.DirectoryNode, core.bool])))(),
+    VoidToString: () => (T$.VoidToString = dart.constFn(dart.fnType(core.String, [])))(),
+    SymbolL: () => (T$.SymbolL = dart.constFn(dart.legacy(core.Symbol)))(),
+    LinkedMapOfSymbolL$dynamic: () => (T$.LinkedMapOfSymbolL$dynamic = dart.constFn(_js_helper.LinkedMap$(T$.SymbolL(), dart.dynamic)))(),
+    FutureOfFileSystemEntity: () => (T$.FutureOfFileSystemEntity = dart.constFn(async.Future$(io.FileSystemEntity)))(),
+    JSArrayOfString: () => (T$.JSArrayOfString = dart.constFn(_interceptors.JSArray$(core.String)))(),
+    DirectoryNodeAndStringAndNodeN__ToNodeN: () => (T$.DirectoryNodeAndStringAndNodeN__ToNodeN = dart.constFn(dart.fnType(T$.NodeN(), [node$.DirectoryNode, core.String, T$.NodeN(), core.int, core.int])))(),
+    VoidTovoid: () => (T$.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    VoidToUint8List: () => (T$.VoidToUint8List = dart.constFn(dart.fnType(typed_data.Uint8List, [])))(),
+    VoidToint: () => (T$.VoidToint = dart.constFn(dart.fnType(core.int, [])))(),
+    RealNodeN: () => (T$.RealNodeN = dart.constFn(dart.nullable(node$.RealNode)))(),
+    DirectoryNodeAndboolToRealNodeN: () => (T$.DirectoryNodeAndboolToRealNodeN = dart.constFn(dart.fnType(T$.RealNodeN(), [node$.DirectoryNode, core.bool])))(),
+    StreamOfUint8List: () => (T$.StreamOfUint8List = dart.constFn(async.Stream$(typed_data.Uint8List)))(),
+    JSArrayOfUint8List: () => (T$.JSArrayOfUint8List = dart.constFn(_interceptors.JSArray$(typed_data.Uint8List)))(),
+    FutureOfUint8List: () => (T$.FutureOfUint8List = dart.constFn(async.Future$(typed_data.Uint8List)))(),
+    ListOfString: () => (T$.ListOfString = dart.constFn(core.List$(core.String)))(),
+    CompleterOfvoid: () => (T$.CompleterOfvoid = dart.constFn(async.Completer$(dart.void)))(),
+    VoidToFileNode: () => (T$.VoidToFileNode = dart.constFn(dart.fnType(node$.FileNode, [])))(),
+    FileNodeTodynamic: () => (T$.FileNodeTodynamic = dart.constFn(dart.fnType(dart.dynamic, [node$.FileNode])))(),
+    FutureOfFileNode: () => (T$.FutureOfFileNode = dart.constFn(async.Future$(node$.FileNode)))(),
+    ListOfint: () => (T$.ListOfint = dart.constFn(core.List$(core.int)))(),
+    StreamOfListOfint: () => (T$.StreamOfListOfint = dart.constFn(async.Stream$(T$.ListOfint())))(),
+    ListOfintTovoid: () => (T$.ListOfintTovoid = dart.constFn(dart.fnType(dart.void, [T$.ListOfint()])))(),
+    ObjectAndStackTraceToNull: () => (T$.ObjectAndStackTraceToNull = dart.constFn(dart.fnType(core.Null, [core.Object, core.StackTrace])))(),
+    FileNodeTovoid: () => (T$.FileNodeTovoid = dart.constFn(dart.fnType(dart.void, [node$.FileNode])))(),
+    ObjectAndStackTraceTovoid: () => (T$.ObjectAndStackTraceTovoid = dart.constFn(dart.fnType(dart.void, [core.Object, core.StackTrace])))(),
+    FileNodeToFileNode: () => (T$.FileNodeToFileNode = dart.constFn(dart.fnType(node$.FileNode, [node$.FileNode])))(),
+    EncodingN: () => (T$.EncodingN = dart.constFn(dart.nullable(convert.Encoding)))(),
+    DirectoryNodeN: () => (T$.DirectoryNodeN = dart.constFn(dart.nullable(node$.DirectoryNode)))(),
+    DirectoryNodeAndboolToDirectoryNodeN: () => (T$.DirectoryNodeAndboolToDirectoryNodeN = dart.constFn(dart.fnType(T$.DirectoryNodeN(), [node$.DirectoryNode, core.bool])))(),
+    DirectoryNodeTovoid: () => (T$.DirectoryNodeTovoid = dart.constFn(dart.fnType(dart.void, [node$.DirectoryNode])))(),
+    StreamOfFileSystemEntity: () => (T$.StreamOfFileSystemEntity = dart.constFn(async.Stream$(file_system_entity.FileSystemEntity)))(),
+    JSArrayOfFileSystemEntity: () => (T$.JSArrayOfFileSystemEntity = dart.constFn(_interceptors.JSArray$(file_system_entity.FileSystemEntity)))(),
+    _HashSetOfLinkNode: () => (T$._HashSetOfLinkNode = dart.constFn(collection._HashSet$(node$.LinkNode)))(),
+    JSArrayOf_PendingListTask: () => (T$.JSArrayOf_PendingListTask = dart.constFn(_interceptors.JSArray$(memory_directory._PendingListTask)))(),
+    LinkedHashSetOfLinkNode: () => (T$.LinkedHashSetOfLinkNode = dart.constFn(collection.LinkedHashSet$(node$.LinkNode)))(),
+    StringAndNodeTovoid: () => (T$.StringAndNodeTovoid = dart.constFn(dart.fnType(dart.void, [core.String, node$.Node])))(),
+    ExpandoOfint: () => (T$.ExpandoOfint = dart.constFn(core.Expando$(core.int)))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const(new _js_helper.PrivateSymbol.new('_deleteSync', _deleteSync));
+    },
+    get C1() {
+      return C[1] = dart.const(new _internal.Symbol.new('recursive'));
+    },
+    get C2() {
+      return C[2] = dart.const(new _js_helper.PrivateSymbol.new('_delete', _delete));
+    },
+    get C3() {
+      return C[3] = dart.const(new _js_helper.PrivateSymbol.new('_rawPath', _rawPath));
+    },
+    get C4() {
+      return C[4] = dart.const(new _js_helper.PrivateSymbol.new('_path', _path));
+    },
+    get C5() {
+      return C[5] = dart.const(new _js_helper.PrivateSymbol.new('_absolutePath', _absolutePath));
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: io.FileMode.prototype,
+        [FileMode__mode]: 0
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: io.FileMode.prototype,
+        [FileMode__mode]: 1
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: io.FileMode.prototype,
+        [FileMode__mode]: 3
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: io.FileMode.prototype,
+        [FileMode__mode]: 2
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: io.FileMode.prototype,
+        [FileMode__mode]: 4
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: io.FileLock.prototype,
+        [FileLock__type]: 2
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: convert.Utf8Codec.prototype,
+        [Utf8Codec__allowMalformed]: false
+      });
+    },
+    get C13() {
+      return C[13] = dart.const(new _js_helper.PrivateSymbol.new('_deleteSync', _deleteSync$0));
+    },
+    get C14() {
+      return C[14] = dart.const(new _js_helper.PrivateSymbol.new('_delete', _delete$0));
+    },
+    get C15() {
+      return C[15] = dart.const(new _js_helper.PrivateSymbol.new('_rawPath', _rawPath$0));
+    },
+    get C16() {
+      return C[16] = dart.const(new _js_helper.PrivateSymbol.new('_path', _path$0));
+    },
+    get C17() {
+      return C[17] = dart.const(new _js_helper.PrivateSymbol.new('_absolutePath', _absolutePath$0));
+    },
+    get C18() {
+      return C[18] = dart.const(new _js_helper.PrivateSymbol.new('_#IOSink#encoding', __IOSink_encoding));
+    },
+    get C19() {
+      return C[19] = dart.const(new _js_helper.PrivateSymbol.new('_#IOSink#encoding=', __IOSink_encoding_));
+    },
+    get C20() {
+      return C[20] = dart.const(new _js_helper.PrivateSymbol.new('_deleteSync', _deleteSync$1));
+    },
+    get C21() {
+      return C[21] = dart.const(new _js_helper.PrivateSymbol.new('_delete', _delete$1));
+    },
+    get C22() {
+      return C[22] = dart.const(new _js_helper.PrivateSymbol.new('_rawPath', _rawPath$1));
+    },
+    get C23() {
+      return C[23] = dart.const(new _js_helper.PrivateSymbol.new('_path', _path$1));
+    },
+    get C24() {
+      return C[24] = dart.const(new _js_helper.PrivateSymbol.new('_absolutePath', _absolutePath$1));
+    }
+  }, false);
+  var C = Array(25).fill(void 0);
+  var I = [
+    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/file-6.1.2/lib/src/backends/memory/memory_file_system_entity.dart",
+    "package:file/src/backends/memory/memory_file_system_entity.dart",
+    "package:file/src/backends/memory/memory_link.dart",
+    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/file-6.1.2/lib/src/backends/memory/memory_random_access_file.dart",
+    "package:file/src/backends/memory/memory_random_access_file.dart",
+    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/file-6.1.2/lib/src/backends/memory/memory_file.dart",
+    "package:file/src/backends/memory/memory_file.dart",
+    "package:file/src/backends/memory/memory_directory.dart"
+  ];
+  var _deleteSync = dart.privateName(memory_link, "_deleteSync");
+  var _deleteSync$ = dart.privateName(io, "_deleteSync");
+  var _delete = dart.privateName(memory_link, "_delete");
+  var _delete$ = dart.privateName(io, "_delete");
+  var _rawPath = dart.privateName(memory_link, "_rawPath");
+  var _rawPath$ = dart.privateName(io, "_rawPath");
+  var _path = dart.privateName(memory_link, "_path");
+  var _path$ = dart.privateName(io, "_path");
+  var _absolutePath = dart.privateName(memory_link, "_absolutePath");
+  var _absolutePath$ = dart.privateName(io, "_absolutePath");
+  var fileSystem$ = dart.privateName(memory_file_system_entity, "MemoryFileSystemEntity.fileSystem");
+  var path$ = dart.privateName(memory_file_system_entity, "MemoryFileSystemEntity.path");
+  memory_file_system_entity.MemoryFileSystemEntity = class MemoryFileSystemEntity extends core.Object {
+    get fileSystem() {
+      return this[fileSystem$];
+    }
+    set fileSystem(value) {
+      super.fileSystem = value;
+    }
+    get path() {
+      return this[path$];
+    }
+    set path(value) {
+      super.path = value;
+    }
+    get dirname() {
+      return this.fileSystem.path.dirname(this.path);
+    }
+    get basename() {
+      return this.fileSystem.path.basename(this.path);
+    }
+    get backingOrNull() {
+      try {
+        return this.fileSystem.findNode(this.path);
+      } catch (e) {
+        let ex = dart.getThrown(e);
+        if (io.FileSystemException.is(ex)) {
+          return null;
+        } else
+          throw e;
+      }
+    }
+    get backing() {
+      let node = this.fileSystem.findNode(this.path);
+      common$.checkExists(node, dart.fn(() => this.path, T$.VoidToString()));
+      return dart.nullCheck(node);
+    }
+    get resolvedBacking() {
+      let node = this.backing;
+      node = utils.isLink(node) ? utils.resolveLinks(node$.LinkNode.as(node), dart.fn(() => this.path, T$.VoidToString())) : node;
+      utils.checkType(this.expectedType, node.type, dart.fn(() => this.path, T$.VoidToString()));
+      return node;
+    }
+    defaultCheckType(node) {
+      utils.checkType(this.expectedType, node.stat.type, dart.fn(() => this.path, T$.VoidToString()));
+    }
+    get uri() {
+      return core._Uri.file(this.path, {windows: this.fileSystem.style[$_equals](style.FileSystemStyle.windows)});
+    }
+    exists() {
+      return async.async(core.bool, (function* exists() {
+        return this.existsSync();
+      }).bind(this));
+    }
+    resolveSymbolicLinks() {
+      return async.async(core.String, (function* resolveSymbolicLinks() {
+        return this.resolveSymbolicLinksSync();
+      }).bind(this));
+    }
+    resolveSymbolicLinksSync() {
+      if (this.path[$isEmpty]) {
+        dart.throw(common.noSuchFileOrDirectory(this.path));
+      }
+      let ledger = T$.JSArrayOfString().of([]);
+      if (this.isAbsolute) {
+        ledger[$add](this.fileSystem.style.drive);
+      }
+      let node = this.fileSystem.findNode(this.path, {pathWithSymlinks: ledger, followTailLink: true});
+      common$.checkExists(node, dart.fn(() => this.path, T$.VoidToString()));
+      let resolved = ledger[$join](this.fileSystem.path.separator);
+      if (resolved === this.fileSystem.style.drive) {
+        resolved = this.fileSystem.style.root;
+      } else if (!this.fileSystem.path.isAbsolute(resolved)) {
+        resolved = this.fileSystem.cwd + this.fileSystem.path.separator + resolved;
+      }
+      return this.fileSystem.path.normalize(resolved);
+    }
+    stat() {
+      return this.fileSystem.stat(this.path);
+    }
+    statSync() {
+      return this.fileSystem.statSync(this.path);
+    }
+    delete(opts) {
+      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
+      return async.async(file_system_entity.FileSystemEntity, (function* $delete() {
+        this.deleteSync({recursive: recursive});
+        return this;
+      }).bind(this));
+    }
+    deleteSync(opts) {
+      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
+      return this.internalDeleteSync({recursive: recursive});
+    }
+    watch(opts) {
+      let events = opts && 'events' in opts ? opts.events : 15;
+      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
+      return dart.throw(new core.UnsupportedError.new("Watching not supported in MemoryFileSystem"));
+    }
+    get isAbsolute() {
+      return this.fileSystem.path.isAbsolute(this.path);
+    }
+    get absolute() {
+      let absolutePath = this.path;
+      if (!this.fileSystem.path.isAbsolute(absolutePath)) {
+        absolutePath = this.fileSystem.path.join(this.fileSystem.cwd, absolutePath);
+      }
+      return this.clone(absolutePath);
+    }
+    get parent() {
+      return new memory_directory.MemoryDirectory.new(this.fileSystem, this.dirname);
+    }
+    internalCreateSync(opts) {
+      let createChild = opts && 'createChild' in opts ? opts.createChild : null;
+      let followTailLink = opts && 'followTailLink' in opts ? opts.followTailLink : false;
+      let visitLinks = opts && 'visitLinks' in opts ? opts.visitLinks : false;
+      return this.fileSystem.findNode(this.path, {followTailLink: followTailLink, visitLinks: visitLinks, segmentVisitor: dart.fn((parent, childName, child, currentSegment, finalSegment) => {
+          if (child == null) {
+            if (!!parent.children[$containsKey](childName)) dart.assertFailed(null, I[0], 200, 18, "!parent.children.containsKey(childName)");
+            child = createChild(parent, currentSegment === finalSegment);
+            if (child != null) {
+              parent.children[$_set](childName, child);
+            }
+          }
+          return child;
+        }, T$.DirectoryNodeAndStringAndNodeN__ToNodeN())});
+    }
+    internalRenameSync(T, newPath, opts) {
+      let t2;
+      let validateOverwriteExistingEntity = opts && 'validateOverwriteExistingEntity' in opts ? opts.validateOverwriteExistingEntity : null;
+      let followTailLink = opts && 'followTailLink' in opts ? opts.followTailLink : false;
+      let checkType = opts && 'checkType' in opts ? opts.checkType : null;
+      let node = this.backing;
+      (t2 = checkType, t2 == null ? dart.bind(this, 'defaultCheckType') : t2)(node);
+      this.fileSystem.findNode(newPath, {segmentVisitor: dart.fn((parent, childName, child, currentSegment, finalSegment) => {
+          if (currentSegment === finalSegment) {
+            if (child != null) {
+              if (followTailLink) {
+                let childType = child.stat.type;
+                if (!childType[$_equals](io.FileSystemEntityType.notFound)) {
+                  utils.checkType(this.expectedType, child.stat.type, dart.fn(() => newPath, T$.VoidToString()));
+                }
+              } else {
+                utils.checkType(this.expectedType, child.type, dart.fn(() => newPath, T$.VoidToString()));
+              }
+              if (validateOverwriteExistingEntity != null) {
+                validateOverwriteExistingEntity(T.as(child));
+              }
+              parent.children[$remove](childName);
+            }
+            node.parent.children[$remove](this.basename);
+            parent.children[$_set](childName, node);
+            node.parent = parent;
+          }
+          return child;
+        }, T$.DirectoryNodeAndStringAndNodeN__ToNodeN())});
+      return this.clone(newPath);
+    }
+    internalDeleteSync(opts) {
+      let t4, t3, t2, t2$;
+      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
+      let checkType = opts && 'checkType' in opts ? opts.checkType : null;
+      t2 = this.fileSystem;
+      t3 = this.path;
+      t4 = operations.FileSystemOp.delete;
+      t2.opHandle(t3, t4);
+      let node = this.backing;
+      if (!recursive) {
+        if (node$.DirectoryNode.is(node) && node.children[$isNotEmpty]) {
+          dart.throw(common.directoryNotEmpty(this.path));
+        }
+        (t2$ = checkType, t2$ == null ? dart.bind(this, 'defaultCheckType') : t2$)(node);
+      }
+      node.parent.children[$remove](this.basename);
+    }
+  };
+  (memory_file_system_entity.MemoryFileSystemEntity.new = function(fileSystem, path) {
+    this[fileSystem$] = fileSystem;
+    this[path$] = path;
+    ;
+  }).prototype = memory_file_system_entity.MemoryFileSystemEntity.prototype;
+  dart.addTypeTests(memory_file_system_entity.MemoryFileSystemEntity);
+  dart.addTypeCaches(memory_file_system_entity.MemoryFileSystemEntity);
+  memory_file_system_entity.MemoryFileSystemEntity[dart.implements] = () => [file_system_entity.FileSystemEntity];
+  dart.setMethodSignature(memory_file_system_entity.MemoryFileSystemEntity, () => ({
+    __proto__: dart.getMethods(memory_file_system_entity.MemoryFileSystemEntity.__proto__),
+    defaultCheckType: dart.fnType(dart.void, [node$.Node]),
+    exists: dart.fnType(async.Future$(core.bool), []),
+    resolveSymbolicLinks: dart.fnType(async.Future$(core.String), []),
+    resolveSymbolicLinksSync: dart.fnType(core.String, []),
+    stat: dart.fnType(async.Future$(io.FileStat), []),
+    statSync: dart.fnType(io.FileStat, []),
+    delete: dart.fnType(async.Future$(file_system_entity.FileSystemEntity), [], {recursive: core.bool}, {}),
+    deleteSync: dart.fnType(dart.void, [], {recursive: core.bool}, {}),
+    watch: dart.fnType(async.Stream$(io.FileSystemEvent), [], {events: core.int, recursive: core.bool}, {}),
+    internalCreateSync: dart.fnType(dart.nullable(node$.Node), [], {followTailLink: core.bool, visitLinks: core.bool}, {createChild: dart.fnType(dart.nullable(node$.Node), [node$.DirectoryNode, core.bool])}),
+    internalRenameSync: dart.gFnType(T => [file_system_entity.FileSystemEntity, [core.String], {checkType: dart.nullable(dart.fnType(dart.void, [node$.Node])), followTailLink: core.bool, validateOverwriteExistingEntity: dart.nullable(dart.fnType(dart.void, [T]))}, {}], T => [node$.Node]),
+    internalDeleteSync: dart.fnType(dart.void, [], {checkType: dart.nullable(dart.fnType(dart.void, [node$.Node])), recursive: core.bool}, {})
+  }));
+  dart.setGetterSignature(memory_file_system_entity.MemoryFileSystemEntity, () => ({
+    __proto__: dart.getGetters(memory_file_system_entity.MemoryFileSystemEntity.__proto__),
+    dirname: core.String,
+    basename: core.String,
+    backingOrNull: dart.nullable(node$.Node),
+    backing: node$.Node,
+    resolvedBacking: node$.Node,
+    uri: core.Uri,
+    isAbsolute: core.bool,
+    absolute: file_system_entity.FileSystemEntity,
+    parent: directory.Directory
+  }));
+  dart.setLibraryUri(memory_file_system_entity.MemoryFileSystemEntity, I[1]);
+  dart.setFieldSignature(memory_file_system_entity.MemoryFileSystemEntity, () => ({
+    __proto__: dart.getFields(memory_file_system_entity.MemoryFileSystemEntity.__proto__),
+    fileSystem: dart.finalFieldType(node$.NodeBasedFileSystem),
+    path: dart.finalFieldType(core.String)
+  }));
+  memory_link.MemoryLink = class MemoryLink extends memory_file_system_entity.MemoryFileSystemEntity {
+    get expectedType() {
+      return io.FileSystemEntityType.link;
+    }
+    existsSync() {
+      let t0;
+      this.fileSystem.opHandle(this.path, operations.FileSystemOp.exists);
+      return dart.equals((t0 = this.backingOrNull, t0 == null ? null : t0.type), this.expectedType);
+    }
+    rename(newPath) {
+      return async.async(link.Link, (function* rename() {
+        return this.renameSync(newPath);
+      }).bind(this));
+    }
+    renameSync(newPath) {
+      return link.Link.as(this.internalRenameSync(node$.Node, newPath, {checkType: dart.fn(node => {
+          if (!node.type[$_equals](this.expectedType)) {
+            dart.throw(node.type[$_equals](io.FileSystemEntityType.directory) ? common.isADirectory(newPath) : common.invalidArgument(newPath));
+          }
+        }, T$.NodeTovoid())}));
+    }
+    create(target, opts) {
+      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
+      return async.async(link.Link, (function* create() {
+        this.createSync(target, {recursive: recursive});
+        return this;
+      }).bind(this));
+    }
+    createSync(target, opts) {
+      let t2, t1, t0;
+      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
+      let preexisting = true;
+      t0 = this.fileSystem;
+      t1 = this.path;
+      t2 = operations.FileSystemOp.create;
+      t0.opHandle(t1, t2);
+      this.internalCreateSync({createChild: dart.fn((parent, isFinalSegment) => {
+          if (isFinalSegment) {
+            preexisting = false;
+            return new node$.LinkNode.new(parent, target);
+          } else if (recursive) {
+            return new node$.DirectoryNode.new(parent);
+          }
+          return null;
+        }, T$.DirectoryNodeAndboolToNodeN())});
+      if (preexisting) {
+        dart.throw(common.fileExists(this.path));
+      }
+    }
+    update(target) {
+      return async.async(link.Link, (function* update() {
+        this.updateSync(target);
+        return this;
+      }).bind(this));
+    }
+    updateSync(target) {
+      let node = this.backing;
+      utils.checkType(this.expectedType, node.type, dart.fn(() => this.path, T$.VoidToString()));
+      node$.LinkNode.as(node).target = target;
+    }
+    deleteSync(opts) {
+      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
+      return this.internalDeleteSync({recursive: recursive, checkType: dart.fn(node => utils.checkType(this.expectedType, node.type, dart.fn(() => this.path, T$.VoidToString())), T$.NodeTovoid())});
+    }
+    target() {
+      return async.async(core.String, (function* target() {
+        return this.targetSync();
+      }).bind(this));
+    }
+    targetSync() {
+      let node = this.backing;
+      if (!node.type[$_equals](this.expectedType)) {
+        dart.throw(common.noSuchFileOrDirectory(this.path));
+      }
+      return node$.LinkNode.as(node).target;
+    }
+    get absolute() {
+      return link.Link.as(super.absolute);
+    }
+    clone(path) {
+      return new memory_link.MemoryLink.new(this.fileSystem, path);
+    }
+    toString() {
+      return "MemoryLink: '" + this.path + "'";
+    }
+    [_deleteSync$](opts) {
+      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
+      return this[$noSuchMethod](new core._Invocation.method(C[0] || CT.C0, null, [], new (T$.LinkedMapOfSymbolL$dynamic()).from([C[1] || CT.C1, recursive])));
+    }
+    [_delete$](opts) {
+      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
+      return T$.FutureOfFileSystemEntity().as(this[$noSuchMethod](new core._Invocation.method(C[2] || CT.C2, null, [], new (T$.LinkedMapOfSymbolL$dynamic()).from([C[1] || CT.C1, recursive]))));
+    }
+    get [_rawPath$]() {
+      return typed_data.Uint8List.as(this[$noSuchMethod](new core._Invocation.getter(C[3] || CT.C3)));
+    }
+    get [_path$]() {
+      return core.String.as(this[$noSuchMethod](new core._Invocation.getter(C[4] || CT.C4)));
+    }
+    get [_absolutePath$]() {
+      return core.String.as(this[$noSuchMethod](new core._Invocation.getter(C[5] || CT.C5)));
+    }
+  };
+  (memory_link.MemoryLink.new = function(fileSystem, path) {
+    memory_link.MemoryLink.__proto__.new.call(this, fileSystem, path);
+    ;
+  }).prototype = memory_link.MemoryLink.prototype;
+  dart.addTypeTests(memory_link.MemoryLink);
+  dart.addTypeCaches(memory_link.MemoryLink);
+  memory_link.MemoryLink[dart.implements] = () => [link.Link];
+  dart.setMethodSignature(memory_link.MemoryLink, () => ({
+    __proto__: dart.getMethods(memory_link.MemoryLink.__proto__),
+    existsSync: dart.fnType(core.bool, []),
+    rename: dart.fnType(async.Future$(link.Link), [core.String]),
+    renameSync: dart.fnType(link.Link, [core.String]),
+    create: dart.fnType(async.Future$(link.Link), [core.String], {recursive: core.bool}, {}),
+    createSync: dart.fnType(dart.void, [core.String], {recursive: core.bool}, {}),
+    update: dart.fnType(async.Future$(link.Link), [core.String]),
+    updateSync: dart.fnType(dart.void, [core.String]),
+    target: dart.fnType(async.Future$(core.String), []),
+    targetSync: dart.fnType(core.String, []),
+    clone: dart.fnType(link.Link, [core.String]),
+    [_deleteSync$]: dart.fnType(dart.void, [], {recursive: core.bool}, {}),
+    [_delete$]: dart.fnType(async.Future$(io.FileSystemEntity), [], {recursive: core.bool}, {})
+  }));
+  dart.setGetterSignature(memory_link.MemoryLink, () => ({
+    __proto__: dart.getGetters(memory_link.MemoryLink.__proto__),
+    expectedType: io.FileSystemEntityType,
+    absolute: link.Link,
+    [_rawPath$]: typed_data.Uint8List,
+    [_path$]: core.String,
+    [_absolutePath$]: core.String
+  }));
+  dart.setLibraryUri(memory_link.MemoryLink, I[2]);
+  dart.defineExtensionMethods(memory_link.MemoryLink, ['toString']);
+  var path$0 = dart.privateName(memory_random_access_file, "MemoryRandomAccessFile.path");
+  var _isOpen = dart.privateName(memory_random_access_file, "_isOpen");
+  var _position = dart.privateName(memory_random_access_file, "_position");
+  var __asyncOperationPending = dart.privateName(memory_random_access_file, "__asyncOperationPending");
+  var _node$ = dart.privateName(memory_random_access_file, "_node");
+  var _mode$ = dart.privateName(memory_random_access_file, "_mode");
+  var FileMode__mode = dart.privateName(io, "FileMode._mode");
+  var _asyncOperationPending = dart.privateName(memory_random_access_file, "_asyncOperationPending");
+  var _checkOpen = dart.privateName(memory_random_access_file, "_checkOpen");
+  var _checkReadable = dart.privateName(memory_random_access_file, "_checkReadable");
+  var _checkWritable = dart.privateName(memory_random_access_file, "_checkWritable");
+  var _checkAsync = dart.privateName(memory_random_access_file, "_checkAsync");
+  var _asyncWrapper = dart.privateName(memory_random_access_file, "_asyncWrapper");
+  var FileLock__type = dart.privateName(io, "FileLock._type");
+  var Utf8Codec__allowMalformed = dart.privateName(convert, "Utf8Codec._allowMalformed");
+  memory_random_access_file.MemoryRandomAccessFile = class MemoryRandomAccessFile extends core.Object {
+    get path() {
+      return this[path$0];
+    }
+    set path(value) {
+      super.path = value;
+    }
+    get [_asyncOperationPending]() {
+      return this[__asyncOperationPending];
+    }
+    set [_asyncOperationPending](value) {
+      if (!(this[__asyncOperationPending] !== value)) dart.assertFailed(null, I[3], 54, 12, "__asyncOperationPending != value");
+      this[__asyncOperationPending] = value;
+    }
+    [_checkOpen]() {
+      if (!this[_isOpen]) {
+        dart.throw(new io.FileSystemException.new("File closed", this.path));
+      }
+    }
+    [_checkReadable](operation) {
+      switch (this[_mode$]) {
+        case C[6] || CT.C6:
+        case C[7] || CT.C7:
+        case C[9] || CT.C9:
+        {
+          return;
+        }
+        case C[8] || CT.C8:
+        case C[10] || CT.C10:
+        default:
+        {
+          dart.throw(new io.FileSystemException.new(operation + " failed", this.path, common.badFileDescriptor(this.path).osError));
+        }
+      }
+    }
+    [_checkWritable](operation) {
+      if (utils.isWriteMode(this[_mode$])) {
+        return;
+      }
+      dart.throw(new io.FileSystemException.new(operation + " failed", this.path, common.badFileDescriptor(this.path).osError));
+    }
+    [_checkAsync]() {
+      if (this[_asyncOperationPending]) {
+        dart.throw(new io.FileSystemException.new("An async operation is currently pending", this.path));
+      }
+    }
+    [_asyncWrapper](R, f) {
+      return async.async(R, (function* _asyncWrapper() {
+        this[_checkAsync]();
+        this[_asyncOperationPending] = true;
+        try {
+          return yield async.Future$(R).delayed(core.Duration.zero, dart.fn(() => {
+            this[_asyncOperationPending] = false;
+            try {
+              return f();
+            } finally {
+              this[_asyncOperationPending] = true;
+            }
+          }, dart.fnType(R, [])));
+        } finally {
+          this[_asyncOperationPending] = false;
+        }
+      }).bind(this));
+    }
+    close() {
+      return async.async(dart.void, (function* close() {
+        return this[_asyncWrapper](dart.void, dart.bind(this, 'closeSync'));
+      }).bind(this));
+    }
+    closeSync() {
+      this[_checkOpen]();
+      this[_isOpen] = false;
+    }
+    flush() {
+      return async.async(io.RandomAccessFile, (function* flush() {
+        yield this[_asyncWrapper](dart.void, dart.bind(this, 'flushSync'));
+        return this;
+      }).bind(this));
+    }
+    flushSync() {
+      this[_checkOpen]();
+      this[_checkAsync]();
+    }
+    length() {
+      return this[_asyncWrapper](core.int, dart.bind(this, 'lengthSync'));
+    }
+    lengthSync() {
+      this[_checkOpen]();
+      this[_checkAsync]();
+      return this[_node$].size;
+    }
+    lock(mode = C[11] || CT.C11, start = 0, end = -1) {
+      return async.async(io.RandomAccessFile, (function* lock() {
+        yield this[_asyncWrapper](dart.void, dart.fn(() => this.lockSync(mode, start, end), T$.VoidTovoid()));
+        return this;
+      }).bind(this));
+    }
+    lockSync(mode = C[11] || CT.C11, start = 0, end = -1) {
+      this[_checkOpen]();
+      this[_checkAsync]();
+      dart.throw(new core.UnimplementedError.new("TODO"));
+    }
+    position() {
+      return this[_asyncWrapper](core.int, dart.bind(this, 'positionSync'));
+    }
+    positionSync() {
+      this[_checkOpen]();
+      this[_checkAsync]();
+      return this[_position];
+    }
+    read(bytes) {
+      return this[_asyncWrapper](typed_data.Uint8List, dart.fn(() => this.readSync(bytes), T$.VoidToUint8List()));
+    }
+    readSync(bytes) {
+      this[_checkOpen]();
+      this[_checkAsync]();
+      this[_checkReadable]("read");
+      let end = math.min(core.int, this[_position] + bytes, this.lengthSync());
+      let copy = this[_node$].content[$sublist](this[_position], end);
+      this[_position] = end;
+      return copy;
+    }
+    readByte() {
+      return this[_asyncWrapper](core.int, dart.bind(this, 'readByteSync'));
+    }
+    readByteSync() {
+      let t2;
+      this[_checkOpen]();
+      this[_checkAsync]();
+      this[_checkReadable]("readByte");
+      if (this[_position] >= this.lengthSync()) {
+        return -1;
+      }
+      return this[_node$].content[$_get]((t2 = this[_position], this[_position] = t2 + 1, t2));
+    }
+    readInto(buffer, start = 0, end = null) {
+      return this[_asyncWrapper](core.int, dart.fn(() => this.readIntoSync(buffer, start, end), T$.VoidToint()));
+    }
+    readIntoSync(buffer, start = 0, end = null) {
+      this[_checkOpen]();
+      this[_checkAsync]();
+      this[_checkReadable]("readInto");
+      end = core.RangeError.checkValidRange(start, end, buffer[$length]);
+      let length = this.lengthSync();
+      let i = null;
+      for (let t2 = i = start; i < dart.notNull(end) && this[_position] < length; i = i + 1, this[_position] = this[_position] + 1) {
+        buffer[$_set](i, this[_node$].content[$_get](this[_position]));
+      }
+      return i - start;
+    }
+    setPosition(position) {
+      return async.async(io.RandomAccessFile, (function* setPosition() {
+        yield this[_asyncWrapper](dart.void, dart.fn(() => this.setPositionSync(position), T$.VoidTovoid()));
+        return this;
+      }).bind(this));
+    }
+    setPositionSync(position) {
+      this[_checkOpen]();
+      this[_checkAsync]();
+      if (position < 0) {
+        dart.throw(new io.FileSystemException.new("setPosition failed", this.path, common.invalidArgument(this.path).osError));
+      }
+      this[_position] = position;
+    }
+    truncate(length) {
+      return async.async(io.RandomAccessFile, (function* truncate() {
+        yield this[_asyncWrapper](dart.void, dart.fn(() => this.truncateSync(length), T$.VoidTovoid()));
+        return this;
+      }).bind(this));
+    }
+    truncateSync(length) {
+      this[_checkOpen]();
+      this[_checkAsync]();
+      if (length < 0 || !utils.isWriteMode(this[_mode$])) {
+        dart.throw(new io.FileSystemException.new("truncate failed", this.path, common.invalidArgument(this.path).osError));
+      }
+      let oldLength = this.lengthSync();
+      if (length < oldLength) {
+        this[_node$].truncate(length);
+      } else if (length > oldLength) {
+        this[_node$].write(_native_typed_data.NativeUint8List.new(length - oldLength));
+      }
+      if (!(this.lengthSync() === length)) dart.assertFailed(null, I[3], 300, 12, "lengthSync() == length");
+    }
+    unlock(start = 0, end = -1) {
+      return async.async(io.RandomAccessFile, (function* unlock() {
+        yield this[_asyncWrapper](dart.void, dart.fn(() => this.unlockSync(start, end), T$.VoidTovoid()));
+        return this;
+      }).bind(this));
+    }
+    unlockSync(start = 0, end = -1) {
+      this[_checkOpen]();
+      this[_checkAsync]();
+      dart.throw(new core.UnimplementedError.new("TODO"));
+    }
+    writeByte(value) {
+      return async.async(io.RandomAccessFile, (function* writeByte() {
+        yield this[_asyncWrapper](core.int, dart.fn(() => this.writeByteSync(value), T$.VoidToint()));
+        return this;
+      }).bind(this));
+    }
+    writeByteSync(value) {
+      let t3;
+      this[_checkOpen]();
+      this[_checkAsync]();
+      this[_checkWritable]("writeByte");
+      let length = this.lengthSync();
+      if (this[_position] >= length) {
+        this.truncateSync(this[_position] + 1);
+        length = this.lengthSync();
+      }
+      if (!(this[_position] < length)) dart.assertFailed(null, I[3], 339, 12, "_position < length");
+      this[_node$].content[$_set]((t3 = this[_position], this[_position] = t3 + 1, t3), value);
+      return 1;
+    }
+    writeFrom(buffer, start = 0, end = null) {
+      return async.async(io.RandomAccessFile, (function* writeFrom() {
+        yield this[_asyncWrapper](dart.void, dart.fn(() => this.writeFromSync(buffer, start, end), T$.VoidTovoid()));
+        return this;
+      }).bind(this));
+    }
+    writeFromSync(buffer, start = 0, end = null) {
+      this[_checkOpen]();
+      this[_checkAsync]();
+      this[_checkWritable]("writeFrom");
+      end = core.RangeError.checkValidRange(start, end, buffer[$length]);
+      let writeByteCount = dart.notNull(end) - start;
+      let endPosition = this[_position] + writeByteCount;
+      if (endPosition > this.lengthSync()) {
+        this.truncateSync(endPosition);
+      }
+      this[_node$].content[$setRange](this[_position], endPosition, buffer, start);
+      this[_position] = endPosition;
+    }
+    writeString(string, opts) {
+      let encoding = opts && 'encoding' in opts ? opts.encoding : C[12] || CT.C12;
+      return async.async(io.RandomAccessFile, (function* writeString() {
+        yield this[_asyncWrapper](dart.void, dart.fn(() => this.writeStringSync(string, {encoding: encoding}), T$.VoidTovoid()));
+        return this;
+      }).bind(this));
+    }
+    writeStringSync(string, opts) {
+      let encoding = opts && 'encoding' in opts ? opts.encoding : C[12] || CT.C12;
+      this.writeFromSync(encoding.encode(string));
+    }
+  };
+  (memory_random_access_file.MemoryRandomAccessFile.new = function(path, _node, _mode) {
+    this[_isOpen] = true;
+    this[_position] = 0;
+    this[__asyncOperationPending] = false;
+    this[path$0] = path;
+    this[_node$] = _node;
+    this[_mode$] = _mode;
+    switch (this[_mode$]) {
+      case C[6] || CT.C6:
+      {
+        break;
+      }
+      case C[7] || CT.C7:
+      case C[8] || CT.C8:
+      {
+        this.truncateSync(0);
+        break;
+      }
+      case C[9] || CT.C9:
+      case C[10] || CT.C10:
+      {
+        this[_position] = this.lengthSync();
+        break;
+      }
+      default:
+      {
+        dart.throw(new core.UnimplementedError.new("Unsupported FileMode"));
+      }
+    }
+  }).prototype = memory_random_access_file.MemoryRandomAccessFile.prototype;
+  dart.addTypeTests(memory_random_access_file.MemoryRandomAccessFile);
+  dart.addTypeCaches(memory_random_access_file.MemoryRandomAccessFile);
+  memory_random_access_file.MemoryRandomAccessFile[dart.implements] = () => [io.RandomAccessFile];
+  dart.setMethodSignature(memory_random_access_file.MemoryRandomAccessFile, () => ({
+    __proto__: dart.getMethods(memory_random_access_file.MemoryRandomAccessFile.__proto__),
+    [_checkOpen]: dart.fnType(dart.void, []),
+    [_checkReadable]: dart.fnType(dart.void, [core.String]),
+    [_checkWritable]: dart.fnType(dart.void, [core.String]),
+    [_checkAsync]: dart.fnType(dart.void, []),
+    [_asyncWrapper]: dart.gFnType(R => [async.Future$(R), [dart.fnType(R, [])]], R => [dart.nullable(core.Object)]),
+    close: dart.fnType(async.Future$(dart.void), []),
+    closeSync: dart.fnType(dart.void, []),
+    flush: dart.fnType(async.Future$(io.RandomAccessFile), []),
+    flushSync: dart.fnType(dart.void, []),
+    length: dart.fnType(async.Future$(core.int), []),
+    lengthSync: dart.fnType(core.int, []),
+    lock: dart.fnType(async.Future$(io.RandomAccessFile), [], [io.FileLock, core.int, core.int]),
+    lockSync: dart.fnType(dart.void, [], [io.FileLock, core.int, core.int]),
+    position: dart.fnType(async.Future$(core.int), []),
+    positionSync: dart.fnType(core.int, []),
+    read: dart.fnType(async.Future$(typed_data.Uint8List), [core.int]),
+    readSync: dart.fnType(typed_data.Uint8List, [core.int]),
+    readByte: dart.fnType(async.Future$(core.int), []),
+    readByteSync: dart.fnType(core.int, []),
+    readInto: dart.fnType(async.Future$(core.int), [core.List$(core.int)], [core.int, dart.nullable(core.int)]),
+    readIntoSync: dart.fnType(core.int, [core.List$(core.int)], [core.int, dart.nullable(core.int)]),
+    setPosition: dart.fnType(async.Future$(io.RandomAccessFile), [core.int]),
+    setPositionSync: dart.fnType(dart.void, [core.int]),
+    truncate: dart.fnType(async.Future$(io.RandomAccessFile), [core.int]),
+    truncateSync: dart.fnType(dart.void, [core.int]),
+    unlock: dart.fnType(async.Future$(io.RandomAccessFile), [], [core.int, core.int]),
+    unlockSync: dart.fnType(dart.void, [], [core.int, core.int]),
+    writeByte: dart.fnType(async.Future$(io.RandomAccessFile), [core.int]),
+    writeByteSync: dart.fnType(core.int, [core.int]),
+    writeFrom: dart.fnType(async.Future$(io.RandomAccessFile), [core.List$(core.int)], [core.int, dart.nullable(core.int)]),
+    writeFromSync: dart.fnType(dart.void, [core.List$(core.int)], [core.int, dart.nullable(core.int)]),
+    writeString: dart.fnType(async.Future$(io.RandomAccessFile), [core.String], {encoding: convert.Encoding}, {}),
+    writeStringSync: dart.fnType(dart.void, [core.String], {encoding: convert.Encoding}, {})
+  }));
+  dart.setGetterSignature(memory_random_access_file.MemoryRandomAccessFile, () => ({
+    __proto__: dart.getGetters(memory_random_access_file.MemoryRandomAccessFile.__proto__),
+    [_asyncOperationPending]: core.bool
+  }));
+  dart.setSetterSignature(memory_random_access_file.MemoryRandomAccessFile, () => ({
+    __proto__: dart.getSetters(memory_random_access_file.MemoryRandomAccessFile.__proto__),
+    [_asyncOperationPending]: core.bool
+  }));
+  dart.setLibraryUri(memory_random_access_file.MemoryRandomAccessFile, I[4]);
+  dart.setFieldSignature(memory_random_access_file.MemoryRandomAccessFile, () => ({
+    __proto__: dart.getFields(memory_random_access_file.MemoryRandomAccessFile.__proto__),
+    path: dart.finalFieldType(core.String),
+    [_node$]: dart.finalFieldType(node$.FileNode),
+    [_mode$]: dart.finalFieldType(io.FileMode),
+    [_isOpen]: dart.fieldType(core.bool),
+    [_position]: dart.fieldType(core.int),
+    [__asyncOperationPending]: dart.fieldType(core.bool)
+  }));
+  var _doCreate = dart.privateName(memory_file, "_doCreate");
+  var _resolvedBackingOrCreate = dart.privateName(memory_file, "_resolvedBackingOrCreate");
+  var _truncateIfNecessary = dart.privateName(memory_file, "_truncateIfNecessary");
+  var _deleteSync$0 = dart.privateName(memory_file, "_deleteSync");
+  var _delete$0 = dart.privateName(memory_file, "_delete");
+  var _rawPath$0 = dart.privateName(memory_file, "_rawPath");
+  var _path$0 = dart.privateName(memory_file, "_path");
+  var _absolutePath$0 = dart.privateName(memory_file, "_absolutePath");
+  memory_file.MemoryFile = class MemoryFile extends memory_file_system_entity.MemoryFileSystemEntity {
+    get [_resolvedBackingOrCreate]() {
+      let node = this.backingOrNull;
+      if (node == null) {
+        node = this[_doCreate]();
+      } else {
+        node = utils.isLink(node) ? utils.resolveLinks(node$.LinkNode.as(node), dart.fn(() => this.path, T$.VoidToString())) : node;
+        utils.checkType(this.expectedType, node.type, dart.fn(() => this.path, T$.VoidToString()));
+      }
+      return node$.FileNode.as(node);
+    }
+    get expectedType() {
+      return io.FileSystemEntityType.file;
+    }
+    existsSync() {
+      let t3;
+      this.fileSystem.opHandle(this.path, operations.FileSystemOp.exists);
+      return dart.equals((t3 = this.backingOrNull, t3 == null ? null : t3.stat.type), this.expectedType);
+    }
+    create(opts) {
+      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
+      return async.async(file.File, (function* create() {
+        this.createSync({recursive: recursive});
+        return this;
+      }).bind(this));
+    }
+    createSync(opts) {
+      let t5, t4, t3;
+      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
+      t3 = this.fileSystem;
+      t4 = this.path;
+      t5 = operations.FileSystemOp.create;
+      t3.opHandle(t4, t5);
+      this[_doCreate]({recursive: recursive});
+    }
+    [_doCreate](opts) {
+      let t3, t3$;
+      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
+      let node = this.internalCreateSync({followTailLink: true, createChild: dart.fn((parent, isFinalSegment) => {
+          if (isFinalSegment) {
+            return new node$.FileNode.new(parent);
+          } else if (recursive) {
+            return new node$.DirectoryNode.new(parent);
+          }
+          return null;
+        }, T$.DirectoryNodeAndboolToRealNodeN())});
+      if (!dart.equals((t3 = node, t3 == null ? null : t3.type), this.expectedType)) {
+        if (!dart.equals((t3$ = node, t3$ == null ? null : t3$.type), io.FileSystemEntityType.directory)) dart.assertFailed(null, I[5], 76, 14, "node?.type == FileSystemEntityType.directory");
+        dart.throw(common.isADirectory(this.path));
+      }
+      return node;
+    }
+    rename(newPath) {
+      return async.async(file.File, (function* rename() {
+        return this.renameSync(newPath);
+      }).bind(this));
+    }
+    renameSync(newPath) {
+      return file.File.as(this.internalRenameSync(node$.Node, newPath, {followTailLink: true, checkType: dart.fn(node => {
+          let actualType = node.stat.type;
+          if (!actualType[$_equals](this.expectedType)) {
+            dart.throw(actualType[$_equals](io.FileSystemEntityType.notFound) ? common.noSuchFileOrDirectory(this.path) : common.isADirectory(this.path));
+          }
+        }, T$.NodeTovoid())}));
+    }
+    copy(newPath) {
+      return async.async(file.File, (function* copy() {
+        return this.copySync(newPath);
+      }).bind(this));
+    }
+    copySync(newPath) {
+      let t5, t4, t3;
+      t3 = this.fileSystem;
+      t4 = this.path;
+      t5 = operations.FileSystemOp.copy;
+      t3.opHandle(t4, t5);
+      let sourceNode = node$.FileNode.as(this.resolvedBacking);
+      this.fileSystem.findNode(newPath, {segmentVisitor: dart.fn((parent, childName, child, currentSegment, finalSegment) => {
+          if (currentSegment === finalSegment) {
+            if (child != null) {
+              if (utils.isLink(child)) {
+                let ledger = T$.JSArrayOfString().of([]);
+                child = utils.resolveLinks(node$.LinkNode.as(child), dart.fn(() => newPath, T$.VoidToString()), {ledger: ledger});
+                common$.checkExists(child, dart.fn(() => newPath, T$.VoidToString()));
+                parent = child.parent;
+                childName = ledger[$last];
+                if (!parent.children[$containsKey](childName)) dart.assertFailed(null, I[5], 124, 22, "parent.children.containsKey(childName)");
+              }
+              utils.checkType(this.expectedType, child.type, dart.fn(() => newPath, T$.VoidToString()));
+              parent.children[$remove](childName);
+            }
+            let newNode = new node$.FileNode.new(parent);
+            newNode.copyFrom(sourceNode);
+            parent.children[$_set](childName, newNode);
+          }
+          return child;
+        }, T$.DirectoryNodeAndStringAndNodeN__ToNodeN())});
+      return this.clone(newPath);
+    }
+    length() {
+      return async.async(core.int, (function* length() {
+        return this.lengthSync();
+      }).bind(this));
+    }
+    lengthSync() {
+      return node$.FileNode.as(this.resolvedBacking).size;
+    }
+    get absolute() {
+      return file.File.as(super.absolute);
+    }
+    lastAccessed() {
+      return async.async(core.DateTime, (function* lastAccessed() {
+        return this.lastAccessedSync();
+      }).bind(this));
+    }
+    lastAccessedSync() {
+      return node$.FileNode.as(this.resolvedBacking).stat.accessed;
+    }
+    setLastAccessed(time) {
+      return async.async(dart.dynamic, (function* setLastAccessed() {
+        return this.setLastAccessedSync(time);
+      }).bind(this));
+    }
+    setLastAccessedSync(time) {
+      let node = node$.FileNode.as(this.resolvedBacking);
+      node.accessed = time.millisecondsSinceEpoch;
+    }
+    lastModified() {
+      return async.async(core.DateTime, (function* lastModified() {
+        return this.lastModifiedSync();
+      }).bind(this));
+    }
+    lastModifiedSync() {
+      return node$.FileNode.as(this.resolvedBacking).stat.modified;
+    }
+    setLastModified(time) {
+      return async.async(dart.dynamic, (function* setLastModified() {
+        return this.setLastModifiedSync(time);
+      }).bind(this));
+    }
+    setLastModifiedSync(time) {
+      let node = node$.FileNode.as(this.resolvedBacking);
+      node.modified = time.millisecondsSinceEpoch;
+    }
+    open(opts) {
+      let mode = opts && 'mode' in opts ? opts.mode : C[6] || CT.C6;
+      return async.async(io.RandomAccessFile, (function* open() {
+        return this.openSync({mode: mode});
+      }).bind(this));
+    }
+    openSync(opts) {
+      let t5, t4, t3;
+      let mode = opts && 'mode' in opts ? opts.mode : C[6] || CT.C6;
+      t3 = this.fileSystem;
+      t4 = this.path;
+      t5 = operations.FileSystemOp.open;
+      t3.opHandle(t4, t5);
+      if (utils.isWriteMode(mode) && !this.existsSync()) {
+        this.createSync();
+      }
+      return new memory_random_access_file.MemoryRandomAccessFile.new(this.path, node$.FileNode.as(this.resolvedBacking), mode);
+    }
+    openRead(start = null, end = null) {
+      let t5, t4, t3;
+      t3 = this.fileSystem;
+      t4 = this.path;
+      t5 = operations.FileSystemOp.open;
+      t3.opHandle(t4, t5);
+      try {
+        let node = node$.FileNode.as(this.resolvedBacking);
+        let content = node.content;
+        if (start != null) {
+          content = end == null ? content[$sublist](start) : content[$sublist](start, math.min(core.int, end, content[$length]));
+        }
+        return T$.StreamOfUint8List().fromIterable(T$.JSArrayOfUint8List().of([content]));
+      } catch (e$) {
+        let e = dart.getThrown(e$);
+        if (core.Object.is(e)) {
+          return T$.StreamOfUint8List().fromFuture(T$.FutureOfUint8List().error(e));
+        } else
+          throw e$;
+      }
+    }
+    openWrite(opts) {
+      let t6, t5, t4;
+      let mode = opts && 'mode' in opts ? opts.mode : C[7] || CT.C7;
+      let encoding = opts && 'encoding' in opts ? opts.encoding : C[12] || CT.C12;
+      t4 = this.fileSystem;
+      t5 = this.path;
+      t6 = operations.FileSystemOp.open;
+      t4.opHandle(t5, t6);
+      if (!utils.isWriteMode(mode)) {
+        dart.throw(new core.ArgumentError.value(mode, "mode", "Must be either WRITE, APPEND, WRITE_ONLY, or WRITE_ONLY_APPEND"));
+      }
+      return memory_file._FileSink.fromFile(this, mode, encoding);
+    }
+    readAsBytes() {
+      return async.async(typed_data.Uint8List, (function* readAsBytes() {
+        return this.readAsBytesSync();
+      }).bind(this));
+    }
+    readAsBytesSync() {
+      let t6, t5, t4;
+      t4 = this.fileSystem;
+      t5 = this.path;
+      t6 = operations.FileSystemOp.read;
+      t4.opHandle(t5, t6);
+      return _native_typed_data.NativeUint8List.fromList(node$.FileNode.as(this.resolvedBacking).content);
+    }
+    readAsString(opts) {
+      let encoding = opts && 'encoding' in opts ? opts.encoding : C[12] || CT.C12;
+      return async.async(core.String, (function* readAsString() {
+        return this.readAsStringSync({encoding: encoding});
+      }).bind(this));
+    }
+    readAsStringSync(opts) {
+      let encoding = opts && 'encoding' in opts ? opts.encoding : C[12] || CT.C12;
+      try {
+        return encoding.decode(this.readAsBytesSync());
+      } catch (e) {
+        let err = dart.getThrown(e);
+        if (core.FormatException.is(err)) {
+          dart.throw(new io.FileSystemException.new(err.message, this.path));
+        } else
+          throw e;
+      }
+    }
+    readAsLines(opts) {
+      let encoding = opts && 'encoding' in opts ? opts.encoding : C[12] || CT.C12;
+      return async.async(T$.ListOfString(), (function* readAsLines() {
+        return this.readAsLinesSync({encoding: encoding});
+      }).bind(this));
+    }
+    readAsLinesSync(opts) {
+      let encoding = opts && 'encoding' in opts ? opts.encoding : C[12] || CT.C12;
+      let str = this.readAsStringSync({encoding: encoding});
+      if (str[$isEmpty]) {
+        return T$.JSArrayOfString().of([]);
+      }
+      let lines = str[$split]("\n");
+      if (str[$endsWith]("\n")) {
+        lines[$removeLast]();
+      }
+      return lines;
+    }
+    writeAsBytes(bytes, opts) {
+      let mode = opts && 'mode' in opts ? opts.mode : C[7] || CT.C7;
+      let flush = opts && 'flush' in opts ? opts.flush : false;
+      return async.async(file.File, (function* writeAsBytes() {
+        this.writeAsBytesSync(bytes, {mode: mode, flush: flush});
+        return this;
+      }).bind(this));
+    }
+    writeAsBytesSync(bytes, opts) {
+      let t7, t6, t5;
+      let mode = opts && 'mode' in opts ? opts.mode : C[7] || CT.C7;
+      let flush = opts && 'flush' in opts ? opts.flush : false;
+      if (!utils.isWriteMode(mode)) {
+        dart.throw(common.badFileDescriptor(this.path));
+      }
+      let node = this[_resolvedBackingOrCreate];
+      this[_truncateIfNecessary](node, mode);
+      t5 = this.fileSystem;
+      t6 = this.path;
+      t7 = operations.FileSystemOp.write;
+      t5.opHandle(t6, t7);
+      node.write(bytes);
+      node.touch();
+    }
+    writeAsString(contents, opts) {
+      let mode = opts && 'mode' in opts ? opts.mode : C[7] || CT.C7;
+      let encoding = opts && 'encoding' in opts ? opts.encoding : C[12] || CT.C12;
+      let flush = opts && 'flush' in opts ? opts.flush : false;
+      return async.async(file.File, (function* writeAsString() {
+        this.writeAsStringSync(contents, {mode: mode, encoding: encoding, flush: flush});
+        return this;
+      }).bind(this));
+    }
+    writeAsStringSync(contents, opts) {
+      let mode = opts && 'mode' in opts ? opts.mode : C[7] || CT.C7;
+      let encoding = opts && 'encoding' in opts ? opts.encoding : C[12] || CT.C12;
+      let flush = opts && 'flush' in opts ? opts.flush : false;
+      return this.writeAsBytesSync(encoding.encode(contents), {mode: mode, flush: flush});
+    }
+    clone(path) {
+      return new memory_file.MemoryFile.new(this.fileSystem, path);
+    }
+    [_truncateIfNecessary](node, mode) {
+      if (mode[$_equals](io.FileMode.write) || mode[$_equals](io.FileMode.writeOnly)) {
+        node.clear();
+      }
+    }
+    toString() {
+      return "MemoryFile: '" + this.path + "'";
+    }
+    [_deleteSync$](opts) {
+      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
+      return this[$noSuchMethod](new core._Invocation.method(C[13] || CT.C13, null, [], new (T$.LinkedMapOfSymbolL$dynamic()).from([C[1] || CT.C1, recursive])));
+    }
+    [_delete$](opts) {
+      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
+      return T$.FutureOfFileSystemEntity().as(this[$noSuchMethod](new core._Invocation.method(C[14] || CT.C14, null, [], new (T$.LinkedMapOfSymbolL$dynamic()).from([C[1] || CT.C1, recursive]))));
+    }
+    get [_rawPath$]() {
+      return typed_data.Uint8List.as(this[$noSuchMethod](new core._Invocation.getter(C[15] || CT.C15)));
+    }
+    get [_path$]() {
+      return core.String.as(this[$noSuchMethod](new core._Invocation.getter(C[16] || CT.C16)));
+    }
+    get [_absolutePath$]() {
+      return core.String.as(this[$noSuchMethod](new core._Invocation.getter(C[17] || CT.C17)));
+    }
+  };
+  (memory_file.MemoryFile.new = function(fileSystem, path) {
+    memory_file.MemoryFile.__proto__.new.call(this, fileSystem, path);
+    ;
+  }).prototype = memory_file.MemoryFile.prototype;
+  dart.addTypeTests(memory_file.MemoryFile);
+  dart.addTypeCaches(memory_file.MemoryFile);
+  memory_file.MemoryFile[dart.implements] = () => [file.File];
+  dart.setMethodSignature(memory_file.MemoryFile, () => ({
+    __proto__: dart.getMethods(memory_file.MemoryFile.__proto__),
+    existsSync: dart.fnType(core.bool, []),
+    create: dart.fnType(async.Future$(file.File), [], {recursive: core.bool}, {}),
+    createSync: dart.fnType(dart.void, [], {recursive: core.bool}, {}),
+    [_doCreate]: dart.fnType(dart.nullable(node$.Node), [], {recursive: core.bool}, {}),
+    rename: dart.fnType(async.Future$(file.File), [core.String]),
+    renameSync: dart.fnType(file.File, [core.String]),
+    copy: dart.fnType(async.Future$(file.File), [core.String]),
+    copySync: dart.fnType(file.File, [core.String]),
+    length: dart.fnType(async.Future$(core.int), []),
+    lengthSync: dart.fnType(core.int, []),
+    lastAccessed: dart.fnType(async.Future$(core.DateTime), []),
+    lastAccessedSync: dart.fnType(core.DateTime, []),
+    setLastAccessed: dart.fnType(async.Future, [core.DateTime]),
+    setLastAccessedSync: dart.fnType(dart.void, [core.DateTime]),
+    lastModified: dart.fnType(async.Future$(core.DateTime), []),
+    lastModifiedSync: dart.fnType(core.DateTime, []),
+    setLastModified: dart.fnType(async.Future, [core.DateTime]),
+    setLastModifiedSync: dart.fnType(dart.void, [core.DateTime]),
+    open: dart.fnType(async.Future$(io.RandomAccessFile), [], {mode: io.FileMode}, {}),
+    openSync: dart.fnType(io.RandomAccessFile, [], {mode: io.FileMode}, {}),
+    openRead: dart.fnType(async.Stream$(typed_data.Uint8List), [], [dart.nullable(core.int), dart.nullable(core.int)]),
+    openWrite: dart.fnType(io.IOSink, [], {encoding: convert.Encoding, mode: io.FileMode}, {}),
+    readAsBytes: dart.fnType(async.Future$(typed_data.Uint8List), []),
+    readAsBytesSync: dart.fnType(typed_data.Uint8List, []),
+    readAsString: dart.fnType(async.Future$(core.String), [], {encoding: convert.Encoding}, {}),
+    readAsStringSync: dart.fnType(core.String, [], {encoding: convert.Encoding}, {}),
+    readAsLines: dart.fnType(async.Future$(core.List$(core.String)), [], {encoding: convert.Encoding}, {}),
+    readAsLinesSync: dart.fnType(core.List$(core.String), [], {encoding: convert.Encoding}, {}),
+    writeAsBytes: dart.fnType(async.Future$(file.File), [core.List$(core.int)], {flush: core.bool, mode: io.FileMode}, {}),
+    writeAsBytesSync: dart.fnType(dart.void, [core.List$(core.int)], {flush: core.bool, mode: io.FileMode}, {}),
+    writeAsString: dart.fnType(async.Future$(file.File), [core.String], {encoding: convert.Encoding, flush: core.bool, mode: io.FileMode}, {}),
+    writeAsStringSync: dart.fnType(dart.void, [core.String], {encoding: convert.Encoding, flush: core.bool, mode: io.FileMode}, {}),
+    clone: dart.fnType(file.File, [core.String]),
+    [_truncateIfNecessary]: dart.fnType(dart.void, [node$.FileNode, io.FileMode]),
+    [_deleteSync$]: dart.fnType(dart.void, [], {recursive: core.bool}, {}),
+    [_delete$]: dart.fnType(async.Future$(io.FileSystemEntity), [], {recursive: core.bool}, {})
+  }));
+  dart.setGetterSignature(memory_file.MemoryFile, () => ({
+    __proto__: dart.getGetters(memory_file.MemoryFile.__proto__),
+    [_resolvedBackingOrCreate]: node$.FileNode,
+    expectedType: io.FileSystemEntityType,
+    absolute: file.File,
+    [_rawPath$]: typed_data.Uint8List,
+    [_path$]: core.String,
+    [_absolutePath$]: core.String
+  }));
+  dart.setLibraryUri(memory_file.MemoryFile, I[6]);
+  dart.defineExtensionMethods(memory_file.MemoryFile, ['toString']);
+  var _completer = dart.privateName(memory_file, "_completer");
+  var _streamCompleter = dart.privateName(memory_file, "_streamCompleter");
+  var _isClosed = dart.privateName(memory_file, "_isClosed");
+  var _pendingWrites = dart.privateName(memory_file, "_pendingWrites");
+  var _checkNotStreaming = dart.privateName(memory_file, "_checkNotStreaming");
+  var _addData = dart.privateName(memory_file, "_addData");
+  var __IOSink_encoding = dart.privateName(memory_file, "_#IOSink#encoding");
+  var __IOSink_encoding$ = dart.privateName(io, "_#IOSink#encoding");
+  var __IOSink_encoding_ = dart.privateName(memory_file, "_#IOSink#encoding=");
+  memory_file._FileSink = class _FileSink extends core.Object {
+    static fromFile(file, mode, encoding) {
+      let node = null;
+      function node$35get() {
+        let t6;
+        t6 = node;
+        return t6 == null ? dart.throw(new _internal.LateError.localNI("node")) : t6;
+      }
+      dart.fn(node$35get, T$.VoidToFileNode());
+      function node$35set(t7) {
+        return node = t7;
+      }
+      dart.fn(node$35set, T$.FileNodeTodynamic());
+      let deferredException = null;
+      try {
+        node$35set(file[_resolvedBackingOrCreate]);
+      } catch (e$) {
+        let e = dart.getThrown(e$);
+        if (core.Exception.is(e)) {
+          deferredException = e;
+        } else
+          throw e$;
+      }
+      let future = T$.FutureOfFileNode().microtask(dart.fn(() => {
+        if (deferredException != null) {
+          dart.throw(deferredException);
+        }
+        file[_truncateIfNecessary](node$35get(), mode);
+        return node$35get();
+      }, T$.VoidToFileNode()));
+      return new memory_file._FileSink.__(future, encoding);
+    }
+    get isStreaming() {
+      let t10, t10$;
+      return !dart.test((t10$ = (t10 = this[_streamCompleter], t10 == null ? null : t10.isCompleted), t10$ == null ? true : t10$));
+    }
+    add(data) {
+      T$.ListOfint().as(data);
+      this[_checkNotStreaming]();
+      if (this[_isClosed]) {
+        dart.throw(new core.StateError.new("StreamSink is closed"));
+      }
+      this[_addData](data);
+    }
+    write(obj) {
+      let t10, t10$;
+      return this.add(this.encoding.encode((t10$ = (t10 = obj, t10 == null ? null : dart.toString(t10)), t10$ == null ? "null" : t10$)));
+    }
+    writeAll(objects, separator = "") {
+      let firstIter = true;
+      for (let obj of objects) {
+        if (!firstIter) {
+          this.write(separator);
+        }
+        firstIter = false;
+        this.write(obj);
+      }
+    }
+    writeln(obj = "") {
+      this.write(obj);
+      this.write("\n");
+    }
+    writeCharCode(charCode) {
+      return this.write(core.String.fromCharCode(charCode));
+    }
+    addError(error, stackTrace = null) {
+      this[_checkNotStreaming]();
+      this[_completer].completeError(error, stackTrace);
+    }
+    addStream(stream) {
+      T$.StreamOfListOfint().as(stream);
+      this[_checkNotStreaming]();
+      this[_streamCompleter] = T$.CompleterOfvoid().new();
+      const finish = () => {
+        dart.nullCheck(this[_streamCompleter]).complete();
+        this[_streamCompleter] = null;
+      };
+      dart.fn(finish, T$.VoidTovoid());
+      stream.listen(dart.fn(data => this[_addData](data), T$.ListOfintTovoid()), {cancelOnError: true, onError: dart.fn((error, stackTrace) => {
+          this[_completer].completeError(error, stackTrace);
+          finish();
+        }, T$.ObjectAndStackTraceToNull()), onDone: finish});
+      return dart.nullCheck(this[_streamCompleter]).future;
+    }
+    flush() {
+      this[_checkNotStreaming]();
+      return this[_pendingWrites];
+    }
+    close() {
+      this[_checkNotStreaming]();
+      if (!this[_isClosed]) {
+        this[_isClosed] = true;
+        this[_pendingWrites].then(dart.void, dart.fn(_ => this[_completer].complete(), T$.FileNodeTovoid()), {onError: dart.fn((error, stackTrace) => this[_completer].completeError(error, stackTrace), T$.ObjectAndStackTraceTovoid())});
+      }
+      return this[_completer].future;
+    }
+    get done() {
+      return this[_completer].future;
+    }
+    [_addData](data) {
+      this[_pendingWrites] = this[_pendingWrites].then(node$.FileNode, dart.fn(node => {
+        node.write(data);
+        return node;
+      }, T$.FileNodeToFileNode()));
+    }
+    [_checkNotStreaming]() {
+      if (this.isStreaming) {
+        dart.throw(new core.StateError.new("StreamSink is bound to a stream"));
+      }
+    }
+    get [__IOSink_encoding$]() {
+      return T$.EncodingN().as(this[$noSuchMethod](new core._Invocation.getter(C[18] || CT.C18)));
+    }
+    set [__IOSink_encoding$](value) {
+      return this[$noSuchMethod](new core._Invocation.setter(C[19] || CT.C19, value));
+    }
+  };
+  (memory_file._FileSink.__ = function(_node, encoding) {
+    this[_completer] = T$.CompleterOfvoid().new();
+    this[_streamCompleter] = null;
+    this[_isClosed] = false;
+    this.encoding = encoding;
+    this[_pendingWrites] = _node;
+    ;
+  }).prototype = memory_file._FileSink.prototype;
+  dart.addTypeTests(memory_file._FileSink);
+  dart.addTypeCaches(memory_file._FileSink);
+  memory_file._FileSink[dart.implements] = () => [io.IOSink];
+  dart.setMethodSignature(memory_file._FileSink, () => ({
+    __proto__: dart.getMethods(memory_file._FileSink.__proto__),
+    add: dart.fnType(dart.void, [dart.nullable(core.Object)]),
+    write: dart.fnType(dart.void, [dart.nullable(core.Object)]),
+    writeAll: dart.fnType(dart.void, [core.Iterable], [core.String]),
+    writeln: dart.fnType(dart.void, [], [dart.nullable(core.Object)]),
+    writeCharCode: dart.fnType(dart.void, [core.int]),
+    addError: dart.fnType(dart.void, [core.Object], [dart.nullable(core.StackTrace)]),
+    addStream: dart.fnType(async.Future$(dart.void), [dart.nullable(core.Object)]),
+    flush: dart.fnType(async.Future$(dart.void), []),
+    close: dart.fnType(async.Future$(dart.void), []),
+    [_addData]: dart.fnType(dart.void, [core.List$(core.int)]),
+    [_checkNotStreaming]: dart.fnType(dart.void, [])
+  }));
+  dart.setGetterSignature(memory_file._FileSink, () => ({
+    __proto__: dart.getGetters(memory_file._FileSink.__proto__),
+    isStreaming: core.bool,
+    done: async.Future$(dart.void),
+    [__IOSink_encoding$]: dart.nullable(convert.Encoding)
+  }));
+  dart.setSetterSignature(memory_file._FileSink, () => ({
+    __proto__: dart.getSetters(memory_file._FileSink.__proto__),
+    [__IOSink_encoding$]: dart.nullable(convert.Encoding)
+  }));
+  dart.setLibraryUri(memory_file._FileSink, I[6]);
+  dart.setFieldSignature(memory_file._FileSink, () => ({
+    __proto__: dart.getFields(memory_file._FileSink.__proto__),
+    [_completer]: dart.finalFieldType(async.Completer$(dart.void)),
+    [_pendingWrites]: dart.fieldType(async.Future$(node$.FileNode)),
+    [_streamCompleter]: dart.fieldType(dart.nullable(async.Completer$(dart.void))),
+    [_isClosed]: dart.fieldType(core.bool),
+    encoding: dart.fieldType(convert.Encoding)
+  }));
+  var _deleteSync$1 = dart.privateName(memory_directory, "_deleteSync");
+  var _delete$1 = dart.privateName(memory_directory, "_delete");
+  var _rawPath$1 = dart.privateName(memory_directory, "_rawPath");
+  var _path$1 = dart.privateName(memory_directory, "_path");
+  var _absolutePath$1 = dart.privateName(memory_directory, "_absolutePath");
+  const MemoryFileSystemEntity_DirectoryAddOnsMixin$36 = class MemoryFileSystemEntity_DirectoryAddOnsMixin extends memory_file_system_entity.MemoryFileSystemEntity {};
+  (MemoryFileSystemEntity_DirectoryAddOnsMixin$36.new = function(fileSystem, path) {
+    MemoryFileSystemEntity_DirectoryAddOnsMixin$36.__proto__.new.call(this, fileSystem, path);
+  }).prototype = MemoryFileSystemEntity_DirectoryAddOnsMixin$36.prototype;
+  dart.applyMixin(MemoryFileSystemEntity_DirectoryAddOnsMixin$36, common.DirectoryAddOnsMixin);
+  memory_directory.MemoryDirectory = class MemoryDirectory extends MemoryFileSystemEntity_DirectoryAddOnsMixin$36 {
+    get expectedType() {
+      return io.FileSystemEntityType.directory;
+    }
+    get uri() {
+      return core._Uri.directory(this.path, {windows: this.fileSystem.style[$_equals](style.FileSystemStyle.windows)});
+    }
+    existsSync() {
+      let t10;
+      this.fileSystem.opHandle(this.path, operations.FileSystemOp.exists);
+      return dart.equals((t10 = this.backingOrNull, t10 == null ? null : t10.stat.type), this.expectedType);
+    }
+    create(opts) {
+      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
+      return async.async(directory.Directory, (function* create() {
+        this.createSync({recursive: recursive});
+        return this;
+      }).bind(this));
+    }
+    createSync(opts) {
+      let t12, t11, t10, t10$;
+      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
+      t10 = this.fileSystem;
+      t11 = this.path;
+      t12 = operations.FileSystemOp.create;
+      t10.opHandle(t11, t12);
+      let node = this.internalCreateSync({followTailLink: true, visitLinks: true, createChild: dart.fn((parent, isFinalSegment) => {
+          if (recursive || isFinalSegment) {
+            return new node$.DirectoryNode.new(parent);
+          }
+          return null;
+        }, T$.DirectoryNodeAndboolToDirectoryNodeN())});
+      if (!dart.equals((t10$ = node, t10$ == null ? null : t10$.type), this.expectedType)) {
+        dart.throw(common.notADirectory(this.path));
+      }
+    }
+    createTemp(prefix = null) {
+      return async.async(directory.Directory, (function* createTemp() {
+        return this.createTempSync(prefix);
+      }).bind(this));
+    }
+    createTempSync(prefix = null) {
+      let t10, t10$, t10$0;
+      prefix = dart.notNull((t10 = prefix, t10 == null ? "" : t10)) + "rand";
+      let fullPath = this.fileSystem.path.join(this.path, prefix);
+      let dirname = this.fileSystem.path.dirname(fullPath);
+      let basename = this.fileSystem.path.basename(fullPath);
+      let node = T$.DirectoryNodeN().as(this.fileSystem.findNode(dirname));
+      common$.checkExists(node, dart.fn(() => dirname, T$.VoidToString()));
+      utils.checkIsDir(dart.nullCheck(node), dart.fn(() => dirname, T$.VoidToString()));
+      let _tempCounter = (t10$ = memory_directory._systemTempCounter._get(this.fileSystem), t10$ == null ? 0 : t10$);
+      function name() {
+        return basename + dart.str(_tempCounter);
+      }
+      dart.fn(name, T$.VoidToString());
+      while (node.children[$containsKey](name())) {
+        _tempCounter = _tempCounter + 1;
+      }
+      memory_directory._systemTempCounter._set(this.fileSystem, _tempCounter);
+      let tempDir = new node$.DirectoryNode.new(node);
+      node.children[$_set](name(), tempDir);
+      t10$0 = new memory_directory.MemoryDirectory.new(this.fileSystem, this.fileSystem.path.join(dirname, name()));
+      return (() => {
+        t10$0.createSync();
+        return t10$0;
+      })();
+    }
+    rename(newPath) {
+      return async.async(directory.Directory, (function* rename() {
+        return this.renameSync(newPath);
+      }).bind(this));
+    }
+    renameSync(newPath) {
+      return directory.Directory.as(this.internalRenameSync(node$.DirectoryNode, newPath, {validateOverwriteExistingEntity: dart.fn(existingNode => {
+          if (existingNode.children[$isNotEmpty]) {
+            dart.throw(common.directoryNotEmpty(newPath));
+          }
+        }, T$.DirectoryNodeTovoid())}));
+    }
+    get parent() {
+      let t10, t10$;
+      return dart.test((t10$ = (t10 = this.backingOrNull, t10 == null ? null : t10.isRoot), t10$ == null ? false : t10$)) ? this : super.parent;
+    }
+    get absolute() {
+      return directory.Directory.as(super.absolute);
+    }
+    list(opts) {
+      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
+      let followLinks = opts && 'followLinks' in opts ? opts.followLinks : true;
+      return T$.StreamOfFileSystemEntity().fromIterable(this.listSync({recursive: recursive, followLinks: followLinks}));
+    }
+    listSync(opts) {
+      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
+      let followLinks = opts && 'followLinks' in opts ? opts.followLinks : true;
+      let node = node$.DirectoryNode.as(this.backing);
+      let listing = T$.JSArrayOfFileSystemEntity().of([]);
+      let tasks = T$.JSArrayOf_PendingListTask().of([new memory_directory._PendingListTask.new(node, this.path[$endsWith](this.fileSystem.path.separator) ? this.path[$substring](0, this.path.length - 1) : this.path, new (T$._HashSetOfLinkNode()).new())]);
+      while (tasks[$isNotEmpty]) {
+        let task = tasks[$removeLast]();
+        task.dir.children[$forEach](dart.fn((name, child) => {
+          let breadcrumbs = T$.LinkedHashSetOfLinkNode().from(task.breadcrumbs);
+          let childPath = this.fileSystem.path.join(task.path, name);
+          while (followLinks && utils.isLink(child) && breadcrumbs.add(node$.LinkNode.as(child))) {
+            let referent = child.referentOrNull;
+            if (referent != null) {
+              child = referent;
+            }
+          }
+          if (utils.isDirectory(child)) {
+            listing[$add](new memory_directory.MemoryDirectory.new(this.fileSystem, childPath));
+            if (recursive) {
+              tasks[$add](new memory_directory._PendingListTask.new(node$.DirectoryNode.as(child), childPath, breadcrumbs));
+            }
+          } else if (utils.isLink(child)) {
+            listing[$add](new memory_link.MemoryLink.new(this.fileSystem, childPath));
+          } else if (utils.isFile(child)) {
+            listing[$add](new memory_file.MemoryFile.new(this.fileSystem, childPath));
+          }
+        }, T$.StringAndNodeTovoid()));
+      }
+      return listing;
+    }
+    clone(path) {
+      return new memory_directory.MemoryDirectory.new(this.fileSystem, path);
+    }
+    toString() {
+      return "MemoryDirectory: '" + this.path + "'";
+    }
+    [_deleteSync$](opts) {
+      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
+      return this[$noSuchMethod](new core._Invocation.method(C[20] || CT.C20, null, [], new (T$.LinkedMapOfSymbolL$dynamic()).from([C[1] || CT.C1, recursive])));
+    }
+    [_delete$](opts) {
+      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
+      return T$.FutureOfFileSystemEntity().as(this[$noSuchMethod](new core._Invocation.method(C[21] || CT.C21, null, [], new (T$.LinkedMapOfSymbolL$dynamic()).from([C[1] || CT.C1, recursive]))));
+    }
+    get [_rawPath$]() {
+      return typed_data.Uint8List.as(this[$noSuchMethod](new core._Invocation.getter(C[22] || CT.C22)));
+    }
+    get [_path$]() {
+      return core.String.as(this[$noSuchMethod](new core._Invocation.getter(C[23] || CT.C23)));
+    }
+    get [_absolutePath$]() {
+      return core.String.as(this[$noSuchMethod](new core._Invocation.getter(C[24] || CT.C24)));
+    }
+  };
+  (memory_directory.MemoryDirectory.new = function(fileSystem, path) {
+    memory_directory.MemoryDirectory.__proto__.new.call(this, fileSystem, path);
+    ;
+  }).prototype = memory_directory.MemoryDirectory.prototype;
+  dart.addTypeTests(memory_directory.MemoryDirectory);
+  dart.addTypeCaches(memory_directory.MemoryDirectory);
+  memory_directory.MemoryDirectory[dart.implements] = () => [directory.Directory];
+  dart.setMethodSignature(memory_directory.MemoryDirectory, () => ({
+    __proto__: dart.getMethods(memory_directory.MemoryDirectory.__proto__),
+    existsSync: dart.fnType(core.bool, []),
+    create: dart.fnType(async.Future$(directory.Directory), [], {recursive: core.bool}, {}),
+    createSync: dart.fnType(dart.void, [], {recursive: core.bool}, {}),
+    createTemp: dart.fnType(async.Future$(directory.Directory), [], [dart.nullable(core.String)]),
+    createTempSync: dart.fnType(directory.Directory, [], [dart.nullable(core.String)]),
+    rename: dart.fnType(async.Future$(directory.Directory), [core.String]),
+    renameSync: dart.fnType(directory.Directory, [core.String]),
+    list: dart.fnType(async.Stream$(file_system_entity.FileSystemEntity), [], {followLinks: core.bool, recursive: core.bool}, {}),
+    listSync: dart.fnType(core.List$(file_system_entity.FileSystemEntity), [], {followLinks: core.bool, recursive: core.bool}, {}),
+    clone: dart.fnType(directory.Directory, [core.String]),
+    [_deleteSync$]: dart.fnType(dart.void, [], {recursive: core.bool}, {}),
+    [_delete$]: dart.fnType(async.Future$(io.FileSystemEntity), [], {recursive: core.bool}, {})
+  }));
+  dart.setGetterSignature(memory_directory.MemoryDirectory, () => ({
+    __proto__: dart.getGetters(memory_directory.MemoryDirectory.__proto__),
+    expectedType: io.FileSystemEntityType,
+    absolute: directory.Directory,
+    [_rawPath$]: typed_data.Uint8List,
+    [_path$]: core.String,
+    [_absolutePath$]: core.String
+  }));
+  dart.setLibraryUri(memory_directory.MemoryDirectory, I[7]);
+  dart.defineExtensionMethods(memory_directory.MemoryDirectory, ['toString']);
+  memory_directory._PendingListTask = class _PendingListTask extends core.Object {};
+  (memory_directory._PendingListTask.new = function(dir, path, breadcrumbs) {
+    this.dir = dir;
+    this.path = path;
+    this.breadcrumbs = breadcrumbs;
+    ;
+  }).prototype = memory_directory._PendingListTask.prototype;
+  dart.addTypeTests(memory_directory._PendingListTask);
+  dart.addTypeCaches(memory_directory._PendingListTask);
+  dart.setLibraryUri(memory_directory._PendingListTask, I[7]);
+  dart.setFieldSignature(memory_directory._PendingListTask, () => ({
+    __proto__: dart.getFields(memory_directory._PendingListTask.__proto__),
+    dir: dart.finalFieldType(node$.DirectoryNode),
+    path: dart.finalFieldType(core.String),
+    breadcrumbs: dart.finalFieldType(core.Set$(node$.LinkNode))
+  }));
+  dart.defineLazy(memory_directory, {
+    /*memory_directory._systemTempCounter*/get _systemTempCounter() {
+      return new (T$.ExpandoOfint()).new();
+    }
+  }, false);
+  dart.trackLibraries("packages/file/src/backends/memory/memory_link.dart", {
+    "package:file/src/backends/memory/memory_link.dart": memory_link,
+    "package:file/src/backends/memory/memory_random_access_file.dart": memory_random_access_file,
+    "package:file/src/backends/memory/memory_file_system_entity.dart": memory_file_system_entity,
+    "package:file/src/backends/memory/memory_file.dart": memory_file,
+    "package:file/src/backends/memory/memory_directory.dart": memory_directory
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["memory_file_system_entity.dart","memory_link.dart","memory_random_access_file.dart","memory_file.dart","memory_directory.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../packages/file/src/backends/memory/memory_link.dart.lib.js"}');
+  // Exports:
+  return {
+    src__backends__memory__memory_link: memory_link,
+    src__backends__memory__memory_random_access_file: memory_random_access_file,
+    src__backends__memory__memory_file_system_entity: memory_file_system_entity,
+    src__backends__memory__memory_file: memory_file,
+    src__backends__memory__memory_directory: memory_directory
+  };
+}));
+
+//# sourceMappingURL=memory_link.dart.lib.js.map

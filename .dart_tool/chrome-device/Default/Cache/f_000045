@@ -1,0 +1,787 @@
+define(['dart_sdk', 'packages/flutter/src/painting/strut_style.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/material/icons.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/rendering/custom_paint.dart'], (function load__packages__chat_bubbles__bubbles__bubble_special_one_dart(dart_sdk, packages__flutter__src__painting__strut_style$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__material__icons$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__rendering__custom_paint$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+  const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  const custom_paint = packages__flutter__src__rendering__custom_paint$46dart.src__rendering__custom_paint;
+  var bubble_special_one = Object.create(dart.library);
+  dart._checkModuleNullSafetyMode(true);
+  var T = {
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 3019898879.0
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 3707764736.0
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: text_style.TextStyle.prototype,
+        [TextStyle_fontFeatures]: null,
+        [TextStyle_shadows]: null,
+        [TextStyle_debugLabel]: null,
+        [TextStyle_decorationThickness]: null,
+        [TextStyle_decorationStyle]: null,
+        [TextStyle_decorationColor]: null,
+        [TextStyle_decoration]: null,
+        [TextStyle_background]: null,
+        [TextStyle_foreground]: null,
+        [TextStyle_locale]: null,
+        [TextStyle_leadingDistribution]: null,
+        [TextStyle_height]: null,
+        [TextStyle_textBaseline]: null,
+        [TextStyle_wordSpacing]: null,
+        [TextStyle_letterSpacing]: null,
+        [TextStyle_fontStyle]: null,
+        [TextStyle_fontWeight]: null,
+        [TextStyle_fontSize]: 16,
+        [TextStyle__package]: null,
+        [TextStyle__fontFamilyFallback]: null,
+        [TextStyle_fontFamily]: null,
+        [TextStyle_backgroundColor]: null,
+        [TextStyle_color]: C[2] || CT.C2,
+        [TextStyle_inherit]: true
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 15,
+        [_Location_line]: 46,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 9,
+        [_Location_line]: 47,
+        [_Location_file]: null
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 9,
+        [_Location_line]: 48,
+        [_Location_file]: null
+      });
+    },
+    get C4() {
+      return C[4] = dart.constList([C[5] || CT.C5, C[6] || CT.C6, C[7] || CT.C7], widget_inspector._Location);
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[4] || CT.C4,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 45,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/chat_bubbles-1.1.0/lib/bubbles/bubble_special_one.dart"
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 15,
+        [_Location_line]: 54,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 9,
+        [_Location_line]: 55,
+        [_Location_file]: null
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 9,
+        [_Location_line]: 56,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C[9] = dart.constList([C[10] || CT.C10, C[11] || CT.C11, C[12] || CT.C12], widget_inspector._Location);
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[9] || CT.C9,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 53,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/chat_bubbles-1.1.0/lib/bubbles/bubble_special_one.dart"
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 15,
+        [_Location_line]: 62,
+        [_Location_file]: null
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 9,
+        [_Location_line]: 63,
+        [_Location_file]: null
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 9,
+        [_Location_line]: 64,
+        [_Location_file]: null
+      });
+    },
+    get C14() {
+      return C[14] = dart.constList([C[15] || CT.C15, C[16] || CT.C16, C[17] || CT.C17], widget_inspector._Location);
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[14] || CT.C14,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 61,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/chat_bubbles-1.1.0/lib/bubbles/bubble_special_one.dart"
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 2,
+        [EdgeInsets_right]: 8,
+        [EdgeInsets_top]: 2,
+        [EdgeInsets_left]: 8
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 21,
+        [_Location_line]: 93,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 21,
+        [_Location_line]: 94,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "textAlign",
+        [_Location_column]: 21,
+        [_Location_line]: 95,
+        [_Location_file]: null
+      });
+    },
+    get C20() {
+      return C[20] = dart.constList([C[21] || CT.C21, C[22] || CT.C22, C[23] || CT.C23], widget_inspector._Location);
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[20] || CT.C20,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 92,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/chat_bubbles-1.1.0/lib/bubbles/bubble_special_one.dart"
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 19,
+        [_Location_line]: 89,
+        [_Location_file]: null
+      });
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 19,
+        [_Location_line]: 92,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.constList([C[26] || CT.C26, C[27] || CT.C27], widget_inspector._Location);
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[25] || CT.C25,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 88,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/chat_bubbles-1.1.0/lib/bubbles/bubble_special_one.dart"
+      });
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "bottom",
+        [_Location_column]: 25,
+        [_Location_line]: 100,
+        [_Location_file]: null
+      });
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "right",
+        [_Location_column]: 25,
+        [_Location_line]: 101,
+        [_Location_file]: null
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 25,
+        [_Location_line]: 102,
+        [_Location_file]: null
+      });
+    },
+    get C29() {
+      return C[29] = dart.constList([C[30] || CT.C30, C[31] || CT.C31, C[32] || CT.C32], widget_inspector._Location);
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[29] || CT.C29,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 99,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/chat_bubbles-1.1.0/lib/bubbles/bubble_special_one.dart"
+      });
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 25,
+        [_Location_line]: 105,
+        [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C[34] = dart.constList([C[35] || CT.C35], widget_inspector._Location);
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[34] || CT.C34,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 104,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/chat_bubbles-1.1.0/lib/bubbles/bubble_special_one.dart"
+      });
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 15,
+        [_Location_line]: 87,
+        [_Location_file]: null
+      });
+    },
+    get C37() {
+      return C[37] = dart.constList([C[38] || CT.C38], widget_inspector._Location);
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[37] || CT.C37,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 86,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/chat_bubbles-1.1.0/lib/bubbles/bubble_special_one.dart"
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "constraints",
+        [_Location_column]: 13,
+        [_Location_line]: 78,
+        [_Location_file]: null
+      });
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "margin",
+        [_Location_column]: 13,
+        [_Location_line]: 81,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C[43] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 86,
+        [_Location_file]: null
+      });
+    },
+    get C40() {
+      return C[40] = dart.constList([C[41] || CT.C41, C[42] || CT.C42, C[43] || CT.C43], widget_inspector._Location);
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[40] || CT.C40,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 77,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/chat_bubbles-1.1.0/lib/bubbles/bubble_special_one.dart"
+      });
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "painter",
+        [_Location_column]: 11,
+        [_Location_line]: 73,
+        [_Location_file]: null
+      });
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 77,
+        [_Location_file]: null
+      });
+    },
+    get C45() {
+      return C[45] = dart.constList([C[46] || CT.C46, C[47] || CT.C47], widget_inspector._Location);
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[45] || CT.C45,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 72,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/chat_bubbles-1.1.0/lib/bubbles/bubble_special_one.dart"
+      });
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 9,
+        [_Location_line]: 71,
+        [_Location_file]: null
+      });
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 72,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C[49] = dart.constList([C[50] || CT.C50, C[51] || CT.C51], widget_inspector._Location);
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[49] || CT.C49,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 70,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/chat_bubbles-1.1.0/lib/bubbles/bubble_special_one.dart"
+      });
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 7,
+        [_Location_line]: 69,
+        [_Location_file]: null
+      });
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 70,
+        [_Location_file]: null
+      });
+    },
+    get C53() {
+      return C[53] = dart.constList([C[54] || CT.C54, C[55] || CT.C55], widget_inspector._Location);
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[53] || CT.C53,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 68,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/chat_bubbles-1.1.0/lib/bubbles/bubble_special_one.dart"
+      });
+    }
+  }, false);
+  var C = Array(56).fill(void 0);
+  var I = ["package:chat_bubbles/bubbles/bubble_special_one.dart"];
+  var isSender$ = dart.privateName(bubble_special_one, "BubbleSpecialOne.isSender");
+  var text$ = dart.privateName(bubble_special_one, "BubbleSpecialOne.text");
+  var tail$ = dart.privateName(bubble_special_one, "BubbleSpecialOne.tail");
+  var color$ = dart.privateName(bubble_special_one, "BubbleSpecialOne.color");
+  var sent$ = dart.privateName(bubble_special_one, "BubbleSpecialOne.sent");
+  var delivered$ = dart.privateName(bubble_special_one, "BubbleSpecialOne.delivered");
+  var seen$ = dart.privateName(bubble_special_one, "BubbleSpecialOne.seen");
+  var textStyle$ = dart.privateName(bubble_special_one, "BubbleSpecialOne.textStyle");
+  var Color_value = dart.privateName(ui, "Color.value");
+  var TextStyle_fontFeatures = dart.privateName(text_style, "TextStyle.fontFeatures");
+  var TextStyle_shadows = dart.privateName(text_style, "TextStyle.shadows");
+  var TextStyle_debugLabel = dart.privateName(text_style, "TextStyle.debugLabel");
+  var TextStyle_decorationThickness = dart.privateName(text_style, "TextStyle.decorationThickness");
+  var TextStyle_decorationStyle = dart.privateName(text_style, "TextStyle.decorationStyle");
+  var TextStyle_decorationColor = dart.privateName(text_style, "TextStyle.decorationColor");
+  var TextStyle_decoration = dart.privateName(text_style, "TextStyle.decoration");
+  var TextStyle_background = dart.privateName(text_style, "TextStyle.background");
+  var TextStyle_foreground = dart.privateName(text_style, "TextStyle.foreground");
+  var TextStyle_locale = dart.privateName(text_style, "TextStyle.locale");
+  var TextStyle_leadingDistribution = dart.privateName(text_style, "TextStyle.leadingDistribution");
+  var TextStyle_height = dart.privateName(text_style, "TextStyle.height");
+  var TextStyle_textBaseline = dart.privateName(text_style, "TextStyle.textBaseline");
+  var TextStyle_wordSpacing = dart.privateName(text_style, "TextStyle.wordSpacing");
+  var TextStyle_letterSpacing = dart.privateName(text_style, "TextStyle.letterSpacing");
+  var TextStyle_fontStyle = dart.privateName(text_style, "TextStyle.fontStyle");
+  var TextStyle_fontWeight = dart.privateName(text_style, "TextStyle.fontWeight");
+  var TextStyle_fontSize = dart.privateName(text_style, "TextStyle.fontSize");
+  var TextStyle__package = dart.privateName(text_style, "TextStyle._package");
+  var TextStyle__fontFamilyFallback = dart.privateName(text_style, "TextStyle._fontFamilyFallback");
+  var TextStyle_fontFamily = dart.privateName(text_style, "TextStyle.fontFamily");
+  var TextStyle_backgroundColor = dart.privateName(text_style, "TextStyle.backgroundColor");
+  var TextStyle_color = dart.privateName(text_style, "TextStyle.color");
+  var TextStyle_inherit = dart.privateName(text_style, "TextStyle.inherit");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
+  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
+  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
+  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
+  bubble_special_one.BubbleSpecialOne = class BubbleSpecialOne extends framework.StatelessWidget {
+    get isSender() {
+      return this[isSender$];
+    }
+    set isSender(value) {
+      super.isSender = value;
+    }
+    get text() {
+      return this[text$];
+    }
+    set text(value) {
+      super.text = value;
+    }
+    get tail() {
+      return this[tail$];
+    }
+    set tail(value) {
+      super.tail = value;
+    }
+    get color() {
+      return this[color$];
+    }
+    set color(value) {
+      super.color = value;
+    }
+    get sent() {
+      return this[sent$];
+    }
+    set sent(value) {
+      super.sent = value;
+    }
+    get delivered() {
+      return this[delivered$];
+    }
+    set delivered(value) {
+      super.delivered = value;
+    }
+    get seen() {
+      return this[seen$];
+    }
+    set seen(value) {
+      super.seen = value;
+    }
+    get textStyle() {
+      return this[textStyle$];
+    }
+    set textStyle(value) {
+      super.textStyle = value;
+    }
+    build(context) {
+      let stateTick = false;
+      let stateIcon = null;
+      if (this.sent) {
+        stateTick = true;
+        stateIcon = new icon.Icon.new(icons.Icons.done, {size: 18.0, color: new ui.Color.new(4288130446), $creationLocationd_0dea112b090073317d4: C[3] || CT.C3});
+      }
+      if (this.delivered) {
+        stateTick = true;
+        stateIcon = new icon.Icon.new(icons.Icons.done_all, {size: 18.0, color: new ui.Color.new(4288130446), $creationLocationd_0dea112b090073317d4: C[8] || CT.C8});
+      }
+      if (this.seen) {
+        stateTick = true;
+        stateIcon = new icon.Icon.new(icons.Icons.done_all, {size: 18.0, color: new ui.Color.new(4287815386), $creationLocationd_0dea112b090073317d4: C[13] || CT.C13});
+      }
+      return new basic.Align.new({alignment: this.isSender ? alignment.Alignment.topRight : alignment.Alignment.topLeft, child: new basic.Padding.new({padding: C[18] || CT.C18, child: new basic.CustomPaint.new({painter: new bubble_special_one.SpecialChatBubbleOne.new({color: this.color, alignment: this.isSender ? alignment.Alignment.topRight : alignment.Alignment.topLeft, tail: this.tail}), child: new container.Container.new({constraints: new box.BoxConstraints.new({maxWidth: media_query.MediaQuery.of(context).size.width * 0.7}), margin: this.isSender ? stateTick ? new edge_insets.EdgeInsets.fromLTRB(7.0, 7.0, 14.0, 7.0) : new edge_insets.EdgeInsets.fromLTRB(7.0, 7.0, 17.0, 7.0) : new edge_insets.EdgeInsets.fromLTRB(17.0, 7.0, 7.0, 7.0), child: new basic.Stack.new({children: T.JSArrayOfWidget().of([new basic.Padding.new({padding: stateTick ? new edge_insets.EdgeInsets.only({right: 20.0}) : new edge_insets.EdgeInsets.symmetric({vertical: 0.0, horizontal: 0.0}), child: new text.Text.new(this.text, {style: this.textStyle, textAlign: ui.TextAlign.left, $creationLocationd_0dea112b090073317d4: C[19] || CT.C19}), $creationLocationd_0dea112b090073317d4: C[24] || CT.C24}), stateIcon != null && stateTick ? new basic.Positioned.new({bottom: 0.0, right: 0.0, child: stateIcon, $creationLocationd_0dea112b090073317d4: C[28] || CT.C28}) : new basic.SizedBox.new({width: 1.0, $creationLocationd_0dea112b090073317d4: C[33] || CT.C33})]), $creationLocationd_0dea112b090073317d4: C[36] || CT.C36}), $creationLocationd_0dea112b090073317d4: C[39] || CT.C39}), $creationLocationd_0dea112b090073317d4: C[44] || CT.C44}), $creationLocationd_0dea112b090073317d4: C[48] || CT.C48}), $creationLocationd_0dea112b090073317d4: C[52] || CT.C52});
+    }
+  };
+  (bubble_special_one.BubbleSpecialOne.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let isSender = opts && 'isSender' in opts ? opts.isSender : true;
+    let text = opts && 'text' in opts ? opts.text : null;
+    let color = opts && 'color' in opts ? opts.color : C[0] || CT.C0;
+    let tail = opts && 'tail' in opts ? opts.tail : true;
+    let sent = opts && 'sent' in opts ? opts.sent : false;
+    let delivered = opts && 'delivered' in opts ? opts.delivered : false;
+    let seen = opts && 'seen' in opts ? opts.seen : false;
+    let textStyle = opts && 'textStyle' in opts ? opts.textStyle : C[1] || CT.C1;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[isSender$] = isSender;
+    this[text$] = text;
+    this[color$] = color;
+    this[tail$] = tail;
+    this[sent$] = sent;
+    this[delivered$] = delivered;
+    this[seen$] = seen;
+    this[textStyle$] = textStyle;
+    bubble_special_one.BubbleSpecialOne.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = bubble_special_one.BubbleSpecialOne.prototype;
+  dart.addTypeTests(bubble_special_one.BubbleSpecialOne);
+  dart.addTypeCaches(bubble_special_one.BubbleSpecialOne);
+  dart.setMethodSignature(bubble_special_one.BubbleSpecialOne, () => ({
+    __proto__: dart.getMethods(bubble_special_one.BubbleSpecialOne.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(bubble_special_one.BubbleSpecialOne, I[0]);
+  dart.setFieldSignature(bubble_special_one.BubbleSpecialOne, () => ({
+    __proto__: dart.getFields(bubble_special_one.BubbleSpecialOne.__proto__),
+    isSender: dart.finalFieldType(core.bool),
+    text: dart.finalFieldType(core.String),
+    tail: dart.finalFieldType(core.bool),
+    color: dart.finalFieldType(ui.Color),
+    sent: dart.finalFieldType(core.bool),
+    delivered: dart.finalFieldType(core.bool),
+    seen: dart.finalFieldType(core.bool),
+    textStyle: dart.finalFieldType(text_style.TextStyle)
+  }));
+  var color$0 = dart.privateName(bubble_special_one, "SpecialChatBubbleOne.color");
+  var alignment$ = dart.privateName(bubble_special_one, "SpecialChatBubbleOne.alignment");
+  var tail$0 = dart.privateName(bubble_special_one, "SpecialChatBubbleOne.tail");
+  var _radius = dart.privateName(bubble_special_one, "_radius");
+  var _x = dart.privateName(bubble_special_one, "_x");
+  bubble_special_one.SpecialChatBubbleOne = class SpecialChatBubbleOne extends custom_paint.CustomPainter {
+    get color() {
+      return this[color$0];
+    }
+    set color(value) {
+      super.color = value;
+    }
+    get alignment() {
+      return this[alignment$];
+    }
+    set alignment(value) {
+      super.alignment = value;
+    }
+    get tail() {
+      return this[tail$0];
+    }
+    set tail(value) {
+      super.tail = value;
+    }
+    paint(canvas, size) {
+      let t0, t0$, t0$0, t0$1, t0$2, t0$3;
+      if (this.alignment._equals(alignment.Alignment.topRight)) {
+        if (this.tail) {
+          canvas.drawRRect(new ui.RRect.fromLTRBAndCorners(0.0, 0.0, size.width - this[_x], size.height, {bottomLeft: new ui.Radius.circular(this[_radius]), bottomRight: new ui.Radius.circular(this[_radius]), topLeft: new ui.Radius.circular(this[_radius])}), (t0 = ui.Paint.new(), (() => {
+            t0.color = this.color;
+            t0.style = ui.PaintingStyle.fill;
+            return t0;
+          })()));
+          let path = ui.Path.new();
+          path.moveTo(size.width - this[_x], 0.0);
+          path.lineTo(size.width - this[_x], 10.0);
+          path.lineTo(size.width, 0.0);
+          canvas.clipPath(path);
+          canvas.drawRRect(new ui.RRect.fromLTRBAndCorners(size.width - this[_x], 0.0, size.width, size.height, {topRight: new ui.Radius.circular(3.0)}), (t0$ = ui.Paint.new(), (() => {
+            t0$.color = this.color;
+            t0$.style = ui.PaintingStyle.fill;
+            return t0$;
+          })()));
+        } else {
+          canvas.drawRRect(new ui.RRect.fromLTRBAndCorners(0.0, 0.0, size.width - this[_x], size.height, {bottomLeft: new ui.Radius.circular(this[_radius]), bottomRight: new ui.Radius.circular(this[_radius]), topLeft: new ui.Radius.circular(this[_radius]), topRight: new ui.Radius.circular(this[_radius])}), (t0$0 = ui.Paint.new(), (() => {
+            t0$0.color = this.color;
+            t0$0.style = ui.PaintingStyle.fill;
+            return t0$0;
+          })()));
+        }
+      } else {
+        if (this.tail) {
+          canvas.drawRRect(new ui.RRect.fromLTRBAndCorners(this[_x], 0.0, size.width, size.height, {bottomRight: new ui.Radius.circular(this[_radius]), topRight: new ui.Radius.circular(this[_radius]), bottomLeft: new ui.Radius.circular(this[_radius])}), (t0$1 = ui.Paint.new(), (() => {
+            t0$1.color = this.color;
+            t0$1.style = ui.PaintingStyle.fill;
+            return t0$1;
+          })()));
+          let path = ui.Path.new();
+          path.moveTo(this[_x], 0.0);
+          path.lineTo(this[_x], 10.0);
+          path.lineTo(0.0, 0.0);
+          canvas.clipPath(path);
+          canvas.drawRRect(new ui.RRect.fromLTRBAndCorners(0.0, 0.0, this[_x], size.height, {topLeft: new ui.Radius.circular(3.0)}), (t0$2 = ui.Paint.new(), (() => {
+            t0$2.color = this.color;
+            t0$2.style = ui.PaintingStyle.fill;
+            return t0$2;
+          })()));
+        } else {
+          canvas.drawRRect(new ui.RRect.fromLTRBAndCorners(this[_x], 0.0, size.width, size.height, {bottomRight: new ui.Radius.circular(this[_radius]), topRight: new ui.Radius.circular(this[_radius]), bottomLeft: new ui.Radius.circular(this[_radius]), topLeft: new ui.Radius.circular(this[_radius])}), (t0$3 = ui.Paint.new(), (() => {
+            t0$3.color = this.color;
+            t0$3.style = ui.PaintingStyle.fill;
+            return t0$3;
+          })()));
+        }
+      }
+    }
+    shouldRepaint(oldDelegate) {
+      custom_paint.CustomPainter.as(oldDelegate);
+      return true;
+    }
+  };
+  (bubble_special_one.SpecialChatBubbleOne.new = function(opts) {
+    let color = opts && 'color' in opts ? opts.color : null;
+    let alignment = opts && 'alignment' in opts ? opts.alignment : null;
+    let tail = opts && 'tail' in opts ? opts.tail : null;
+    this[_radius] = 10.0;
+    this[_x] = 10.0;
+    this[color$0] = color;
+    this[alignment$] = alignment;
+    this[tail$0] = tail;
+    bubble_special_one.SpecialChatBubbleOne.__proto__.new.call(this);
+    ;
+  }).prototype = bubble_special_one.SpecialChatBubbleOne.prototype;
+  dart.addTypeTests(bubble_special_one.SpecialChatBubbleOne);
+  dart.addTypeCaches(bubble_special_one.SpecialChatBubbleOne);
+  dart.setMethodSignature(bubble_special_one.SpecialChatBubbleOne, () => ({
+    __proto__: dart.getMethods(bubble_special_one.SpecialChatBubbleOne.__proto__),
+    paint: dart.fnType(dart.void, [ui.Canvas, ui.Size]),
+    shouldRepaint: dart.fnType(core.bool, [dart.nullable(core.Object)])
+  }));
+  dart.setLibraryUri(bubble_special_one.SpecialChatBubbleOne, I[0]);
+  dart.setFieldSignature(bubble_special_one.SpecialChatBubbleOne, () => ({
+    __proto__: dart.getFields(bubble_special_one.SpecialChatBubbleOne.__proto__),
+    color: dart.finalFieldType(ui.Color),
+    alignment: dart.finalFieldType(alignment.Alignment),
+    tail: dart.finalFieldType(core.bool),
+    [_radius]: dart.fieldType(core.double),
+    [_x]: dart.fieldType(core.double)
+  }));
+  dart.trackLibraries("packages/chat_bubbles/bubbles/bubble_special_one.dart", {
+    "package:chat_bubbles/bubbles/bubble_special_one.dart": bubble_special_one
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["bubble_special_one.dart"],"names":[],"mappings":"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","file":"../../../../../../../../packages/chat_bubbles/bubbles/bubble_special_one.dart.lib.js"}');
+  // Exports:
+  return {
+    bubbles__bubble_special_one: bubble_special_one
+  };
+}));
+
+//# sourceMappingURL=bubble_special_one.dart.lib.js.map

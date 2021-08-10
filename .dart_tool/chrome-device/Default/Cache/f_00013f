@@ -1,0 +1,1005 @@
+define(['dart_sdk', 'packages/flutter/src/cupertino/text_theme.dart', 'packages/flutter/src/painting/box_border.dart', 'packages/flutter/src/painting/borders.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/painting/box_decoration.dart', 'packages/flutter/src/widgets/icon_theme.dart', 'packages/flutter/src/widgets/icon_theme_data.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/cupertino/debug.dart', 'packages/flutter/src/rendering/proxy_box.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/flutter/src/widgets/preferred_size.dart', 'packages/flutter/src/widgets/bottom_navigation_bar_item.dart', 'packages/flutter/src/foundation/key.dart'], (function load__packages__flutter__src__cupertino__bottom_tab_bar_dart(dart_sdk, packages__flutter__src__cupertino__text_theme$46dart, packages__flutter__src__painting__box_border$46dart, packages__flutter__src__painting__borders$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__painting__box_decoration$46dart, packages__flutter__src__widgets__icon_theme$46dart, packages__flutter__src__widgets__icon_theme_data$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__cupertino__debug$46dart, packages__flutter__src__rendering__proxy_box$46dart, packages__flutter__src__painting__strut_style$46dart, packages__flutter__src__widgets__preferred_size$46dart, packages__flutter__src__widgets__bottom_navigation_bar_item$46dart, packages__flutter__src__foundation__key$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const colors = packages__flutter__src__cupertino__text_theme$46dart.src__cupertino__colors;
+  const theme = packages__flutter__src__cupertino__text_theme$46dart.src__cupertino__theme;
+  const box_border = packages__flutter__src__painting__box_border$46dart.src__painting__box_border;
+  const borders = packages__flutter__src__painting__borders$46dart.src__painting__borders;
+  const debug = packages__flutter__src__widgets__widget_span$46dart.src__widgets__debug;
+  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const gesture_detector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__gesture_detector;
+  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
+  const icon_theme = packages__flutter__src__widgets__icon_theme$46dart.src__widgets__icon_theme;
+  const icon_theme_data = packages__flutter__src__widgets__icon_theme_data$46dart.src__widgets__icon_theme_data;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+  const localizations$ = packages__flutter__src__cupertino__debug$46dart.src__cupertino__localizations;
+  const proxy_box = packages__flutter__src__rendering__proxy_box$46dart.src__rendering__proxy_box;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  const preferred_size = packages__flutter__src__widgets__preferred_size$46dart.src__widgets__preferred_size;
+  const bottom_navigation_bar_item = packages__flutter__src__widgets__bottom_navigation_bar_item$46dart.src__widgets__bottom_navigation_bar_item;
+  const key = packages__flutter__src__foundation__key$46dart.src__foundation__key;
+  var bottom_tab_bar = Object.create(dart.library);
+  var $length = dartx.length;
+  var $runtimeType = dartx.runtimeType;
+  var $_get = dartx._get;
+  var $add = dartx.add;
+  dart._checkModuleNullSafetyMode(true);
+  var T = {
+    BorderSideToBorderSide: () => (T.BorderSideToBorderSide = dart.constFn(dart.fnType(borders.BorderSide, [borders.BorderSide])))(),
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4285887861.0
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4288256409.0
+      });
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: colors.CupertinoDynamicColor.prototype,
+        [Color_value]: 0,
+        [CupertinoDynamicColor_darkHighContrastElevatedColor]: C[1] || CT.C1,
+        [CupertinoDynamicColor_highContrastElevatedColor]: C[2] || CT.C2,
+        [CupertinoDynamicColor_darkElevatedColor]: C[1] || CT.C1,
+        [CupertinoDynamicColor_elevatedColor]: C[2] || CT.C2,
+        [CupertinoDynamicColor_darkHighContrastColor]: C[1] || CT.C1,
+        [CupertinoDynamicColor_highContrastColor]: C[2] || CT.C2,
+        [CupertinoDynamicColor_darkColor]: C[1] || CT.C1,
+        [CupertinoDynamicColor_color]: C[2] || CT.C2,
+        [CupertinoDynamicColor__debugResolveContext]: null,
+        [CupertinoDynamicColor__debugLabel]: "inactiveGray",
+        [CupertinoDynamicColor__effectiveColor]: C[2] || CT.C2
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: borders.BorderStyle.prototype,
+        [_name]: "BorderStyle.none",
+        index: 0
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4278190080.0
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: borders.BorderSide.prototype,
+        [BorderSide_style]: C[5] || CT.C5,
+        [BorderSide_width]: 0,
+        [BorderSide_color]: C[6] || CT.C6
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: borders.BorderStyle.prototype,
+        [_name]: "BorderStyle.solid",
+        index: 1
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 687865856
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 1275068416
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: colors.CupertinoDynamicColor.prototype,
+        [Color_value]: 0,
+        [CupertinoDynamicColor_darkHighContrastElevatedColor]: C[10] || CT.C10,
+        [CupertinoDynamicColor_highContrastElevatedColor]: C[11] || CT.C11,
+        [CupertinoDynamicColor_darkElevatedColor]: C[10] || CT.C10,
+        [CupertinoDynamicColor_elevatedColor]: C[11] || CT.C11,
+        [CupertinoDynamicColor_darkHighContrastColor]: C[10] || CT.C10,
+        [CupertinoDynamicColor_highContrastColor]: C[11] || CT.C11,
+        [CupertinoDynamicColor_darkColor]: C[10] || CT.C10,
+        [CupertinoDynamicColor_color]: C[11] || CT.C11,
+        [CupertinoDynamicColor__debugResolveContext]: null,
+        [CupertinoDynamicColor__debugLabel]: null,
+        [CupertinoDynamicColor__effectiveColor]: C[11] || CT.C11
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: borders.BorderSide.prototype,
+        [BorderSide_style]: C[8] || CT.C8,
+        [BorderSide_width]: 0,
+        [BorderSide_color]: C[9] || CT.C9
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: box_border.Border.prototype,
+        [Border_left]: C[4] || CT.C4,
+        [Border_bottom]: C[4] || CT.C4,
+        [Border_right]: C[4] || CT.C4,
+        [Border_top]: C[7] || CT.C7
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: ui.Size.prototype,
+        [OffsetBase__dy]: 50,
+        [OffsetBase__dx]: 1 / 0
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "crossAxisAlignment",
+        [_Location_column]: 19,
+        [_Location_line]: 187,
+        [_Location_file]: null
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 19,
+        [_Location_line]: 188,
+        [_Location_file]: null
+      });
+    },
+    get C14() {
+      return C[14] = dart.constList([C[15] || CT.C15, C[16] || CT.C16], widget_inspector._Location);
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[14] || CT.C14,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 185,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/bottom_tab_bar.dart"
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "explicitChildNodes",
+        [_Location_column]: 17,
+        [_Location_line]: 184,
+        [_Location_file]: null
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 185,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C[18] = dart.constList([C[19] || CT.C19, C[20] || CT.C20], widget_inspector._Location);
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[18] || CT.C18,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 183,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/bottom_tab_bar.dart"
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 15,
+        [_Location_line]: 182,
+        [_Location_file]: null
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 183,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C[22] = dart.constList([C[23] || CT.C23, C[24] || CT.C24], widget_inspector._Location);
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[22] || CT.C22,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 181,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/bottom_tab_bar.dart"
+      });
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 13,
+        [_Location_line]: 180,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 181,
+        [_Location_file]: null
+      });
+    },
+    get C26() {
+      return C[26] = dart.constList([C[27] || CT.C27, C[28] || CT.C28], widget_inspector._Location);
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[26] || CT.C26,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 179,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/bottom_tab_bar.dart"
+      });
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 9,
+        [_Location_line]: 176,
+        [_Location_file]: null
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 177,
+        [_Location_file]: null
+      });
+    },
+    get C30() {
+      return C[30] = dart.constList([C[31] || CT.C31, C[32] || CT.C32], widget_inspector._Location);
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[30] || CT.C30,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 175,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/bottom_tab_bar.dart"
+      });
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 7,
+        [_Location_line]: 171,
+        [_Location_file]: null
+      });
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 175,
+        [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C[34] = dart.constList([C[35] || CT.C35, C[36] || CT.C36], widget_inspector._Location);
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[34] || CT.C34,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 170,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/bottom_tab_bar.dart"
+      });
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "filter",
+        [_Location_column]: 11,
+        [_Location_line]: 201,
+        [_Location_file]: null
+      });
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 202,
+        [_Location_file]: null
+      });
+    },
+    get C38() {
+      return C[38] = dart.constList([C[39] || CT.C39, C[40] || CT.C40], widget_inspector._Location);
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[38] || CT.C38,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 200,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/bottom_tab_bar.dart"
+      });
+    },
+    get C43() {
+      return C[43] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 200,
+        [_Location_file]: null
+      });
+    },
+    get C42() {
+      return C[42] = dart.constList([C[43] || CT.C43], widget_inspector._Location);
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[42] || CT.C42,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 199,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/bottom_tab_bar.dart"
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 4,
+        [EdgeInsets_right]: 0,
+        [EdgeInsets_top]: 0,
+        [EdgeInsets_left]: 0
+      });
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 21,
+        [_Location_line]: 232,
+        [_Location_file]: null
+      });
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 21,
+        [_Location_line]: 233,
+        [_Location_file]: null
+      });
+    },
+    get C46() {
+      return C[46] = dart.constList([C[47] || CT.C47, C[48] || CT.C48], widget_inspector._Location);
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[46] || CT.C46,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 231,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/bottom_tab_bar.dart"
+      });
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 19,
+        [_Location_line]: 230,
+        [_Location_file]: null
+      });
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 19,
+        [_Location_line]: 231,
+        [_Location_file]: null
+      });
+    },
+    get C50() {
+      return C[50] = dart.constList([C[51] || CT.C51, C[52] || CT.C52], widget_inspector._Location);
+    },
+    get C49() {
+      return C[49] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[50] || CT.C50,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 229,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/bottom_tab_bar.dart"
+      });
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "behavior",
+        [_Location_column]: 17,
+        [_Location_line]: 227,
+        [_Location_file]: null
+      });
+    },
+    get C56() {
+      return C[56] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 17,
+        [_Location_line]: 228,
+        [_Location_file]: null
+      });
+    },
+    get C57() {
+      return C[57] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 229,
+        [_Location_file]: null
+      });
+    },
+    get C54() {
+      return C[54] = dart.constList([C[55] || CT.C55, C[56] || CT.C56, C[57] || CT.C57], widget_inspector._Location);
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[54] || CT.C54,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 226,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/bottom_tab_bar.dart"
+      });
+    },
+    get C60() {
+      return C[60] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "selected",
+        [_Location_column]: 15,
+        [_Location_line]: 221,
+        [_Location_file]: null
+      });
+    },
+    get C61() {
+      return C[61] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "hint",
+        [_Location_column]: 15,
+        [_Location_line]: 222,
+        [_Location_file]: null
+      });
+    },
+    get C62() {
+      return C[62] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 226,
+        [_Location_file]: null
+      });
+    },
+    get C59() {
+      return C[59] = dart.constList([C[60] || CT.C60, C[61] || CT.C61, C[62] || CT.C62], widget_inspector._Location);
+    },
+    get C58() {
+      return C[58] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[59] || CT.C59,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 220,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/bottom_tab_bar.dart"
+      });
+    },
+    get C65() {
+      return C[65] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 220,
+        [_Location_file]: null
+      });
+    },
+    get C64() {
+      return C[64] = dart.constList([C[65] || CT.C65], widget_inspector._Location);
+    },
+    get C63() {
+      return C[63] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[64] || CT.C64,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 219,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/bottom_tab_bar.dart"
+      });
+    },
+    get C68() {
+      return C[68] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 23,
+        [_Location_line]: 250,
+        [_Location_file]: null
+      });
+    },
+    get C67() {
+      return C[67] = dart.constList([C[68] || CT.C68], widget_inspector._Location);
+    },
+    get C66() {
+      return C[66] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[67] || CT.C67,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 250,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/bottom_tab_bar.dart"
+      });
+    },
+    get C71() {
+      return C[71] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 250,
+        [_Location_file]: null
+      });
+    },
+    get C70() {
+      return C[70] = dart.constList([C[71] || CT.C71], widget_inspector._Location);
+    },
+    get C69() {
+      return C[69] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[70] || CT.C70,
+        [_Location_name]: null,
+        [_Location_column]: 7,
+        [_Location_line]: 249,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/bottom_tab_bar.dart"
+      });
+    },
+    get C74() {
+      return C[74] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 46,
+        [_Location_line]: 253,
+        [_Location_file]: null
+      });
+    },
+    get C73() {
+      return C[73] = dart.constList([C[74] || CT.C74], widget_inspector._Location);
+    },
+    get C72() {
+      return C[72] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[73] || CT.C73,
+        [_Location_name]: null,
+        [_Location_column]: 31,
+        [_Location_line]: 253,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/bottom_tab_bar.dart"
+      });
+    },
+    get C77() {
+      return C[77] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "key",
+        [_Location_column]: 7,
+        [_Location_line]: 289,
+        [_Location_file]: null
+      });
+    },
+    get C78() {
+      return C[78] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "items",
+        [_Location_column]: 7,
+        [_Location_line]: 290,
+        [_Location_file]: null
+      });
+    },
+    get C79() {
+      return C[79] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "backgroundColor",
+        [_Location_column]: 7,
+        [_Location_line]: 291,
+        [_Location_file]: null
+      });
+    },
+    get C80() {
+      return C[80] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "activeColor",
+        [_Location_column]: 7,
+        [_Location_line]: 292,
+        [_Location_file]: null
+      });
+    },
+    get C81() {
+      return C[81] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "inactiveColor",
+        [_Location_column]: 7,
+        [_Location_line]: 293,
+        [_Location_file]: null
+      });
+    },
+    get C82() {
+      return C[82] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "iconSize",
+        [_Location_column]: 7,
+        [_Location_line]: 294,
+        [_Location_file]: null
+      });
+    },
+    get C83() {
+      return C[83] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "border",
+        [_Location_column]: 7,
+        [_Location_line]: 295,
+        [_Location_file]: null
+      });
+    },
+    get C84() {
+      return C[84] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "currentIndex",
+        [_Location_column]: 7,
+        [_Location_line]: 296,
+        [_Location_file]: null
+      });
+    },
+    get C85() {
+      return C[85] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 7,
+        [_Location_line]: 297,
+        [_Location_file]: null
+      });
+    },
+    get C76() {
+      return C[76] = dart.constList([C[77] || CT.C77, C[78] || CT.C78, C[79] || CT.C79, C[80] || CT.C80, C[81] || CT.C81, C[82] || CT.C82, C[83] || CT.C83, C[84] || CT.C84, C[85] || CT.C85], widget_inspector._Location);
+    },
+    get C75() {
+      return C[75] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[76] || CT.C76,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 288,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/bottom_tab_bar.dart"
+      });
+    }
+  }, false);
+  var C = Array(86).fill(void 0);
+  var I = [
+    "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/bottom_tab_bar.dart",
+    "package:flutter/src/cupertino/bottom_tab_bar.dart"
+  ];
+  var items$ = dart.privateName(bottom_tab_bar, "CupertinoTabBar.items");
+  var onTap$ = dart.privateName(bottom_tab_bar, "CupertinoTabBar.onTap");
+  var currentIndex$ = dart.privateName(bottom_tab_bar, "CupertinoTabBar.currentIndex");
+  var backgroundColor$ = dart.privateName(bottom_tab_bar, "CupertinoTabBar.backgroundColor");
+  var activeColor$ = dart.privateName(bottom_tab_bar, "CupertinoTabBar.activeColor");
+  var inactiveColor$ = dart.privateName(bottom_tab_bar, "CupertinoTabBar.inactiveColor");
+  var iconSize$ = dart.privateName(bottom_tab_bar, "CupertinoTabBar.iconSize");
+  var border$ = dart.privateName(bottom_tab_bar, "CupertinoTabBar.border");
+  var Color_value = dart.privateName(ui, "Color.value");
+  var CupertinoDynamicColor_darkHighContrastElevatedColor = dart.privateName(colors, "CupertinoDynamicColor.darkHighContrastElevatedColor");
+  var CupertinoDynamicColor_highContrastElevatedColor = dart.privateName(colors, "CupertinoDynamicColor.highContrastElevatedColor");
+  var CupertinoDynamicColor_darkElevatedColor = dart.privateName(colors, "CupertinoDynamicColor.darkElevatedColor");
+  var CupertinoDynamicColor_elevatedColor = dart.privateName(colors, "CupertinoDynamicColor.elevatedColor");
+  var CupertinoDynamicColor_darkHighContrastColor = dart.privateName(colors, "CupertinoDynamicColor.darkHighContrastColor");
+  var CupertinoDynamicColor_highContrastColor = dart.privateName(colors, "CupertinoDynamicColor.highContrastColor");
+  var CupertinoDynamicColor_darkColor = dart.privateName(colors, "CupertinoDynamicColor.darkColor");
+  var CupertinoDynamicColor_color = dart.privateName(colors, "CupertinoDynamicColor.color");
+  var CupertinoDynamicColor__debugResolveContext = dart.privateName(colors, "CupertinoDynamicColor._debugResolveContext");
+  var CupertinoDynamicColor__debugLabel = dart.privateName(colors, "CupertinoDynamicColor._debugLabel");
+  var CupertinoDynamicColor__effectiveColor = dart.privateName(colors, "CupertinoDynamicColor._effectiveColor");
+  var _name = dart.privateName(borders, "_name");
+  var BorderSide_style = dart.privateName(borders, "BorderSide.style");
+  var BorderSide_width = dart.privateName(borders, "BorderSide.width");
+  var BorderSide_color = dart.privateName(borders, "BorderSide.color");
+  var Border_left = dart.privateName(box_border, "Border.left");
+  var Border_bottom = dart.privateName(box_border, "Border.bottom");
+  var Border_right = dart.privateName(box_border, "Border.right");
+  var Border_top = dart.privateName(box_border, "Border.top");
+  var OffsetBase__dy = dart.privateName(ui, "OffsetBase._dy");
+  var OffsetBase__dx = dart.privateName(ui, "OffsetBase._dx");
+  var _buildTabItems = dart.privateName(bottom_tab_bar, "_buildTabItems");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
+  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
+  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
+  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
+  var _buildSingleTabItem = dart.privateName(bottom_tab_bar, "_buildSingleTabItem");
+  var _wrapActiveItem = dart.privateName(bottom_tab_bar, "_wrapActiveItem");
+  bottom_tab_bar.CupertinoTabBar = class CupertinoTabBar extends framework.StatelessWidget {
+    get items() {
+      return this[items$];
+    }
+    set items(value) {
+      super.items = value;
+    }
+    get onTap() {
+      return this[onTap$];
+    }
+    set onTap(value) {
+      super.onTap = value;
+    }
+    get currentIndex() {
+      return this[currentIndex$];
+    }
+    set currentIndex(value) {
+      super.currentIndex = value;
+    }
+    get backgroundColor() {
+      return this[backgroundColor$];
+    }
+    set backgroundColor(value) {
+      super.backgroundColor = value;
+    }
+    get activeColor() {
+      return this[activeColor$];
+    }
+    set activeColor(value) {
+      super.activeColor = value;
+    }
+    get inactiveColor() {
+      return this[inactiveColor$];
+    }
+    set inactiveColor(value) {
+      super.inactiveColor = value;
+    }
+    get iconSize() {
+      return this[iconSize$];
+    }
+    set iconSize(value) {
+      super.iconSize = value;
+    }
+    get border() {
+      return this[border$];
+    }
+    set border(value) {
+      super.border = value;
+    }
+    get preferredSize() {
+      return C[12] || CT.C12;
+    }
+    opaque(context) {
+      let t0;
+      let backgroundColor = (t0 = this.backgroundColor, t0 == null ? theme.CupertinoTheme.of(context).barBackgroundColor : t0);
+      return colors.CupertinoDynamicColor.resolve(backgroundColor, context).alpha === 255;
+    }
+    build(context) {
+      let t0;
+      if (!debug.debugCheckHasMediaQuery(context)) dart.assertFailed(null, I[0], 145, 12, "debugCheckHasMediaQuery(context)");
+      let bottomPadding = media_query.MediaQuery.of(context).padding.bottom;
+      let backgroundColor = colors.CupertinoDynamicColor.resolve((t0 = this.backgroundColor, t0 == null ? theme.CupertinoTheme.of(context).barBackgroundColor : t0), context);
+      function resolveBorderSide(side) {
+        return side._equals(borders.BorderSide.none) ? side : side.copyWith({color: colors.CupertinoDynamicColor.resolve(side.color, context)});
+      }
+      dart.fn(resolveBorderSide, T.BorderSideToBorderSide());
+      let resolvedBorder = this.border == null || !dart.runtimeType(this.border)._equals(dart.wrapType(box_border.Border)) ? this.border : new box_border.Border.new({top: resolveBorderSide(dart.nullCheck(this.border).top), left: resolveBorderSide(dart.nullCheck(this.border).left), bottom: resolveBorderSide(dart.nullCheck(this.border).bottom), right: resolveBorderSide(dart.nullCheck(this.border).right)});
+      let inactive = colors.CupertinoDynamicColor.resolve(this.inactiveColor, context);
+      let result = new container.DecoratedBox.new({decoration: new box_decoration.BoxDecoration.new({border: resolvedBorder, color: backgroundColor}), child: new basic.SizedBox.new({height: 50 + bottomPadding, child: icon_theme.IconTheme.merge({data: new icon_theme_data.IconThemeData.new({color: inactive, size: this.iconSize}), child: new text.DefaultTextStyle.new({style: theme.CupertinoTheme.of(context).textTheme.tabLabelTextStyle.copyWith({color: inactive}), child: new basic.Padding.new({padding: new edge_insets.EdgeInsets.only({bottom: bottomPadding}), child: new basic.Semantics.new({explicitChildNodes: true, child: new basic.Row.new({crossAxisAlignment: flex.CrossAxisAlignment.end, children: this[_buildTabItems](context), $creationLocationd_0dea112b090073317d4: C[13] || CT.C13}), $creationLocationd_0dea112b090073317d4: C[17] || CT.C17}), $creationLocationd_0dea112b090073317d4: C[21] || CT.C21}), $creationLocationd_0dea112b090073317d4: C[25] || CT.C25})}), $creationLocationd_0dea112b090073317d4: C[29] || CT.C29}), $creationLocationd_0dea112b090073317d4: C[33] || CT.C33});
+      if (!this.opaque(context)) {
+        result = new basic.ClipRect.new({child: new basic.BackdropFilter.new({filter: ui.ImageFilter.blur({sigmaX: 10.0, sigmaY: 10.0}), child: result, $creationLocationd_0dea112b090073317d4: C[37] || CT.C37}), $creationLocationd_0dea112b090073317d4: C[41] || CT.C41});
+      }
+      return result;
+    }
+    [_buildTabItems](context) {
+      let result = T.JSArrayOfWidget().of([]);
+      let localizations = localizations$.CupertinoLocalizations.of(context);
+      for (let index = 0; index < this.items[$length]; index = index + 1) {
+        let active = index === this.currentIndex;
+        result[$add](this[_wrapActiveItem](context, new basic.Expanded.new({child: new basic.Semantics.new({selected: active, hint: localizations.tabSemanticsLabel({tabIndex: index + 1, tabCount: this.items[$length]}), child: new gesture_detector.GestureDetector.new({behavior: proxy_box.HitTestBehavior.opaque, onTap: this.onTap == null ? null : dart.fn(() => {
+                dart.nullCheck(this.onTap)(index);
+              }, T.VoidTovoid()), child: new basic.Padding.new({padding: C[44] || CT.C44, child: new basic.Column.new({mainAxisAlignment: flex.MainAxisAlignment.end, children: this[_buildSingleTabItem](this.items[$_get](index), active), $creationLocationd_0dea112b090073317d4: C[45] || CT.C45}), $creationLocationd_0dea112b090073317d4: C[49] || CT.C49}), $creationLocationd_0dea112b090073317d4: C[53] || CT.C53}), $creationLocationd_0dea112b090073317d4: C[58] || CT.C58}), $creationLocationd_0dea112b090073317d4: C[63] || CT.C63}), {active: active}));
+      }
+      return result;
+    }
+    [_buildSingleTabItem](item, active) {
+      return (() => {
+        let t0 = T.JSArrayOfWidget().of([new basic.Expanded.new({child: new basic.Center.new({child: active ? item.activeIcon : item.icon, $creationLocationd_0dea112b090073317d4: C[66] || CT.C66}), $creationLocationd_0dea112b090073317d4: C[69] || CT.C69})]);
+        if (item.title != null) t0[$add](dart.nullCheck(item.title));
+        if (item.label != null) t0[$add](new text.Text.new(dart.nullCheck(item.label), {$creationLocationd_0dea112b090073317d4: C[72] || CT.C72}));
+        return t0;
+      })();
+    }
+    [_wrapActiveItem](context, item, opts) {
+      let t1;
+      let active = opts && 'active' in opts ? opts.active : null;
+      if (!active) return item;
+      let activeColor = colors.CupertinoDynamicColor.resolve((t1 = this.activeColor, t1 == null ? theme.CupertinoTheme.of(context).primaryColor : t1), context);
+      return icon_theme.IconTheme.merge({data: new icon_theme_data.IconThemeData.new({color: activeColor}), child: text.DefaultTextStyle.merge({style: new text_style.TextStyle.new({color: activeColor}), child: item})});
+    }
+    copyWith(opts) {
+      let t1, t1$, t1$0, t1$1, t1$2, t1$3, t1$4, t1$5, t1$6;
+      let key = opts && 'key' in opts ? opts.key : null;
+      let items = opts && 'items' in opts ? opts.items : null;
+      let backgroundColor = opts && 'backgroundColor' in opts ? opts.backgroundColor : null;
+      let activeColor = opts && 'activeColor' in opts ? opts.activeColor : null;
+      let inactiveColor = opts && 'inactiveColor' in opts ? opts.inactiveColor : null;
+      let iconSize = opts && 'iconSize' in opts ? opts.iconSize : null;
+      let border = opts && 'border' in opts ? opts.border : null;
+      let currentIndex = opts && 'currentIndex' in opts ? opts.currentIndex : null;
+      let onTap = opts && 'onTap' in opts ? opts.onTap : null;
+      return new bottom_tab_bar.CupertinoTabBar.new({key: (t1 = key, t1 == null ? this.key : t1), items: (t1$ = items, t1$ == null ? this.items : t1$), backgroundColor: (t1$0 = backgroundColor, t1$0 == null ? this.backgroundColor : t1$0), activeColor: (t1$1 = activeColor, t1$1 == null ? this.activeColor : t1$1), inactiveColor: (t1$2 = inactiveColor, t1$2 == null ? this.inactiveColor : t1$2), iconSize: (t1$3 = iconSize, t1$3 == null ? this.iconSize : t1$3), border: (t1$4 = border, t1$4 == null ? this.border : t1$4), currentIndex: (t1$5 = currentIndex, t1$5 == null ? this.currentIndex : t1$5), onTap: (t1$6 = onTap, t1$6 == null ? this.onTap : t1$6), $creationLocationd_0dea112b090073317d4: C[75] || CT.C75});
+    }
+  };
+  (bottom_tab_bar.CupertinoTabBar.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let items = opts && 'items' in opts ? opts.items : null;
+    let onTap = opts && 'onTap' in opts ? opts.onTap : null;
+    let currentIndex = opts && 'currentIndex' in opts ? opts.currentIndex : 0;
+    let backgroundColor = opts && 'backgroundColor' in opts ? opts.backgroundColor : null;
+    let activeColor = opts && 'activeColor' in opts ? opts.activeColor : null;
+    let inactiveColor = opts && 'inactiveColor' in opts ? opts.inactiveColor : C[0] || CT.C0;
+    let iconSize = opts && 'iconSize' in opts ? opts.iconSize : 30;
+    let border = opts && 'border' in opts ? opts.border : C[3] || CT.C3;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[items$] = items;
+    this[onTap$] = onTap;
+    this[currentIndex$] = currentIndex;
+    this[backgroundColor$] = backgroundColor;
+    this[activeColor$] = activeColor;
+    this[inactiveColor$] = inactiveColor;
+    this[iconSize$] = iconSize;
+    this[border$] = border;
+    if (!(items !== null)) dart.assertFailed(null, I[0], 69, 15, "items != null");
+    if (!(items[$length] >= 2)) dart.assertFailed("Tabs need at least 2 items to conform to Apple's HIG", I[0], 71, 10, "items.length >= 2");
+    if (!(currentIndex !== null)) dart.assertFailed(null, I[0], 74, 15, "currentIndex != null");
+    if (!(0 <= currentIndex && currentIndex < items[$length])) dart.assertFailed(null, I[0], 75, 15, "0 <= currentIndex && currentIndex < items.length");
+    if (!(iconSize !== null)) dart.assertFailed(null, I[0], 76, 15, "iconSize != null");
+    if (!(inactiveColor !== null)) dart.assertFailed(null, I[0], 77, 15, "inactiveColor != null");
+    bottom_tab_bar.CupertinoTabBar.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = bottom_tab_bar.CupertinoTabBar.prototype;
+  dart.addTypeTests(bottom_tab_bar.CupertinoTabBar);
+  dart.addTypeCaches(bottom_tab_bar.CupertinoTabBar);
+  bottom_tab_bar.CupertinoTabBar[dart.implements] = () => [preferred_size.PreferredSizeWidget];
+  dart.setMethodSignature(bottom_tab_bar.CupertinoTabBar, () => ({
+    __proto__: dart.getMethods(bottom_tab_bar.CupertinoTabBar.__proto__),
+    opaque: dart.fnType(core.bool, [framework.BuildContext]),
+    build: dart.fnType(framework.Widget, [framework.BuildContext]),
+    [_buildTabItems]: dart.fnType(core.List$(framework.Widget), [framework.BuildContext]),
+    [_buildSingleTabItem]: dart.fnType(core.List$(framework.Widget), [bottom_navigation_bar_item.BottomNavigationBarItem, core.bool]),
+    [_wrapActiveItem]: dart.fnType(framework.Widget, [framework.BuildContext, framework.Widget], {}, {active: core.bool}),
+    copyWith: dart.fnType(bottom_tab_bar.CupertinoTabBar, [], {activeColor: dart.nullable(ui.Color), backgroundColor: dart.nullable(ui.Color), border: dart.nullable(box_border.Border), currentIndex: dart.nullable(core.int), iconSize: dart.nullable(core.double), inactiveColor: dart.nullable(ui.Color), items: dart.nullable(core.List$(bottom_navigation_bar_item.BottomNavigationBarItem)), key: dart.nullable(key.Key), onTap: dart.nullable(dart.fnType(dart.void, [core.int]))}, {})
+  }));
+  dart.setGetterSignature(bottom_tab_bar.CupertinoTabBar, () => ({
+    __proto__: dart.getGetters(bottom_tab_bar.CupertinoTabBar.__proto__),
+    preferredSize: ui.Size
+  }));
+  dart.setLibraryUri(bottom_tab_bar.CupertinoTabBar, I[1]);
+  dart.setFieldSignature(bottom_tab_bar.CupertinoTabBar, () => ({
+    __proto__: dart.getFields(bottom_tab_bar.CupertinoTabBar.__proto__),
+    items: dart.finalFieldType(core.List$(bottom_navigation_bar_item.BottomNavigationBarItem)),
+    onTap: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [core.int]))),
+    currentIndex: dart.finalFieldType(core.int),
+    backgroundColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    activeColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    inactiveColor: dart.finalFieldType(ui.Color),
+    iconSize: dart.finalFieldType(core.double),
+    border: dart.finalFieldType(dart.nullable(box_border.Border))
+  }));
+  dart.defineLazy(bottom_tab_bar, {
+    /*bottom_tab_bar._kTabBarHeight*/get _kTabBarHeight() {
+      return 50;
+    },
+    /*bottom_tab_bar._kDefaultTabBarBorderColor*/get _kDefaultTabBarBorderColor() {
+      return C[9] || CT.C9;
+    },
+    /*bottom_tab_bar._kDefaultTabBarInactiveColor*/get _kDefaultTabBarInactiveColor() {
+      return C[0] || CT.C0;
+    }
+  }, false);
+  dart.trackLibraries("packages/flutter/src/cupertino/bottom_tab_bar.dart", {
+    "package:flutter/src/cupertino/bottom_tab_bar.dart": bottom_tab_bar
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["bottom_tab_bar.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/flutter/src/cupertino/bottom_tab_bar.dart.lib.js"}');
+  // Exports:
+  return {
+    src__cupertino__bottom_tab_bar: bottom_tab_bar
+  };
+}));
+
+//# sourceMappingURL=bottom_tab_bar.dart.lib.js.map

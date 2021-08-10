@@ -1,0 +1,10 @@
+^C:\FLUTTER_PROJELERIM\WHATSAPP_UI_CLONE\BUILD\WINDOWS\CMAKEFILES\BE672896D47B8BE187A4531553DB0C54\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Flutter_Projelerim/whatsapp_ui_clone/windows -BC:/Flutter_Projelerim/whatsapp_ui_clone/build/windows --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Flutter_Projelerim/whatsapp_ui_clone/build/windows/whatsapp_ui_clone.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
